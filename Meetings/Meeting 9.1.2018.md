@@ -34,6 +34,19 @@ Firebase for server support and user authentication via phone
 6. PendingTripViewController
 7. HistoryViewController (Optional)
 
+## Models
+1. Journey Model
+    1. Start Location
+    2. End Location
+    3. Current Location
+    4. Time Elapsed/Time Remaining
+2. EmergencyContact Model
+    1. Email Address
+    2. Phone Number
+3. User Model (Should not require one)
+    1. Email Address
+    2. Contact Number
+
 ## Testing Plan
 - User test and feedback during each milestone from users
 - Measure: Survey on ease of use and ease of signing up. 
