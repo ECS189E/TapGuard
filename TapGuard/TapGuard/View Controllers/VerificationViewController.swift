@@ -53,7 +53,12 @@ class VerificationViewController: UIViewController {
     }
     
     @IBAction func resendSMSPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        guard let loginVC = navigationController?.viewControllers[0] else {
+            print("Could not get Login VC")
+            return
+        }
+        navigationController?.popToViewController(loginVC, animated: true)
+        loginVC.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
     }
     
 }
