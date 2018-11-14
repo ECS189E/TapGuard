@@ -37,7 +37,17 @@ class VerificationViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("Successfully verified code")
-                print(authResult?.additionalUserInfo ?? "")
+                guard let userid = authResult?.user.uid else {
+                    print("Could not get userid")
+                    return
+                }
+                UserDefaults.standard.set(userid, forKey: "userid")
+                guard let loginVC = self.navigationController?.viewControllers[0] else {
+                    print("Could not find LoginViewController")
+                    return
+                }
+                self.navigationController?.popToViewController(loginVC, animated: true)
+                loginVC.performSegue(withIdentifier: "loginToHome", sender: self)
             }
         }
     }

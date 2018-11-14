@@ -48,7 +48,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="GUG-QD-l7v" kind="show" id="GEy-qP-xGY"/>
+                                    <action selector="phoneNumberSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9J-KZ-q25"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtQ-om-BIo" customClass="GIDSignInButton">
@@ -75,6 +75,9 @@
                     <navigationItem key="navigationItem" id="1eE-y9-f0E"/>
                     <connections>
                         <outlet property="googleSignInButton" destination="dtQ-om-BIo" id="UxM-kE-5Fb"/>
+                        <segue destination="NIT-5X-Ar3" kind="show" identifier="loginToHome" id="Res-VI-A8A"/>
+                        <segue destination="GUG-QD-l7v" kind="show" identifier="loginToPhoneNumber" id="mDk-TC-Uba"/>
+                        <segue destination="vCA-f2-py9" kind="show" identifier="loginToVerificationCode" id="zzn-vV-aDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4h-cS-Xww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="96"/>
+            <point key="canvasLocation" x="1812" y="-628"/>
         </scene>
         <!--Enter Verification Code-->
         <scene sceneID="U8U-Mz-0ge">
@@ -274,11 +277,27 @@
                     </view>
                     <connections>
                         <outlet property="verificationCodeTextField" destination="59Y-pJ-LDS" id="Gfd-Sq-MmJ"/>
+                        <segue destination="NIT-5X-Ar3" kind="show" identifier="verificationCodeToHome" id="dQ2-0V-voF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCi-eg-fxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2582.608695652174" y="95.758928571428569"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="6sx-gp-D5Z">
+            <objects>
+                <viewController title="Home" id="NIT-5X-Ar3" customClass="HomeViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sWQ-oa-sQs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8eA-vT-e3h"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqS-dL-X7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1813" y="830"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfD-Ye-Bc2">
@@ -302,4 +321,8 @@
     <resources>
         <image name="Logo" width="500" height="500"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Res-VI-A8A"/>
+        <segue reference="zzn-vV-aDw"/>
+    </inferredMetricsTieBreakers>
 </document>
