@@ -1,4 +1,4 @@
-# Meeting 7.8.2018
+# Meeting 9.11.2018
 ## Agenda
 1. Github accounts
 2. UI Sketch
