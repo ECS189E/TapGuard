@@ -57,6 +57,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gpe-8u-uwe"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lF7-p4-GEi"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,7 +305,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bfD-Ye-Bc2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bbI-68-uuq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbI-68-uuq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DbG-fi-0qm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

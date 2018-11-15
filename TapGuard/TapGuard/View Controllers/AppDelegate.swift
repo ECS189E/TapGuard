@@ -12,10 +12,9 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
+    
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -40,15 +39,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         guard let authentication = user.authentication else { return }
+        
+        // Save authentication IDToken and accesstoken to UserD
+        UserDefaults.standard.set(authentication.idToken, forKey: "idToken")
+        UserDefaults.standard.set(authentication.accessToken, forKey: "accessToken")
+        
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             } else {
-                print("User successfully logged in using google")
+                print("User successfully accessed data in appedelegate")
             }
         }
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

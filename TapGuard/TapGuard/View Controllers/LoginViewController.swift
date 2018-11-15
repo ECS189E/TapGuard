@@ -17,8 +17,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
         googleSignInButton.colorScheme = .dark
+    }
+    
+    
+    @IBAction func googleSignInPressed(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func phoneNumberSignInPressed(_ sender: Any) {
@@ -44,5 +48,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
         }
     }
+    
+    
     
 }
