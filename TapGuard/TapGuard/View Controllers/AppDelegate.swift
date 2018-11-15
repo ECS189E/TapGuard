@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("User successfully accessed data in appedelegate")
             }
         }
-        
+        self.window?.rootViewController?.performSegue(withIdentifier: "loginToHome", sender: self)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
