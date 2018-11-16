@@ -51,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             } else {
                 print("User successfully accessed data in appedelegate")
+                NotificationCenter.default.post(name: .didLoginWithGoogle, object: self, userInfo: ["Success": 1])
             }
         }
-        self.window?.rootViewController?.performSegue(withIdentifier: "loginToHome", sender: self)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

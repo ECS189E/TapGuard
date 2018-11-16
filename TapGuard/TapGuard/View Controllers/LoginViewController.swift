@@ -10,6 +10,10 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 
+extension Notification.Name {
+    static let didLoginWithGoogle = Notification.Name("didLoginWithGoogle")
+}
+
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
@@ -22,7 +26,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
     @IBAction func googleSignInPressed(_ sender: Any) {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    @objc func onDidLoginWithGoogle(_ notification: Notification) {
+        print("Executed onDidLoginWithGoogle")
+        if let data = notification.userInfo as? [String: Int] {
+            if data["Success"] == 1 {
+                performSegue(withIdentifier: "loginToHome", sender: self)
+            }
+        }
+        // Remove observer once segue is complete due to possibility of double notification calls
+        NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
     }
     
     @IBAction func phoneNumberSignInPressed(_ sender: Any) {
