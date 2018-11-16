@@ -12,6 +12,7 @@ import FirebaseAuth
 
 extension Notification.Name {
     static let didLoginWithGoogle = Notification.Name("didLoginWithGoogle")
+    static let didRetreatFromHome = Notification.Name("didRetreatFromHome")
 }
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
@@ -26,8 +27,14 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
     @IBAction func googleSignInPressed(_ sender: Any) {
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
-        GIDSignIn.sharedInstance().signIn()
+        // Add notification observer for loggin out process
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidRetreatFromHome(_:)), name: .didRetreatFromHome, object: nil)
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "loginToHome", sender: self)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
+            GIDSignIn.sharedInstance().signIn()
+        }
     }
     
     @objc func onDidLoginWithGoogle(_ notification: Notification) {
@@ -39,6 +46,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
         // Remove observer once segue is complete due to possibility of double notification calls
         NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
+    }
+    
+    @objc func onDidRetreatFromHome(_ notification: Notification) {
+        print("Executed onDidRetreatFromHome")
+        if let data = notification.userInfo as? [String: Int] {
+            if data["Success"] == 1 {
+                do {
+                    try Auth.auth().signOut()
+                    GIDSignIn.sharedInstance()?.signOut()
+                    NotificationCenter.default.removeObserver(self, name: .didRetreatFromHome, object: nil)
+                } catch let signOutError as NSError {
+                    print ("Error signing out: %@", signOutError)
+                }
+            }
+        }
     }
     
     @IBAction func phoneNumberSignInPressed(_ sender: Any) {

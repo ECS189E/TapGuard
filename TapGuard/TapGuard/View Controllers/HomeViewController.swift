@@ -13,5 +13,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
+    }
 
 }

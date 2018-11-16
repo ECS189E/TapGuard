@@ -41,8 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else { return }
         
         // Save authentication IDToken and accesstoken to UserD
-        UserDefaults.standard.set(authentication.idToken, forKey: "idToken")
-        UserDefaults.standard.set(authentication.accessToken, forKey: "accessToken")
+//        UserDefaults.standard.set(authentication.idToken, forKey: "idToken")
+//        UserDefaults.standard.set(authentication.accessToken, forKey: "accessToken")
+        print(authentication.idToken)
+        print(authentication.accessToken)
         
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
