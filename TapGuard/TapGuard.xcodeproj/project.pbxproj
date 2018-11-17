@@ -420,13 +420,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5P23S95YJX;
+				DEVELOPMENT_TEAM = S7237686AR;
 				INFOPLIST_FILE = TapGuard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infinity.TapGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = infnity.tapguard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -439,13 +439,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5P23S95YJX;
+				DEVELOPMENT_TEAM = S7237686AR;
 				INFOPLIST_FILE = TapGuard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infinity.TapGuard;
+				PRODUCT_BUNDLE_IDENTIFIER = infnity.tapguard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
