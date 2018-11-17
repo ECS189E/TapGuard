@@ -50,6 +50,4 @@ class PhoneNumberViewController: UIViewController {
             phoneNumberField.text = ""
         }
     }
-    
-
 }
