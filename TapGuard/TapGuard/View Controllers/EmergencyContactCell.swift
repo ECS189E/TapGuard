@@ -10,16 +10,6 @@ import UIKit
 
 class EmergencyContactCell: UITableViewCell {
 
-
-    @IBOutlet weak var cellTitle: UILabel!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var addNewContact: UIButton!
-    @IBOutlet weak var primaryContactText: UILabel!
-    @IBOutlet weak var primaryContact: UISegmentedControl!
-    @IBOutlet weak var shareLocationText: UILabel!
-    @IBOutlet weak var shareLocation: UISegmentedControl!
-    @IBOutlet weak var isVerifiedLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,17 +21,4 @@ class EmergencyContactCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @IBAction func addNewContactPressed(_ sender: Any) {
-        addNewContact.isHidden = true
-        cellTitle.isHidden = false
-        nameTextField.isHidden = false
-        primaryContact.isHidden = false
-        shareLocation.isHidden = false
-        isVerifiedLabel.isHidden = false
-        primaryContactText.isHidden = false
-        shareLocationText.isHidden = false
-    }
-    
-
 }

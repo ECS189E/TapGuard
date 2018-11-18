@@ -18,6 +18,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
     
+    let MinHeight: CGFloat = 100.0
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tHeight = tableView.bounds.height
+        
+        let temp = tHeight/CGFloat(2)
+        
+        return temp > MinHeight ? temp : MinHeight
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -30,13 +39,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "emergencyContacts", for: indexPath) as? EmergencyContactCell else {
             fatalError("The dequeued cell is not an instance of EmergencyContactsCell.")
         }
-        cell.cellTitle.isHidden = true
-        cell.nameTextField.isHidden = true
-        cell.primaryContact.isHidden = true
-        cell.shareLocation.isHidden = true
-        cell.isVerifiedLabel.isHidden = true
-        cell.primaryContactText.isHidden = true
-        cell.shareLocationText.isHidden = true
+        
         return cell
     }
     
