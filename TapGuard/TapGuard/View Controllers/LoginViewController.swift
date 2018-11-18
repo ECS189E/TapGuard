@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        googleSignInButton.colorScheme = .dark
     }
     
     
@@ -41,7 +40,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         print("Executed onDidLoginWithGoogle")
         if let data = notification.userInfo as? [String: Int] {
             if data["Success"] == 1 {
-                performSegue(withIdentifier: "loginToHome", sender: self)
+                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
+                // performSegue(withIdentifier: "loginToHome", sender: self)
             }
         }
         // Remove observer once segue is complete due to possibility of double notification calls
@@ -63,29 +63,29 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-    @IBAction func phoneNumberSignInPressed(_ sender: Any) {
-        guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else {
-            print("Could not get valid phone number from UserDefaults")
-            self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-            return
-        }
-        print("Phone number is: \(phoneNumber)")
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
-            if error != nil {
-                print(error.debugDescription)
-                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-            } else {
-                guard let verificationID = verificationID else {
-                    print("Error: No verification ID")
-                    return
-                }
-                print("Successfully requested for verification ID")
-                print(verificationID)
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                self.performSegue(withIdentifier: "loginToVerificationCode", sender: self)
-            }
-        }
-    }
+//    @IBAction func phoneNumberSignInPressed(_ sender: Any) {
+//        guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else {
+//            print("Could not get valid phone number from UserDefaults")
+//            self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
+//            return
+//        }
+//        print("Phone number is: \(phoneNumber)")
+//        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+//            if error != nil {
+//                print(error.debugDescription)
+//                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
+//            } else {
+//                guard let verificationID = verificationID else {
+//                    print("Error: No verification ID")
+//                    return
+//                }
+//                print("Successfully requested for verification ID")
+//                print(verificationID)
+//                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+//                self.performSegue(withIdentifier: "loginToVerificationCode", sender: self)
+//            }
+//        }
+//    }
     
     
     

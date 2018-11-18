@@ -30,7 +30,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ifq-1f-uFa"/>
                                 </constraints>
-                                <state key="normal" title="Phone Number Sign In">
+                                <state key="normal" title="Sign In With Google">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -48,25 +48,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="phoneNumberSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9J-KZ-q25"/>
+                                    <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnl-FP-Qsu"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtQ-om-BIo" customClass="GIDSignInButton">
-                                <rect key="frame" x="20" y="788" width="374" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gpe-8u-uwe"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lF7-p4-GEi"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dtQ-om-BIo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4Kl-FY-jpN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dtQ-om-BIo" secondAttribute="trailing" constant="20" id="4pM-4J-OUk"/>
-                            <constraint firstItem="PiC-cf-2Is" firstAttribute="top" secondItem="dtQ-om-BIo" secondAttribute="bottom" constant="8" symbolic="YES" id="7pw-ms-mEF"/>
                             <constraint firstItem="PiC-cf-2Is" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LXb-CP-98X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiC-cf-2Is" secondAttribute="trailing" constant="20" id="TEi-qH-rJq"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VoY-Qg-p0I"/>
@@ -77,7 +64,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="1eE-y9-f0E"/>
                     <connections>
-                        <outlet property="googleSignInButton" destination="dtQ-om-BIo" id="UxM-kE-5Fb"/>
                         <segue destination="NIT-5X-Ar3" kind="show" identifier="loginToHome" id="Res-VI-A8A"/>
                         <segue destination="GUG-QD-l7v" kind="show" identifier="loginToPhoneNumber" id="mDk-TC-Uba"/>
                         <segue destination="vCA-f2-py9" kind="show" identifier="loginToVerificationCode" id="zzn-vV-aDw"/>
