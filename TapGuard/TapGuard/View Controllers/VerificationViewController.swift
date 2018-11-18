@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class VerificationViewController: UIViewController {
     
-    let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
+    var verificationID: String?
     @IBOutlet weak var verificationCodeTextField: UITextField!
     
     override func viewDidLoad() {

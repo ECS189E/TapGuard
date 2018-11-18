@@ -14,6 +14,7 @@ class PhoneNumberViewController: UIViewController {
     
     @IBOutlet weak var phoneNumberField: PhoneNumberTextField!
     let phoneNumberKit = PhoneNumberKit()
+    var storedVerificationID = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,8 @@ class PhoneNumberViewController: UIViewController {
                     }
                     print("Successfully requested for verification ID")
                     print(verificationID)
+                    storedVerificationID = verificationID
                     UserDefaults.standard.set(rawPhoneNumber, forKey: "phoneNumber")
-                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                     self.performSegue(withIdentifier: "phoneToVerificationCode", sender: self)
                 }
             }
@@ -48,6 +49,13 @@ class PhoneNumberViewController: UIViewController {
             print("Invalid phone number")
             phoneNumberField.placeholder = "Please enter a valid number"
             phoneNumberField.text = ""
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "phoneToVerificationCode" {
+            let destinationVC = segue.destination as! VerificationViewController
+            destinationVC.verificationID = storedVerificationID
         }
     }
 }
