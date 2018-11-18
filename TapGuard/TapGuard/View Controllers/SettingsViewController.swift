@@ -8,12 +8,36 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "emergencyContacts", for: indexPath) as? EmergencyContactCell else {
+            fatalError("The dequeued cell is not an instance of EmergencyContactsCell.")
+        }
+        cell.cellTitle.isHidden = true
+        cell.nameTextField.isHidden = true
+        cell.primaryContact.isHidden = true
+        cell.shareLocation.isHidden = true
+        cell.isVerifiedLabel.isHidden = true
+        cell.primaryContactText.isHidden = true
+        cell.shareLocationText.isHidden = true
+        return cell
     }
     
 

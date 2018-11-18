@@ -315,22 +315,113 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="262" id="Npv-LK-Tv9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emergencyContacts" rowHeight="262" id="Npv-LK-Tv9" customClass="EmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="262"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Npv-LK-Tv9" id="OOd-6F-3cF">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Npv-LK-Tv9" id="OOd-6F-3cF" customClass="EmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="261.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-Im-3pI">
-                                                    <rect key="frame" x="77" y="115" width="248" height="37"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-Im-3pI">
+                                                    <rect key="frame" x="100.66666666666669" y="116" width="213" height="30"/>
                                                     <state key="normal" title="+ Add new Emergency Contact"/>
+                                                    <connections>
+                                                        <action selector="addNewContactPressed:" destination="Npv-LK-Tv9" eventType="touchUpInside" id="Nwi-Jt-V3N"/>
+                                                    </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emergency Contact 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-dy-JAZ">
+                                                    <rect key="frame" x="125.33333333333333" y="22.333333333333329" width="163.33333333333337" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4v-Dw-3Vs">
+                                                    <rect key="frame" x="20.666666666666657" y="50.333333333333343" width="372.66666666666674" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-0G-Nhk">
+                                                    <rect key="frame" x="20.666666666666657" y="89.666666666666671" width="372.66666666666674" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Nz-hM-i3e">
+                                                    <rect key="frame" x="341.66666666666669" y="149.66666666666666" width="62" height="29"/>
+                                                    <segments>
+                                                        <segment title="Yes"/>
+                                                        <segment title="No"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QAD-jX-YBW">
+                                                    <rect key="frame" x="341.66666666666669" y="188.66666666666666" width="62" height="29"/>
+                                                    <segments>
+                                                        <segment title="Yes"/>
+                                                        <segment title="No"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share location during emergency?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4z-7n-x37">
+                                                    <rect key="frame" x="66" y="192.66666666666666" width="261" height="20.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Not Verified :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGe-kV-PSa">
+                                                    <rect key="frame" x="248.66666666666669" y="233.66666666666666" width="144.66666666666669" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set as Primary Contact?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvZ-RI-lSU">
+                                                    <rect key="frame" x="135.66666666666663" y="153.33333333333334" width="184.33333333333337" height="20.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QAD-jX-YBW" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" multiplier="1.8" id="0EU-Cw-PCd"/>
+                                                <constraint firstItem="ntS-dy-JAZ" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" id="8xK-o3-fW5"/>
+                                                <constraint firstItem="Z4z-7n-x37" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="1.55" id="FjX-vy-OlO"/>
+                                                <constraint firstItem="cvc-0G-Nhk" firstAttribute="width" secondItem="OOd-6F-3cF" secondAttribute="width" multiplier="0.9" id="JgX-mo-SUO"/>
+                                                <constraint firstItem="z4v-Dw-3Vs" firstAttribute="width" secondItem="OOd-6F-3cF" secondAttribute="width" multiplier="0.9" id="KSS-6g-BGc"/>
+                                                <constraint firstItem="QAD-jX-YBW" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="1.55" id="P0d-Qe-h0M"/>
+                                                <constraint firstItem="6Nz-hM-i3e" firstAttribute="width" secondItem="OOd-6F-3cF" secondAttribute="width" multiplier="0.15" id="Px5-Vj-b7E"/>
+                                                <constraint firstItem="Z4z-7n-x37" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" multiplier="0.95" id="Q9U-V0-ldL"/>
+                                                <constraint firstItem="ntS-dy-JAZ" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="0.25" id="SbJ-tx-MaQ"/>
+                                                <constraint firstItem="QvZ-RI-lSU" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" multiplier="1.1" id="V0j-PK-Ooy"/>
+                                                <constraint firstItem="QAD-jX-YBW" firstAttribute="width" secondItem="OOd-6F-3cF" secondAttribute="width" multiplier="0.15" id="b0h-mS-YKn"/>
+                                                <constraint firstItem="6Nz-hM-i3e" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" multiplier="1.8" id="bAw-8t-nIB"/>
+                                                <constraint firstItem="cvc-0G-Nhk" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" id="kWn-co-tVY"/>
+                                                <constraint firstItem="QvZ-RI-lSU" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="1.25" id="myf-Ko-tM9"/>
+                                                <constraint firstItem="ab0-Im-3pI" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" id="owS-2O-ion"/>
+                                                <constraint firstItem="z4v-Dw-3Vs" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" id="uhp-KL-ArM"/>
+                                                <constraint firstItem="QGe-kV-PSa" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="1.85" id="vNf-qn-TlE"/>
+                                                <constraint firstItem="ab0-Im-3pI" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" id="wJv-jH-Unx"/>
+                                                <constraint firstItem="6Nz-hM-i3e" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="1.25" id="xBt-Af-nE7"/>
+                                                <constraint firstItem="QGe-kV-PSa" firstAttribute="centerX" secondItem="OOd-6F-3cF" secondAttribute="centerX" multiplier="1.55" id="xJe-Su-Nyc"/>
+                                                <constraint firstItem="z4v-Dw-3Vs" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="0.5" id="yZc-PN-Di3"/>
+                                                <constraint firstItem="cvc-0G-Nhk" firstAttribute="centerY" secondItem="OOd-6F-3cF" secondAttribute="centerY" multiplier="0.8" id="zj2-b9-pX7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addNewContact" destination="ab0-Im-3pI" id="hWa-OL-IsP"/>
+                                            <outlet property="cellTitle" destination="ntS-dy-JAZ" id="Z0w-s1-atJ"/>
+                                            <outlet property="isVerifiedLabel" destination="QGe-kV-PSa" id="9hY-9J-aOc"/>
+                                            <outlet property="nameTextField" destination="z4v-Dw-3Vs" id="reZ-0S-79v"/>
+                                            <outlet property="phoneNumber" destination="cvc-0G-Nhk" id="aPK-8A-Uog"/>
+                                            <outlet property="primaryContact" destination="6Nz-hM-i3e" id="rtK-zC-wef"/>
+                                            <outlet property="primaryContactText" destination="QvZ-RI-lSU" id="HQj-Fj-Kni"/>
+                                            <outlet property="shareLocation" destination="QAD-jX-YBW" id="X3v-Bu-fin"/>
+                                            <outlet property="shareLocationText" destination="Z4z-7n-x37" id="qBN-sH-D15"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="et4-Ya-C3A" id="A3P-jX-HhL"/>
+                                    <outlet property="delegate" destination="et4-Ya-C3A" id="70S-bA-Dum"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
