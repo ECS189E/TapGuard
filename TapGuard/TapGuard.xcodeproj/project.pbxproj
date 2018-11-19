@@ -10,6 +10,7 @@
 		5BE3BFF5F8C64924EC8FE1BE /* Pods_TapGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */; };
 		E6C2FF6B21A12760005A9813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6A21A12760005A9813 /* User.swift */; };
 		E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */; };
+		E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */; };
 		F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D97F02199E7D900C3333D /* AppDelegate.swift */; };
 		F83D97F62199E7D900C3333D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F42199E7D900C3333D /* Main.storyboard */; };
 		F83D97F82199E7DB00C3333D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F72199E7DB00C3333D /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		A0D5E31E9AF25E16FAB83625 /* Pods-TapGuard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.debug.xcconfig"; sourceTree = "<group>"; };
 		E6C2FF6A21A12760005A9813 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
 		EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapGuard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97ED2199E7D900C3333D /* TapGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97F02199E7D900C3333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F8994E77219A69E0000F4A55 /* VerificationViewController.swift */,
 				F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */,
 				E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */,
+				E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */,
 				F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */,
 				F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */,
 				E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */,
