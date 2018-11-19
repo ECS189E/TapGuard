@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5BE3BFF5F8C64924EC8FE1BE /* Pods_TapGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */; };
+		E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */; };
+		E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8C21A35E0200A41305 /* EmergencyContact.swift */; };
 		E6C2FF6B21A12760005A9813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6A21A12760005A9813 /* User.swift */; };
 		E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */; };
 		E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */; };
-		E6C2FF7221A28B95005A9813 /* NoEmergencyContactSet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7121A28B95005A9813 /* NoEmergencyContactSet.xib */; };
-		E6C2FF7521A28D2A005A9813 /* AddContactsOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7421A28D2A005A9813 /* AddContactsOption.xib */; };
-		E6C2FF7721A28E3C005A9813 /* AddContactsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF7621A28E3C005A9813 /* AddContactsOption.swift */; };
-		E6C2FF7921A28F8D005A9813 /* CreateNewContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7821A28F8D005A9813 /* CreateNewContact.xib */; };
-		E6C2FF7D21A2942E005A9813 /* CreateNewContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF7C21A2942E005A9813 /* CreateNewContact.swift */; };
-		E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContact.swift */; };
-		E6C2FF8521A2A2EB005A9813 /* DisplayEmergencyContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContact.xib */; };
+		E6C2FF7221A28B95005A9813 /* NoEmergencyContactCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7121A28B95005A9813 /* NoEmergencyContactCellView.xib */; };
+		E6C2FF7521A28D2A005A9813 /* AddContactsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7421A28D2A005A9813 /* AddContactsCellView.xib */; };
+		E6C2FF7721A28E3C005A9813 /* AddContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF7621A28E3C005A9813 /* AddContactsCell.swift */; };
+		E6C2FF7921A28F8D005A9813 /* CreateNewContactCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF7821A28F8D005A9813 /* CreateNewContactCellView.xib */; };
+		E6C2FF7D21A2942E005A9813 /* CreateNewContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF7C21A2942E005A9813 /* CreateNewContactCell.swift */; };
+		E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContactCell.swift */; };
+		E6C2FF8521A2A2EB005A9813 /* DisplayEmergencyContactCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContactCellView.xib */; };
 		F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D97F02199E7D900C3333D /* AppDelegate.swift */; };
 		F83D97F62199E7D900C3333D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F42199E7D900C3333D /* Main.storyboard */; };
 		F83D97F82199E7DB00C3333D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F72199E7DB00C3333D /* Assets.xcassets */; };
@@ -33,16 +35,18 @@
 /* Begin PBXFileReference section */
 		597AD41A450CABCBFA3A261E /* Pods-TapGuard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.release.xcconfig"; sourceTree = "<group>"; };
 		A0D5E31E9AF25E16FAB83625 /* Pods-TapGuard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.debug.xcconfig"; sourceTree = "<group>"; };
+		E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoEmergencyContactCell.swift; path = "TapGuard/View Controllers/SettingViewControllerCells/NoEmergencyContactCell.swift"; sourceTree = SOURCE_ROOT; };
+		E691FB8C21A35E0200A41305 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		E6C2FF6A21A12760005A9813 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
-		E6C2FF7121A28B95005A9813 /* NoEmergencyContactSet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoEmergencyContactSet.xib; sourceTree = "<group>"; };
-		E6C2FF7421A28D2A005A9813 /* AddContactsOption.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactsOption.xib; sourceTree = "<group>"; };
-		E6C2FF7621A28E3C005A9813 /* AddContactsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsOption.swift; sourceTree = "<group>"; };
-		E6C2FF7821A28F8D005A9813 /* CreateNewContact.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewContact.xib; sourceTree = "<group>"; };
-		E6C2FF7C21A2942E005A9813 /* CreateNewContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewContact.swift; sourceTree = "<group>"; };
-		E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEmergencyContact.swift; sourceTree = "<group>"; };
-		E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayEmergencyContact.xib; sourceTree = "<group>"; };
+		E6C2FF7121A28B95005A9813 /* NoEmergencyContactCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoEmergencyContactCellView.xib; sourceTree = "<group>"; };
+		E6C2FF7421A28D2A005A9813 /* AddContactsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddContactsCellView.xib; sourceTree = "<group>"; };
+		E6C2FF7621A28E3C005A9813 /* AddContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsCell.swift; sourceTree = "<group>"; };
+		E6C2FF7821A28F8D005A9813 /* CreateNewContactCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewContactCellView.xib; sourceTree = "<group>"; };
+		E6C2FF7C21A2942E005A9813 /* CreateNewContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewContactCell.swift; sourceTree = "<group>"; };
+		E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEmergencyContactCell.swift; sourceTree = "<group>"; };
+		E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContactCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayEmergencyContactCellView.xib; sourceTree = "<group>"; };
 		EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapGuard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97ED2199E7D900C3333D /* TapGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97F02199E7D900C3333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,22 +96,25 @@
 			children = (
 				E6C2FF6A21A12760005A9813 /* User.swift */,
 				F8E3462C21A32BF500FA3718 /* Functions.swift */,
+				E691FB8C21A35E0200A41305 /* EmergencyContact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E6C2FF7321A28BB4005A9813 /* Views */ = {
+		E6C2FF7321A28BB4005A9813 /* SettingViewControllerCells */ = {
 			isa = PBXGroup;
 			children = (
-				E6C2FF7121A28B95005A9813 /* NoEmergencyContactSet.xib */,
-				E6C2FF7421A28D2A005A9813 /* AddContactsOption.xib */,
-				E6C2FF7821A28F8D005A9813 /* CreateNewContact.xib */,
-				E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContact.xib */,
-				E6C2FF7621A28E3C005A9813 /* AddContactsOption.swift */,
-				E6C2FF7C21A2942E005A9813 /* CreateNewContact.swift */,
-				E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContact.swift */,
+				E6C2FF7121A28B95005A9813 /* NoEmergencyContactCellView.xib */,
+				E6C2FF7421A28D2A005A9813 /* AddContactsCellView.xib */,
+				E6C2FF7821A28F8D005A9813 /* CreateNewContactCellView.xib */,
+				E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContactCellView.xib */,
+				E6C2FF7621A28E3C005A9813 /* AddContactsCell.swift */,
+				E6C2FF7C21A2942E005A9813 /* CreateNewContactCell.swift */,
+				E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContactCell.swift */,
+				E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */,
+				E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */,
 			);
-			path = Views;
+			path = SettingViewControllerCells;
 			sourceTree = "<group>";
 		};
 		F83D97E42199E7D900C3333D = {
@@ -133,7 +140,6 @@
 			children = (
 				F83D97F02199E7D900C3333D /* AppDelegate.swift */,
 				E6C2FF6C21A12825005A9813 /* Models */,
-				E6C2FF7321A28BB4005A9813 /* Views */,
 				F84BF19B219A46070056B195 /* View Controllers */,
 				F83D97F42199E7D900C3333D /* Main.storyboard */,
 				F83D97F72199E7DB00C3333D /* Assets.xcassets */,
@@ -147,12 +153,12 @@
 		F84BF19B219A46070056B195 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E6C2FF7321A28BB4005A9813 /* SettingViewControllerCells */,
 				F84BF199219A45F60056B195 /* PhoneNumberViewController.swift */,
 				F84BF19C219A496B0056B195 /* LoginViewController.swift */,
 				F8994E77219A69E0000F4A55 /* VerificationViewController.swift */,
 				F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */,
 				E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */,
-				E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -219,12 +225,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83D97FB2199E7DB00C3333D /* LaunchScreen.storyboard in Resources */,
-				E6C2FF7521A28D2A005A9813 /* AddContactsOption.xib in Resources */,
-				E6C2FF7921A28F8D005A9813 /* CreateNewContact.xib in Resources */,
+				E6C2FF7521A28D2A005A9813 /* AddContactsCellView.xib in Resources */,
+				E6C2FF7921A28F8D005A9813 /* CreateNewContactCellView.xib in Resources */,
 				F83D98072199F4D200C3333D /* GoogleService-Info.plist in Resources */,
 				F83D97F82199E7DB00C3333D /* Assets.xcassets in Resources */,
-				E6C2FF8521A2A2EB005A9813 /* DisplayEmergencyContact.xib in Resources */,
-				E6C2FF7221A28B95005A9813 /* NoEmergencyContactSet.xib in Resources */,
+				E6C2FF8521A2A2EB005A9813 /* DisplayEmergencyContactCellView.xib in Resources */,
+				E6C2FF7221A28B95005A9813 /* NoEmergencyContactCellView.xib in Resources */,
 				F83D97F62199E7D900C3333D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,14 +330,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */,
-				E6C2FF7D21A2942E005A9813 /* CreateNewContact.swift in Sources */,
+				E6C2FF7D21A2942E005A9813 /* CreateNewContactCell.swift in Sources */,
 				F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */,
 				F8E3462D21A32BF500FA3718 /* Functions.swift in Sources */,
+				E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */,
 				F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */,
-				E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContact.swift in Sources */,
+				E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */,
+				E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContactCell.swift in Sources */,
 				E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */,
 				F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */,
-				E6C2FF7721A28E3C005A9813 /* AddContactsOption.swift in Sources */,
+				E6C2FF7721A28E3C005A9813 /* AddContactsCell.swift in Sources */,
 				F8994E78219A69E0000F4A55 /* VerificationViewController.swift in Sources */,
 				F84BF19A219A45F60056B195 /* PhoneNumberViewController.swift in Sources */,
 				E6C2FF6B21A12760005A9813 /* User.swift in Sources */,

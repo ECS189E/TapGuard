@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNewContact: UIView {
+class CreateNewContactCell: UIView {
 
     @IBOutlet weak var cardTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
