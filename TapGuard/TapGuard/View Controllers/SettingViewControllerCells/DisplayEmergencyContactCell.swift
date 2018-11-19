@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DisplayEmergencyContact: UIView {
+class DisplayEmergencyContactCell: UIView {
 
     @IBOutlet weak var contactType: UILabel!
     @IBOutlet weak var contactName: UILabel!
@@ -18,13 +18,5 @@ class DisplayEmergencyContact: UIView {
     @IBAction func editPressed(_ sender: Any) {
         // do setup here
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
