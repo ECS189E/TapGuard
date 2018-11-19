@@ -14,16 +14,16 @@ class User {
     var email: String = ""
     var phoneNumber: String = ""
     var verified: Bool = false
-    var contacts: [User] = []
+    var contactsID: [String] = []
     var exists: Bool = false
     
-    init(userId: String, userName: String, email: String, phoneNumber: String, verified: Bool, contacts: [User]){
+    init(userId: String, userName: String, email: String, phoneNumber: String, verified: Bool, contactsID: [String]){
         self.userId = userId
         self.userName = userName
         self.email = email
         self.phoneNumber = phoneNumber
         self.verified = verified
-        self.contacts = contacts
+        self.contactsID = contactsID
         self.exists = true
     }
     

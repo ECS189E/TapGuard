@@ -41,13 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         guard let authentication = user.authentication else { return }
         
-        // Save authentication IDToken and accesstoken to UserD
-//        UserDefaults.standard.set(authentication.idToken, forKey: "idToken")
-//        UserDefaults.standard.set(authentication.accessToken, forKey: "accessToken")
-        print("Client ID: " + user.authentication.clientID)
-        print("idToken: " + user.authentication.idToken)
-        print("Access Token: " + user.authentication.accessToken)
-        
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if let error = error {
@@ -55,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             } else {
                 print("User successfully accessed data in appedelegate")
-                NotificationCenter.default.post(name: .didLoginWithGoogle, object: self, userInfo: ["idToken": authentication.idToken])
+                NotificationCenter.default.post(name: .didLoginWithGoogle, object: self, userInfo: ["user": user])
             }
         }
     }
