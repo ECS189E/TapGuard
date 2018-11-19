@@ -48,11 +48,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 print("idToken not found")
                 return
             }
-            let user = User()
-            user.phoneNumber = phoneNumber
-            Functions.isUserPhoneNumberVerified(user: user, phoneString: phoneNumber, token: idToken) { (isPhoneNumberFound) in
-                <#code#>
-            }
+            // TODO: Check if user exists
         }
         // Remove observer once segue is complete due to possibility of double notification calls
         NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
