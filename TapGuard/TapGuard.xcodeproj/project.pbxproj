@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5BE3BFF5F8C64924EC8FE1BE /* Pods_TapGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */; };
 		E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */; };
+		E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8C21A35E0200A41305 /* EmergencyContact.swift */; };
 		E6C2FF6B21A12760005A9813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6A21A12760005A9813 /* User.swift */; };
 		E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */; };
 		E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */; };
@@ -35,6 +36,7 @@
 		597AD41A450CABCBFA3A261E /* Pods-TapGuard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.release.xcconfig"; sourceTree = "<group>"; };
 		A0D5E31E9AF25E16FAB83625 /* Pods-TapGuard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.debug.xcconfig"; sourceTree = "<group>"; };
 		E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoEmergencyContactCell.swift; path = "TapGuard/View Controllers/SettingViewControllerCells/NoEmergencyContactCell.swift"; sourceTree = SOURCE_ROOT; };
+		E691FB8C21A35E0200A41305 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		E6C2FF6A21A12760005A9813 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				E6C2FF6A21A12760005A9813 /* User.swift */,
 				F8E3462C21A32BF500FA3718 /* Functions.swift */,
+				E691FB8C21A35E0200A41305 /* EmergencyContact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				F8E3462D21A32BF500FA3718 /* Functions.swift in Sources */,
 				E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */,
 				F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */,
+				E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */,
 				E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContactCell.swift in Sources */,
 				E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */,
 				F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */,

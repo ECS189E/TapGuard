@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var user: User = User(exists: false)
+    var user: User = User(userId: "43123123", userName: "saksham", email: "saksham@saksham.com", phoneNumber: "+123123123", verified: true, contacts: [])
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +38,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        if user.contacts.count - 1 >= indexPath.item{
-//            
-//        }
-//        else{
-//            
-//        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "emergencyContacts", for: indexPath) as? EmergencyContactCell else {
             fatalError("The dequeued cell is not an instance of EmergencyContactsCell.")
+        }
+        
+        if user.contacts.count > indexPath.row {
+            cell.emergencyContact = user.contacts[indexPath.row]
+        } else {
+            cell.emergencyContact = EmergencyContact()
         }
         
         return cell

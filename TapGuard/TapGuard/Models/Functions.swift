@@ -73,10 +73,10 @@ struct Functions{
                 }
                 let contacts = contactsString.components(separatedBy: ",")
                 // Note: Contacts are parsed and converted into an array on strings.
-                let user = User(userId: user.userID, userName: username, email: email, phoneNumber: phoneNumber, verified: verified, contactsID: contacts)
+                let user = User(userId: user.userID, userName: username, email: email, phoneNumber: phoneNumber, verified: verified, contacts: contacts)
                 completion(user)
             } else {
-                let newUser = User(userId: user.userID, userName: user.profile.name, email: user.profile.email, phoneNumber: "", verified: false, contactsID: [])
+                let newUser = User(userId: user.userID, userName: user.profile.name, email: user.profile.email, phoneNumber: "", verified: false, contacts: [])
                 setupUserInDatabase(user: newUser)
                 completion(newUser)
             }
