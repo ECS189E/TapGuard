@@ -9,8 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var user: User = User()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +16,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
     
-    // this function helps set up dynamic width. 
+    // this function helps set up dynamic width.
     
     let MinHeight: CGFloat = 100.0
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,12 +37,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if user.contacts.count - 1 >= indexPath.item{
-            
-        }
-        else{
-            
-        }
+//        if user.contacts.count - 1 >= indexPath.item{
+//            
+//        }
+//        else{
+//            
+//        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "emergencyContacts", for: indexPath) as? EmergencyContactCell else {
             fatalError("The dequeued cell is not an instance of EmergencyContactsCell.")
         }
