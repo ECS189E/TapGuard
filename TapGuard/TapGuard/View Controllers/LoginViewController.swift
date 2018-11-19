@@ -39,16 +39,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @objc func onDidLoginWithGoogle(_ notification: Notification) {
         print("Executed onDidLoginWithGoogle")
         if let data = notification.userInfo as? [String: String] {
-            guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else {
-                print("Phone Number not found")
-                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-                return
-            }
-            guard let idToken = data["idToken"] else {
-                print("idToken not found")
-                return
-            }
+//            guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else {
+//                print("Phone Number not found")
+//                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
+//                return
+//            }
+//            guard let idToken = data["idToken"] else {
+//                print("idToken not found")
+//                return
+//            }
+            
             // TODO: Check if user exists
+            performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
         }
         // Remove observer once segue is complete due to possibility of double notification calls
         NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)

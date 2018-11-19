@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="et4-Ya-C3A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbI-68-uuq">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -291,6 +291,7 @@
         <!--Settings View Controller-->
         <scene sceneID="THy-wq-1iE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-ak-2cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="et4-Ya-C3A" customClass="SettingsViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2d-DF-V8o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -525,7 +526,6 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-ak-2cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2837.68115942029" y="829.6875"/>
         </scene>
@@ -553,6 +553,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Res-VI-A8A"/>
-        <segue reference="CLS-fN-Tcs"/>
+        <segue reference="zzn-vV-aDw"/>
     </inferredMetricsTieBreakers>
 </document>

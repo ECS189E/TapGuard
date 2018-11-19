@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var user: User = User()
+    var user: User = User(exists: false)
    
     override func viewDidLoad() {
         super.viewDidLoad()
