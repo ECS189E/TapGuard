@@ -12,6 +12,7 @@
 
 import Foundation
 import FirebaseDatabase
+import GoogleSignIn
 
 struct Functions{
     static func isUserPhoneNumberVerified (user: User, phoneString: String, token: String, completion: @escaping (Bool) -> Void){
@@ -36,7 +37,7 @@ struct Functions{
         })
     }
     
-    static func setupUserInDatabase(user: User){
+    static func setupUserInDatabase(user: User) {
         let userRef = Database.database().reference().child("users").child(user.userId)
         userRef.child("username").setValue(user.userName)
         userRef.child("phoneString").setValue(user.phoneNumber)
@@ -44,14 +45,41 @@ struct Functions{
         userRef.child("verified").setValue((user.verified ? "true":"false"))
     }
     
-    static func getUserFromDatabase(userID: String, completion: @escaping (User) -> Void){
-        Database.database().reference().child("users").observeSingleEvent(of: .value, with: {(snapshot) in
-            /*if let dict = snapshot.value as? [String: String]]{
-                let user = User(userId: userID, userName: dict["username"], email: dict["email"], phoneNumber: dict["phoneString"], verified: (dict["verified"] == "true" ? true : false))
+    // Attempt to get user. Otherwise create a dummy user with a verified check value as false
+    static func getUserFromDatabase(user: GIDGoogleUser, completion: @escaping (User) -> Void) {
+        Database.database().reference().child("users").observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String: String] {
+                // Parse values before settings user
+                guard let username = dict["username"] else {
+                    print("Cannot find username in dictionary")
+                    return
+                }
+                guard let email = dict["email"] else {
+                    print("Cannot find email in dictionary")
+                    return
+                }
+                guard let phoneNumber = dict["phoneNumber"] else {
+                    print("Cannot find phone number in dictionary")
+                    return
+                }
+                guard let verifiedString = dict["verified"] else {
+                    print("Cannot find verified string in dictionary")
+                    return
+                }
+                let verified = verifiedString == "true" ? true : false
+                guard let contactsString = dict["contacts"] else {
+                    print("Cannot find contacts in dictionary")
+                    return
+                }
+                let contacts = contactsString.components(separatedBy: ",")
+                // Note: Contacts are parsed and converted into an array on strings.
+                let user = User(userId: user.userID, userName: username, email: email, phoneNumber: phoneNumber, verified: verified, contactsID: contacts)
+                completion(user)
+            } else {
+                let newUser = User(userId: user.userID, userName: user.profile.name, email: user.profile.email, phoneNumber: "", verified: false, contactsID: [])
+                setupUserInDatabase(user: newUser)
+                completion(newUser)
             }
-            else{
-                completion(User(exists: false))
-            }*/
-        })
+        }
     }
 }

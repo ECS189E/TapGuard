@@ -27,6 +27,7 @@
 		F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84BF19C219A496B0056B195 /* LoginViewController.swift */; };
 		F8994E78219A69E0000F4A55 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8994E77219A69E0000F4A55 /* VerificationViewController.swift */; };
 		F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */; };
+		F8E3462D21A32BF500FA3718 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E3462C21A32BF500FA3718 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F84BF19C219A496B0056B195 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F8994E77219A69E0000F4A55 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F8E3462C21A32BF500FA3718 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				E6C2FF6A21A12760005A9813 /* User.swift */,
+				F8E3462C21A32BF500FA3718 /* Functions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */,
 				E6C2FF7D21A2942E005A9813 /* CreateNewContact.swift in Sources */,
 				F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */,
+				F8E3462D21A32BF500FA3718 /* Functions.swift in Sources */,
 				F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */,
 				E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContact.swift in Sources */,
 				E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */,
@@ -484,7 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infnity.tapguard;
+				PRODUCT_BUNDLE_IDENTIFIER = infnity.TapGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -503,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infnity.tapguard;
+				PRODUCT_BUNDLE_IDENTIFIER = infnity.TapGuard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
