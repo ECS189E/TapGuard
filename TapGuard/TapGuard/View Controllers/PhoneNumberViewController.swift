@@ -39,7 +39,7 @@ class PhoneNumberViewController: UIViewController {
                     }
                     print("Successfully requested for verification ID")
                     print(verificationID)
-                    storedVerificationID = verificationID
+                    self.storedVerificationID = verificationID
                     UserDefaults.standard.set(rawPhoneNumber, forKey: "phoneNumber")
                     self.performSegue(withIdentifier: "phoneToVerificationCode", sender: self)
                 }

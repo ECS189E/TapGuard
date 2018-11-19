@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             } else {
                 print("User successfully accessed data in appedelegate")
-                NotificationCenter.default.post(name: .didLoginWithGoogle, object: self, userInfo: ["Success": 1])
+                NotificationCenter.default.post(name: .didLoginWithGoogle, object: self, userInfo: ["idToken": authentication.idToken])
             }
         }
     }
