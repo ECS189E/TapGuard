@@ -2,7 +2,7 @@
 //  SettingsViewController.swift
 //  TapGuard
 //
-//  Created by Saksham Bhalla on 11/17/18.
+//  Created by Infinity on 11/17/18.
 //  Copyright © 2018 Infinity. All rights reserved.
 //
 

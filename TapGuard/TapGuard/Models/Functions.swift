@@ -2,13 +2,9 @@
 //  Functions.swift
 //  TapGuard
 //
-//  Created by Dhawal Majithia on 11/18/18.
+//  Created by Infinity on 11/18/18.
 //  Copyright © 2018 Infinity. All rights reserved.
 //
-
-// Login/Signup flow -
-// After Google sign in - 1. Check if user exists in database
-//                          - If yes, check if phone number exists and is verified
 
 import Foundation
 import FirebaseDatabase
@@ -50,7 +46,6 @@ struct Functions{
                 let isVerified = userData?.value(forKey: "isVerified") as? Bool ?? false
                 
                 // Build contacts array
-                // TODO: Fix contacts grabbing functionality
                 var contactsArray : [EmergencyContact] = []
                 let contactsData = userData?.value(forKey: "contacts") as? [NSDictionary] ?? []
                 for contactInstance in contactsData {
