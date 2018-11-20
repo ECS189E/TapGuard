@@ -13,15 +13,15 @@ class EmergencyContact {
     // Phone number is used as identifier
     var userName: String = ""
     var phoneNumber: String = ""
-    var trusted: Bool = false
-    var locationSharing: Bool = false
+    var isTrusted: Bool = false
+    var isLocationSharingOn: Bool = false
     var isPrimary: Bool = false
     
-    init(userName: String, phoneNumber: String, trusted: Bool, locationSharing: Bool, isPrimary: Bool){
+    init(userName: String, phoneNumber: String, isTrusted: Bool, isLocationSharingOn: Bool, isPrimary: Bool){
         self.userName = userName
         self.phoneNumber = phoneNumber
-        self.trusted = trusted
-        self.locationSharing = locationSharing
+        self.isTrusted = isTrusted
+        self.isLocationSharingOn = isLocationSharingOn
         self.isPrimary = isPrimary
     }
     
