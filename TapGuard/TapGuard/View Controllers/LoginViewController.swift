@@ -76,15 +76,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             print("Cannot find user")
             return
         }
-        // If call from here, verified is true anyway. If call is from VerificationVC, then new value is true
-        user.verified = true
-        Functions.updateUserDetails(user: user) { (user) in
-            print("Update user details successful")
-        }
         // loginToHome segue called by VerificationViewController
         if segue.identifier == "loginToHome" {
+            // If call from here, verified is true anyway. If call is from VerificationVC, then new value is true
+            user.verified = true
+            
+            // Update phone number in the event that UserDefaults contains a phone number from verification process
+            if let rawPhoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") {
+                user.phoneNumber = rawPhoneNumber
+            }
             let destinationVC = segue.destination as! HomeViewController
             destinationVC.user = user
+        }
+        // Update user details
+        Functions.updateUserDetails(user: user) { (user) in
+            print("Update user details successful")
         }
     }
 }

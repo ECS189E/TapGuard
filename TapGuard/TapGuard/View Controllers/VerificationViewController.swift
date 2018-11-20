@@ -37,11 +37,7 @@ class VerificationViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("Successfully verified code")
-                guard let userid = authResult?.user.uid else {
-                    print("Could not get userid")
-                    return
-                }
-                UserDefaults.standard.set(userid, forKey: "phoneUserID")
+                // Segue to Home View Controller and update user
                 guard let loginVC = self.navigationController?.viewControllers[0] else {
                     print("Could not find LoginViewController")
                     return
