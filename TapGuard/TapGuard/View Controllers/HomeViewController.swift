@@ -19,5 +19,12 @@ class HomeViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
     }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "presentSettingsFromHome", sender: self)
+    }
 }

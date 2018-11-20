@@ -8,14 +8,17 @@
 
 import UIKit
 
+protocol SettingsUpdateDelegate {
+    func updateUser(user: User)
+}
+
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var user: User = User(userId: "43123123", userName: "saksham", email: "saksham@saksham.com", phoneNumber: "+123123123", verified: true, contacts: [])
+    var delegate: SettingsUpdateDelegate?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // this function helps set up dynamic width.
@@ -55,15 +58,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        self.delegate?.updateUser(user: self.user)
+    }
+    
 }

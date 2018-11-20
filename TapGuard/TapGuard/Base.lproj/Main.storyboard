@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bbI-68-uuq">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,18 +15,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="knH-s8-SEC">
-                                <rect key="frame" x="111" y="376" width="192" height="144"/>
+                                <rect key="frame" x="91.666666666666686" y="334" width="192" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="192" id="kt6-k9-Lmr"/>
                                     <constraint firstAttribute="height" constant="144" id="mhy-Fk-Rrs"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiC-cf-2Is" customClass="FlatButton" customModule="SwiftyButton">
-                                <rect key="frame" x="20" y="836" width="374" height="40"/>
+                                <rect key="frame" x="20" y="752" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ifq-1f-uFa"/>
                                 </constraints>
@@ -78,18 +78,18 @@
             <objects>
                 <viewController title="Enter Phone Number" id="GUG-QD-l7v" customClass="PhoneNumberViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vzf-lZ-KK1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hZo-oH-JL0">
-                                <rect key="frame" x="86.666666666666686" y="108" width="241" height="180"/>
+                                <rect key="frame" x="67" y="108" width="241" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="241" id="1Qh-2r-h4a"/>
                                     <constraint firstAttribute="height" constant="180" id="njM-Ha-66o"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ju1-zL-P9J" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                <rect key="frame" x="20" y="296" width="374" height="40"/>
+                                <rect key="frame" x="20" y="296" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jJa-dC-ipk"/>
                                 </constraints>
@@ -98,7 +98,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwg-ba-kRz" customClass="FlatButton" customModule="SwiftyButton">
-                                <rect key="frame" x="20" y="344" width="374" height="40"/>
+                                <rect key="frame" x="20" y="344" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U4Q-FB-PLi"/>
                                 </constraints>
@@ -151,21 +151,21 @@
             <objects>
                 <viewController title="Enter Verification Code" id="vCA-f2-py9" customClass="VerificationViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j68-Sg-tIy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9M7-ey-ryK" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="88" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="250"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="A23-bf-ejw">
-                                        <rect key="frame" x="86.666666666666686" y="20" width="241" height="180"/>
+                                        <rect key="frame" x="67" y="20" width="241" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="60E-yB-Ir8"/>
                                             <constraint firstAttribute="width" constant="241" id="8dU-EC-EUn"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Verification Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="59Y-pJ-LDS">
-                                        <rect key="frame" x="20" y="208" width="374" height="40"/>
+                                        <rect key="frame" x="20" y="208" width="335" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="nUA-BS-qev"/>
                                         </constraints>
@@ -185,10 +185,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMO-N6-ubB" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="346" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="346" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-aW-q4N" customClass="FlatButton" customModule="SwiftyButton">
-                                        <rect key="frame" x="20" y="-1" width="183" height="50"/>
+                                        <rect key="frame" x="20" y="-1" width="163.66666666666666" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="e7o-Ws-bcZ"/>
                                         </constraints>
@@ -214,7 +214,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dau-d5-ZLv" customClass="FlatButton" customModule="SwiftyButton">
-                                        <rect key="frame" x="211" y="-1" width="183" height="50"/>
+                                        <rect key="frame" x="191.66666666666663" y="-1" width="163.33333333333337" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="cDA-eE-MGi"/>
                                         </constraints>
@@ -278,11 +278,43 @@
             <objects>
                 <viewController title="Home" id="NIT-5X-Ar3" customClass="HomeViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sWQ-oa-sQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhx-gx-90g">
+                                <rect key="frame" x="0.0" y="44" width="336" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="O7B-NA-ZnW"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Home" id="J3W-6A-6IL">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Efr-ap-wHU">
+                                            <connections>
+                                                <action selector="logoutButtonPressed:" destination="NIT-5X-Ar3" id="eMR-vw-YCd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="VfD-Ru-Kw3">
+                                            <connections>
+                                                <action selector="settingsButtonPressed:" destination="NIT-5X-Ar3" id="1H4-BC-dWv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8eA-vT-e3h" firstAttribute="trailing" secondItem="Bhx-gx-90g" secondAttribute="trailing" id="1Xg-uT-nt3"/>
+                            <constraint firstItem="Bhx-gx-90g" firstAttribute="centerX" secondItem="sWQ-oa-sQs" secondAttribute="centerX" id="dPK-AW-gpJ"/>
+                            <constraint firstItem="Bhx-gx-90g" firstAttribute="leading" secondItem="8eA-vT-e3h" secondAttribute="leading" id="edd-1M-sls"/>
+                            <constraint firstItem="Bhx-gx-90g" firstAttribute="top" secondItem="8eA-vT-e3h" secondAttribute="top" id="pGZ-Ul-FCH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8eA-vT-e3h"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqS-dL-X7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,18 +325,18 @@
             <objects>
                 <viewController id="et4-Ya-C3A" customClass="SettingsViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2d-DF-V8o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNB-k5-Vwx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emergencyContacts" rowHeight="404" id="Npv-LK-Tv9" customClass="EmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="404"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="404"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Npv-LK-Tv9" id="OOd-6F-3cF" customClass="EmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="403.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="403.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -314,13 +346,38 @@
                                     <outlet property="delegate" destination="et4-Ya-C3A" id="70S-bA-Dum"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saP-8M-Nsf">
+                                <rect key="frame" x="0.0" y="44" width="336" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FWv-5b-v6A"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Settings" id="SbA-yi-qFQ">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ke1-8i-LiH">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="et4-Ya-C3A" id="YbZ-3B-W68"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="9E2-Sj-ck4">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="et4-Ya-C3A" id="Kfl-IY-zWf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="top" secondItem="xn1-Iy-UGG" secondAttribute="top" id="Nsb-00-JHF"/>
-                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="leading" secondItem="xn1-Iy-UGG" secondAttribute="leading" id="p8J-Va-6gX"/>
-                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="trailing" secondItem="xn1-Iy-UGG" secondAttribute="trailing" id="qli-LM-GnQ"/>
-                            <constraint firstAttribute="bottom" secondItem="qNB-k5-Vwx" secondAttribute="bottom" id="tz7-o7-lSz"/>
+                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="top" secondItem="saP-8M-Nsf" secondAttribute="bottom" id="3Qv-hG-eJx"/>
+                            <constraint firstItem="saP-8M-Nsf" firstAttribute="centerX" secondItem="g2d-DF-V8o" secondAttribute="centerX" id="7X8-N8-Rdl"/>
+                            <constraint firstItem="saP-8M-Nsf" firstAttribute="leading" secondItem="xn1-Iy-UGG" secondAttribute="leading" id="GIf-33-mtw"/>
+                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="leading" secondItem="xn1-Iy-UGG" secondAttribute="leading" id="UH9-c4-hat"/>
+                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="centerX" secondItem="g2d-DF-V8o" secondAttribute="centerX" id="avm-B7-Bi0"/>
+                            <constraint firstItem="saP-8M-Nsf" firstAttribute="top" secondItem="xn1-Iy-UGG" secondAttribute="top" id="hn0-y4-Mr6"/>
+                            <constraint firstAttribute="bottom" secondItem="qNB-k5-Vwx" secondAttribute="bottom" id="jAG-eO-x2E"/>
+                            <constraint firstItem="saP-8M-Nsf" firstAttribute="trailing" secondItem="xn1-Iy-UGG" secondAttribute="trailing" id="rcb-iA-p1p"/>
+                            <constraint firstItem="qNB-k5-Vwx" firstAttribute="trailing" secondItem="xn1-Iy-UGG" secondAttribute="trailing" id="vYX-vf-cOi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xn1-Iy-UGG"/>
                     </view>
@@ -328,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-ak-2cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2837.68115942029" y="829.6875"/>
+            <point key="canvasLocation" x="2837.5999999999999" y="829.06403940886707"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfD-Ye-Bc2">
@@ -336,7 +393,7 @@
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbI-68-uuq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DbG-fi-0qm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -353,7 +410,7 @@
         <image name="Logo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Res-VI-A8A"/>
+        <segue reference="dQ2-0V-voF"/>
         <segue reference="zzn-vV-aDw"/>
     </inferredMetricsTieBreakers>
 </document>
