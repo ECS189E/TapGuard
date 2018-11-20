@@ -16,7 +16,8 @@ extension Notification.Name {
 }
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
-
+    
+    var user: User?
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     override func viewDidLoad() {
@@ -39,20 +40,22 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @objc func onDidLoginWithGoogle(_ notification: Notification) {
         print("Executed onDidLoginWithGoogle")
         //TODO: Pass user information to verification view controller
-//        if let data = notification.userInfo as? [String: GIDGoogleUser] {
-//            guard let googleUserObject = data["user"] else {
-//                print("Could not get google user object")
-//                return
-//            }
-//            Functions.getUserFromDatabase(user: googleUserObject) { (user) in
-//                if user.verified {
-//                    self.performSegue(withIdentifier: "loginToHome", sender: self)
-//                } else {
-//                    self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-//                }
-//            }
-//        }
-        self.performSegue(withIdentifier: "loginToHome", sender: self)
+        if let data = notification.userInfo as? [String: GIDGoogleUser] {
+            guard let googleUserObject = data["user"] else {
+                print("Could not get google user object")
+                return
+            }
+            Functions.getUserFromDatabase(user: googleUserObject) { (user) in
+                self.user = user
+                if user.verified {
+                    print("User verified")
+                    self.performSegue(withIdentifier: "loginToHome", sender: self)
+                } else {
+                    print("User not verified")
+                    self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
+                }
+            }
+        }
         // Remove observer once segue is complete due to possibility of double notification calls
         NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
     }
@@ -72,30 +75,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
-//    @IBAction func phoneNumberSignInPressed(_ sender: Any) {
-//        guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") else {
-//            print("Could not get valid phone number from UserDefaults")
-//            self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-//            return
-//        }
-//        print("Phone number is: \(phoneNumber)")
-//        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
-//            if error != nil {
-//                print(error.debugDescription)
-//                self.performSegue(withIdentifier: "loginToPhoneNumber", sender: self)
-//            } else {
-//                guard let verificationID = verificationID else {
-//                    print("Error: No verification ID")
-//                    return
-//                }
-//                print("Successfully requested for verification ID")
-//                print(verificationID)
-//                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-//                self.performSegue(withIdentifier: "loginToVerificationCode", sender: self)
-//            }
-//        }
-//    }
-    
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let user = user else {
+            print("Cannot find user")
+            return
+        }
+        // If call from here, verified is true anyway. If call is from VerificationVC, then new value is true
+        user.verified = true
+        Functions.updateUserDetails(user: user) { (user) in
+            print("Update user details successful")
+        }
+        // loginToHome segue called by VerificationViewController
+        if segue.identifier == "loginToHome" {
+            let destinationVC = segue.destination as! HomeViewController
+            destinationVC.user = user
+        }
+    }
 }

@@ -58,11 +58,11 @@ struct Functions{
                     print("Cannot find email in dictionary")
                     return
                 }
-                guard let phoneNumber = dict["phoneNumber"] else {
+                guard let phoneNumber = dict["phoneNumberString"] else {
                     print("Cannot find phone number in dictionary")
                     return
                 }
-                guard let verifiedString = dict["verified"] else {
+                guard let verifiedString = dict["isVerified"] else {
                     print("Cannot find verified string in dictionary")
                     return
                 }
@@ -71,9 +71,10 @@ struct Functions{
                     print("Cannot find contacts in dictionary")
                     return
                 }
-                let contacts = contactsString.components(separatedBy: ",")
+                // TODO: Grab contacts from database
+//                let contacts = contactsString.components(separatedBy: ",")
                 // Note: Contacts are parsed and converted into an array on strings.
-                let user = User(userId: user.userID, userName: username, email: email, phoneNumber: phoneNumber, verified: verified, contacts: contacts)
+                let user = User(userId: user.userID, userName: username, email: email, phoneNumber: phoneNumber, verified: verified, contacts: []) // <- Change this as well
                 completion(user)
             } else {
                 let newUser = User(userId: user.userID, userName: user.profile.name, email: user.profile.email, phoneNumber: "", verified: false, contacts: [])
@@ -81,5 +82,9 @@ struct Functions{
                 completion(newUser)
             }
         }
+    }
+    
+    static func updateUserDetails(user: User, completion: @escaping (User) -> Void) {
+        // Updates user details including emergency contacts
     }
 }
