@@ -29,12 +29,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func googleSignInPressed(_ sender: Any) {
         // Add notification observer for loggin out process
         NotificationCenter.default.addObserver(self, selector: #selector(onDidRetreatFromHome(_:)), name: .didRetreatFromHome, object: nil)
-        if Auth.auth().currentUser != nil {
-            performSegue(withIdentifier: "loginToHome", sender: self)
-        } else {
-            NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
-            GIDSignIn.sharedInstance().signIn()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @objc func onDidLoginWithGoogle(_ notification: Notification) {
