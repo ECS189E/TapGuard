@@ -37,14 +37,6 @@ struct Functions{
         })
     }
     
-//    static func setupUserInDatabase(user: User) {
-//        let userRef = Database.database().reference().child("users").child(user.userId)
-//        userRef.child("username").setValue(user.userName)
-//        userRef.child("phoneString").setValue(user.phoneNumber)
-//        userRef.child("email").setValue(user.email)
-//        userRef.child("verified").setValue((user.verified ? "true":"false"))
-//    }
-    
     // Attempt to get user. Otherwise create a dummy user with a verified check value as false
     static func getUserFromDatabase(user: GIDGoogleUser, completion: @escaping (User) -> Void) {
         Database.database().reference().child("users").child(user.userID).observeSingleEvent(of: .value) { (snapshot) in
@@ -100,9 +92,9 @@ struct Functions{
         userRef.child("isVerified").setValue((user.verified))
         
         // Parse contacts data and pass to database
-        var contactsArray : [NSDictionary] = []
+        var contactsArray : [[String: Any]] = []
         for contact in user.contacts {
-            let contactDictionary : NSDictionary = ["userName": contact.userName, "phoneNumberString": contact.phoneNumber, "isTrusted": contact.isTrusted, "isLocationSharingOn": contact.isLocationSharingOn, "isPrimary": contact.isPrimary]
+            let contactDictionary : [String: Any] = ["userName": contact.userName, "phoneNumberString": contact.phoneNumber, "isTrusted": contact.isTrusted, "isLocationSharingOn": contact.isLocationSharingOn, "isPrimary": contact.isPrimary]
             contactsArray.append(contactDictionary)
         }
         userRef.child("contacts").setValue(contactsArray)
