@@ -35,15 +35,22 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @objc func onDidLoginWithGoogle(_ notification: Notification) {
         print("Executed onDidLoginWithGoogle")
-        //TODO: Pass user information to verification view controller
+        // Remove observer once segue is complete due to possibility of double notification calls
+        NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
+        
+        // Pass user information to verification view controller
         if let data = notification.userInfo as? [String: GIDGoogleUser] {
             guard let googleUserObject = data["user"] else {
                 print("Could not get google user object")
                 return
             }
-            Functions.getUserFromDatabase(user: googleUserObject) { (user) in
-                self.user = user
-                if user.verified {
+            Functions.getUserFromDatabase(user: googleUserObject) { (userResult) in
+                self.user = userResult
+                guard let user = self.user else {
+                    print("User is nil")
+                    return
+                }
+                if user.verified == true {
                     print("User verified")
                     self.performSegue(withIdentifier: "loginToHome", sender: self)
                 } else {
@@ -52,8 +59,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 }
             }
         }
-        // Remove observer once segue is complete due to possibility of double notification calls
-        NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
     }
     
     @objc func onDidRetreatFromHome(_ notification: Notification) {
