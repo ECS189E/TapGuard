@@ -60,13 +60,13 @@ struct Functions{
                 // Build contacts array
                 // TODO: Fix contacts grabbing functionality
                 var contactsArray : [EmergencyContact] = []
-                let contactsData = userData?["contacts"] as? [[String: Any]] ?? []
+                let contactsData = userData?.value(forKey: "contacts") as? [NSDictionary] ?? []
                 for contactInstance in contactsData {
-                    let userName = contactInstance["userName"] as? String ?? ""
-                    let phoneNumberString = contactInstance["phoneNumberString"] as? String ?? ""
-                    let isTrusted = contactInstance["isTrusted"] as? Bool ?? false
-                    let isLocationSharingOn = contactInstance["isLocationSharingOn"] as? Bool ?? false
-                    let isPrimary = contactInstance["isPrimary"] as? Bool ?? false
+                    let userName = contactInstance.value(forKey: "userName") as? String ?? ""
+                    let phoneNumberString = contactInstance.value(forKey: "phoneNumberString") as? String ?? ""
+                    let isTrusted = contactInstance.value(forKey: "isTrusted") as? Bool ?? false
+                    let isLocationSharingOn = contactInstance.value(forKey: "isLocationSharingOn") as? Bool ?? false
+                    let isPrimary = contactInstance.value(forKey: "isPrimary") as? Bool ?? false
                     
                     let emergencyContactInstance = EmergencyContact(userName: userName, phoneNumber: phoneNumberString, isTrusted: isTrusted, isLocationSharingOn: isLocationSharingOn, isPrimary: isPrimary)
                     contactsArray.append(emergencyContactInstance)
