@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        // When logging out. Notify system to log out of google auth
         NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
     }
     
