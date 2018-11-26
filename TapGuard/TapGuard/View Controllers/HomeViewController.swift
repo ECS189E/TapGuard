@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func settingsButtonPressed(_ sender: Any) {
