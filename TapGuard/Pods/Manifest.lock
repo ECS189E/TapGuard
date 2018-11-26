@@ -1,4 +1,5 @@
 PODS:
+  - DateTimePicker (2.1.2)
   - Firebase/Auth (5.9.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.4)
@@ -83,6 +84,7 @@ PODS:
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
   - leveldb-library (1.20)
+  - LocationPicker (1.2.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -97,16 +99,19 @@ PODS:
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
+  - DateTimePicker
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Phone
   - GoogleSignIn
+  - LocationPicker
   - PhoneNumberKit
   - SwiftyButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DateTimePicker
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -122,11 +127,13 @@ SPEC REPOS:
     - GTMOAuth2
     - GTMSessionFetcher
     - leveldb-library
+    - LocationPicker
     - nanopb
     - PhoneNumberKit
     - SwiftyButton
 
 SPEC CHECKSUMS:
+  DateTimePicker: 111a1ca10b390ac315fdf3e85a5941fd4f72dfb7
   Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
@@ -142,10 +149,11 @@ SPEC CHECKSUMS:
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: d51ea83443b8f2d3f5362ff140e2757bb86b1727
+PODFILE CHECKSUM: e6d73f92f17c8881eab4a37e7001699071b1f33c
 
 COCOAPODS: 1.5.3
