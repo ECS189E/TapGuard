@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TapGuard
 //
-//  Created by Xian Dan Huang on 12/11/18.
+//  Created by Infinity on 12/11/18.
 //  Copyright © 2018 Infinity. All rights reserved.
 //
 
