@@ -1,5 +1,4 @@
 PODS:
-  - DateTimePicker (2.1.2)
   - Firebase/Auth (5.9.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.4)
@@ -99,7 +98,6 @@ PODS:
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
-  - DateTimePicker
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -111,7 +109,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - DateTimePicker
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -133,7 +130,6 @@ SPEC REPOS:
     - SwiftyButton
 
 SPEC CHECKSUMS:
-  DateTimePicker: 111a1ca10b390ac315fdf3e85a5941fd4f72dfb7
   Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
@@ -154,6 +150,6 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: e6d73f92f17c8881eab4a37e7001699071b1f33c
+PODFILE CHECKSUM: 3b80cb15a85cb264822969a0c6506431da5dc387
 
 COCOAPODS: 1.5.3

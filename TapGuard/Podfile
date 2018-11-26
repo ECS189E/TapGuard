@@ -16,5 +16,4 @@ target 'TapGuard' do
   pod 'PhoneNumberKit'
 
   pod 'LocationPicker'
-  pod 'DateTimePicker'
 end
