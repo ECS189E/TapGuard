@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import LocationPickerViewController
 
 class HomeViewController: UIViewController {
     
     var user : User?
-
+    
+    @IBOutlet weak var selectedDestinationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true
             , animated: true)
+        selectedDestinationLabel.text = "Please enter Destination"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -23,8 +27,16 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
     }
     
-    @IBAction func selectLocationButtonPressed(_ sender: Any) {
+    @IBAction func selectDestinationPressed(_ sender: Any) {
+        let locationPicker = LocationPicker()
+        locationPicker.pickCompletion = { (pickedLocationItem) in
+            self.selectedDestinationLabel.text = pickedLocationItem.formattedAddressString ?? "Error getting destination"
+        }
+        locationPicker.addBarButtons()
+        // Call this method to add a done and a cancel button to navigation bar.
         
+        let navigationController = UINavigationController(rootViewController: locationPicker)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
