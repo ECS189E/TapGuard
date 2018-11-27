@@ -1,4 +1,4 @@
-# Meeting 19.11.2018
+# Meeting 26.11.2018
 ## Summary of Project
 TapGuard is a safety application that notifies emergency contacts during times of emergency. The MVC includes the ability to make calls on a tap of a button. Extensions include tracking the user and notifying emergency contacts if the user strays too far from the destination and a countdown timer that notifies emergency contacts if the user does not complete the journey in the indicated amount of time. 
 
@@ -7,29 +7,29 @@ https://trello.com/b/cJAL4B0s/integration
 
 ## Done
 ### Charles
-LoginVC, PhoneNumberVC, VerificationVC, and function to get user from database
+Firebase DB Structure Outline and HomeVC UI Elements (partially complete)
 
 ### Saksham
-EmergencyContact model, User Model, SettingsVC (in progress)
+SettingsVC Cells
 
 ### Dhawal
-Functions API
+SettingsVC state functionality (in progress and to be completed soon)
 
-## Todo or In Progress By Meeting on 26.11.2018
+## Todo or In Progress By Meeting on 28.11.2018
 ### Charles
-- Complete Login to Home transition process
+- HomeVC LocationPicker and TimePicker
 
 ### Saksham 
-- Complete SettingsVC
+- Debug SettingsVC UI elements
 
 ### Dhawal
-- Complete Functions API
-- Twilio functionality for SMS (TBD)
+- Complete SettingsVC Logic
 
 ### TBD
-- HomeViewController
-- SelectionViewController
 - JourneyViewController
+
+### Notes
+SelectionViewController was decided to be merged with HomeViewController
 
 ## Links to Commits
 Note: Charles has commits under charlesgoh and Xian Dan Huang
