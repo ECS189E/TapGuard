@@ -358,6 +358,9 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startJourneyButtonPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="P5m-er-sVP"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rkj-oi-0Fs">
                                 <rect key="frame" x="16" y="232" width="343" height="100"/>
@@ -404,6 +407,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="countDownTimer" destination="rkj-oi-0Fs" id="UeY-WU-ccS"/>
                         <outlet property="selectedDestinationLabel" destination="b0Y-M2-DZi" id="ALY-p5-UjN"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                     </connections>

@@ -12,6 +12,7 @@ import LocationPickerViewController
 class HomeViewController: UIViewController {
     
     var user : User?
+    @IBOutlet weak var countDownTimer: UIDatePicker!
     
     @IBOutlet weak var selectedDestinationLabel: UILabel!
     
@@ -37,6 +38,10 @@ class HomeViewController: UIViewController {
         
         let navigationController = UINavigationController(rootViewController: locationPicker)
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    @IBAction func startJourneyButtonPressed(_ sender: Any) {
+        print(countDownTimer.minuteInterval.magnitude)
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
