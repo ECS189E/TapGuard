@@ -23,6 +23,10 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
     }
     
+    @IBAction func selectLocationButtonPressed(_ sender: Any) {
+        
+    }
+    
     @IBAction func logoutButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

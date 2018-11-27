@@ -332,6 +332,9 @@
                                         <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectLocationButtonPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="8r5-5J-pK2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrA-ix-Q9t" customClass="FlatButton" customModule="SwiftyButton">
                                 <rect key="frame" x="20" y="320" width="335" height="40"/>

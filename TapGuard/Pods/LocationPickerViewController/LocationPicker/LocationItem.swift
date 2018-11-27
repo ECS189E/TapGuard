@@ -96,7 +96,7 @@ open class LocationItem: NSObject, NSCoding {
     }
     
     
-    open override var hashValue: Int {
+    open override var hash: Int {
         get {
             if let coordinate = coordinate {
                 return "\(coordinate.latitude), \(coordinate.longitude)".hashValue
