@@ -15,5 +15,5 @@ target 'TapGuard' do
   pod 'SwiftyButton'
   pod 'PhoneNumberKit'
 
-  pod 'LocationPicker'
+  pod 'LocationPickerViewController'
 end

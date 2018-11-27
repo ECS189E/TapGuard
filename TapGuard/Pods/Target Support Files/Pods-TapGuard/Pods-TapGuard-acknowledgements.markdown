@@ -1875,11 +1875,11 @@ Copyright 2018 Google
    limitations under the License.
 
 
-## LocationPicker
+## LocationPickerViewController
 
 The MIT License (MIT)
 
-Copyright (c) 2015, Almas Sapargali
+Copyright (c) 2016 Jerome Tan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

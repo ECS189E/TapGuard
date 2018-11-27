@@ -83,7 +83,7 @@ PODS:
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
   - leveldb-library (1.20)
-  - LocationPicker (1.2.0)
+  - LocationPickerViewController (3.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -103,7 +103,7 @@ DEPENDENCIES:
   - Firebase/Database
   - FirebaseUI/Phone
   - GoogleSignIn
-  - LocationPicker
+  - LocationPickerViewController
   - PhoneNumberKit
   - SwiftyButton
 
@@ -124,7 +124,7 @@ SPEC REPOS:
     - GTMOAuth2
     - GTMSessionFetcher
     - leveldb-library
-    - LocationPicker
+    - LocationPickerViewController
     - nanopb
     - PhoneNumberKit
     - SwiftyButton
@@ -145,11 +145,11 @@ SPEC CHECKSUMS:
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
+  LocationPickerViewController: 8190e6bc3562e5fe5c52d92b23786f634b6de42c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 3b80cb15a85cb264822969a0c6506431da5dc387
+PODFILE CHECKSUM: 1576e921e3bc031206ef252b4e1724fd28f80c98
 
 COCOAPODS: 1.5.3
