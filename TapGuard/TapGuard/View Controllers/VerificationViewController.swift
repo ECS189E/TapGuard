@@ -2,7 +2,7 @@
 //  VerificationViewController.swift
 //  TapGuard
 //
-//  Created by Xian Dan Huang on 12/11/18.
+//  Created by Infinity on 12/11/18.
 //  Copyright © 2018 Infinity. All rights reserved.
 //
 
@@ -37,11 +37,7 @@ class VerificationViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("Successfully verified code")
-                guard let userid = authResult?.user.uid else {
-                    print("Could not get userid")
-                    return
-                }
-                UserDefaults.standard.set(userid, forKey: "phoneUserID")
+                // Segue to Home View Controller and update user
                 guard let loginVC = self.navigationController?.viewControllers[0] else {
                     print("Could not find LoginViewController")
                     return
