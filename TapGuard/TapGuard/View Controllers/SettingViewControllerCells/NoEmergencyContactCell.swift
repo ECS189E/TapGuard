@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoEmergencyContactCell: UIView {
+class NoEmergencyContactCell: UITableViewCell {
 
     /*
     // Only override draw() if you perform custom drawing.

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddContactsCell: UIView {
+class AddContactsCell: UITableViewCell {
 
     @IBAction func addFromExistedContactPressed(_ sender: Any) {
         // add functionality here

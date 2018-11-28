@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DisplayEmergencyContactCell: UIView {
+class DisplayEmergencyContactCell: UITableViewCell {
 
     @IBOutlet weak var contactType: UILabel!
     @IBOutlet weak var contactName: UILabel!

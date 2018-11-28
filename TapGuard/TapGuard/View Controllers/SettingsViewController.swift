@@ -14,10 +14,17 @@ protocol SettingsUpdateDelegate {
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var ContactsTableView: UITableView!
     var user: User = User(userId: "43123123", userName: "saksham", email: "saksham@saksham.com", phoneNumber: "+123123123", verified: true, contacts: [])
     var delegate: SettingsUpdateDelegate?
+    var selected: Int = -1
+    var state: Int = -1
    
     override func viewDidLoad() {
+        ContactsTableView.register(UINib.init(nibName: "NoEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "NoEmergencyContactCell")
+        ContactsTableView.register(UINib.init(nibName: "AddContactsCell", bundle: nil), forCellReuseIdentifier: "AddContactsCell")
+        ContactsTableView.register(UINib.init(nibName: "CreteNewContactCell", bundle: nil), forCellReuseIdentifier: "CreteNewContactCell")
+        ContactsTableView.register(UINib.init(nibName: "DisplayEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "DisplayEmergencyContactCell")
         super.viewDidLoad()
     }
     
@@ -41,21 +48,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "emergencyContacts", for: indexPath) as? EmergencyContactCell else {
-            fatalError("The dequeued cell is not an instance of EmergencyContactsCell.")
-        }
         
-        if user.contacts.count > indexPath.row {
-            cell.emergencyContact = user.contacts[indexPath.row]
-        } else {
-            cell.emergencyContact = EmergencyContact()
+        if(user.contacts.count-1 < indexPath.item && selected == -1){
+            return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
-        
-        return cell
+        else{
+            if(selected == indexPath.item){
+                if(state == 1){
+                    return tableView.dequeueReusableCell(withIdentifier: "AddContactsCell") as! AddContactsCell
+                }
+                if(state == 2){
+                    return tableView.dequeueReusableCell(withIdentifier: "CreteNewContactCell") as! CreateNewContactCell
+                }
+            }
+            return tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if(tableView.cellForRow(at: indexPath) is NoEmergencyContactCell){
+            selected = indexPath.item
+            state = 1
+            tableView.reloadData()
+        }
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {

@@ -421,7 +421,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNB-k5-Vwx">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emergencyContacts" rowHeight="404" id="Npv-LK-Tv9" customClass="EmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
@@ -467,13 +467,16 @@
                             <constraint firstItem="qNB-k5-Vwx" firstAttribute="leading" secondItem="xn1-Iy-UGG" secondAttribute="leading" id="UH9-c4-hat"/>
                             <constraint firstItem="qNB-k5-Vwx" firstAttribute="centerX" secondItem="g2d-DF-V8o" secondAttribute="centerX" id="avm-B7-Bi0"/>
                             <constraint firstItem="saP-8M-Nsf" firstAttribute="top" secondItem="xn1-Iy-UGG" secondAttribute="top" id="hn0-y4-Mr6"/>
-                            <constraint firstAttribute="bottom" secondItem="qNB-k5-Vwx" secondAttribute="bottom" id="jAG-eO-x2E"/>
+                            <constraint firstAttribute="bottom" secondItem="qNB-k5-Vwx" secondAttribute="bottom" constant="34" id="jAG-eO-x2E"/>
                             <constraint firstItem="saP-8M-Nsf" firstAttribute="trailing" secondItem="xn1-Iy-UGG" secondAttribute="trailing" id="rcb-iA-p1p"/>
                             <constraint firstItem="qNB-k5-Vwx" firstAttribute="trailing" secondItem="xn1-Iy-UGG" secondAttribute="trailing" id="vYX-vf-cOi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xn1-Iy-UGG"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="ContactsTableView" destination="qNB-k5-Vwx" id="zoc-RJ-lAS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-ak-2cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
