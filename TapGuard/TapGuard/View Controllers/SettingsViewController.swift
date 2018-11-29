@@ -16,15 +16,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var ContactsTableView: UITableView!
     var user: User = User(userId: "43123123", userName: "saksham", email: "saksham@saksham.com", phoneNumber: "+123123123", verified: true, contacts: [])
+    var currentContact: EmergencyContact = EmergencyContact()
     var delegate: SettingsUpdateDelegate?
     var selected: Int = -1
     var state: Int = -1
    
     override func viewDidLoad() {
         ContactsTableView.register(UINib.init(nibName: "NoEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "NoEmergencyContactCell")
-        ContactsTableView.register(UINib.init(nibName: "AddContactsCell", bundle: nil), forCellReuseIdentifier: "AddContactsCell")
         ContactsTableView.register(UINib.init(nibName: "CreteNewContactCell", bundle: nil), forCellReuseIdentifier: "CreteNewContactCell")
         ContactsTableView.register(UINib.init(nibName: "DisplayEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "DisplayEmergencyContactCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "createNewContact"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "editContact"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "saveContact"), object: nil)
         super.viewDidLoad()
     }
     
@@ -49,19 +52,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(user.contacts.count-1 < indexPath.item && selected == -1){
+        if(user.contacts.count-1 < indexPath.item){
             return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
         else{
             if(selected == indexPath.item){
                 if(state == 1){
-                    return tableView.dequeueReusableCell(withIdentifier: "AddContactsCell") as! AddContactsCell
+                    return tableView.dequeueReusableCell(withIdentifier: "CreateNewContactCell") as! CreateNewContactCell
                 }
                 if(state == 2){
-                    return tableView.dequeueReusableCell(withIdentifier: "CreteNewContactCell") as! CreateNewContactCell
+                    return tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
                 }
             }
-            return tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
+            return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
     }
     
@@ -79,6 +82,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.delegate?.updateUser(user: self.user)
+    }
+    
+    @objc func contactNotifier(noti: NSNotification){
+        let dict = noti.object as! Dictionary<String, Any>
+        selected = dict["selected"] as! Int
+        
+        if(noti.name.rawValue == "createNewContact"){
+            state = -1
+        }
+        else if(noti.name.rawValue == "editContact"){
+            state = 1
+            self.currentContact = dict["contact"] as! EmergencyContact
+        }
+        else if(noti.name.rawValue == "saveContact"){
+            state = 2
+            if(self.user.contacts.count < selected+1){
+                self.user.contacts.append(dict["contact"] as! EmergencyContact)
+            }
+            else{
+                self.user.contacts[selected] = dict["contact"] as! EmergencyContact
+            }
+        }
+        self.ContactsTableView.reloadData()
     }
     
 }
