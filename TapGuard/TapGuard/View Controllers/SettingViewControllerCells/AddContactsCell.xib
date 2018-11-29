@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AddContactsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddContactsCell" id="o8r-ir-k8g" customClass="AddContactsCell" customModule="TapGuard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o8r-ir-k8g" id="tyb-yw-uJz">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="166.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpM-BO-MQw" customClass="FlatButton" customModule="SwiftyButton">
+                        <rect key="frame" x="111" y="97" width="153" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="o6Z-FR-KCb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <state key="normal" title="+ Create New Contact"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuF-kE-K1Y">
+                        <rect key="frame" x="87" y="20" width="201" height="50"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <state key="normal" title="+ Add from existing Contact"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RuF-kE-K1Y" firstAttribute="centerX" secondItem="tyb-yw-uJz" secondAttribute="centerX" id="94m-Om-Ef4"/>
+                    <constraint firstItem="dpM-BO-MQw" firstAttribute="top" secondItem="RuF-kE-K1Y" secondAttribute="bottom" constant="27" id="JAP-Ip-amN"/>
+                    <constraint firstItem="RuF-kE-K1Y" firstAttribute="leading" secondItem="tyb-yw-uJz" secondAttribute="leadingMargin" constant="71" id="OPP-Rj-5dR"/>
+                    <constraint firstItem="RuF-kE-K1Y" firstAttribute="top" secondItem="tyb-yw-uJz" secondAttribute="topMargin" constant="9" id="ZQj-CE-VsY"/>
+                    <constraint firstItem="RuF-kE-K1Y" firstAttribute="centerX" secondItem="dpM-BO-MQw" secondAttribute="centerX" id="iIu-9v-Iet"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dpM-BO-MQw" secondAttribute="bottom" constant="9" id="xQY-F2-ZBh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="58" y="130"/>
+        </tableViewCell>
+    </objects>
+</document>

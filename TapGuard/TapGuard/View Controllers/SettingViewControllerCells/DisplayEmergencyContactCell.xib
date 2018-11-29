@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DisplayEmergencyContactCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DisplayEmergencyContactCell" id="rBD-Ve-8GW" customClass="DisplayEmergencyContactCell" customModule="TapGuard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="253"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBD-Ve-8GW" id="cDU-KV-gv1">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-1g-Ay1">
+                        <rect key="frame" x="37" y="207" width="30" height="30"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <state key="normal" title="Edit"/>
+                        <connections>
+                            <action selector="editPressed:" destination="rBD-Ve-8GW" eventType="touchUpInside" id="iGL-Fz-zk3"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxv-8B-oEF">
+                        <rect key="frame" x="142" y="15" width="93" height="22"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="19"/>
+                        <color key="textColor" red="0.0" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saksham Bhalla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-zO-Tli">
+                        <rect key="frame" x="130" y="61" width="117" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(415) 481-9276" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irk-Zi-nce">
+                        <rect key="frame" x="131" y="112" width="115" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Sharing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feq-uq-BH9">
+                        <rect key="frame" x="59" y="162" width="124" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7e-Q6-7mf">
+                        <rect key="frame" x="279" y="213" width="58" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3e-qL-T9X">
+                        <rect key="frame" x="210" y="162" width="59" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Jxv-8B-oEF" firstAttribute="centerX" secondItem="A4d-zO-Tli" secondAttribute="centerX" id="6C6-Bm-063"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="E7e-Q6-7mf" secondAttribute="trailing" constant="22" id="6wZ-LY-RW2"/>
+                    <constraint firstItem="Irk-Zi-nce" firstAttribute="top" secondItem="A4d-zO-Tli" secondAttribute="bottom" constant="33" id="DuT-IK-hiL"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leading" constant="130" id="McH-YN-hW1"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="top" secondItem="Jxv-8B-oEF" secondAttribute="bottom" constant="24" id="OLj-jA-Ofa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="E7e-Q6-7mf" secondAttribute="bottom" constant="11" id="QKI-a7-JUb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="L6p-1g-Ay1" secondAttribute="bottom" constant="5" id="YiK-Ld-er0"/>
+                    <constraint firstItem="E7e-Q6-7mf" firstAttribute="baseline" secondItem="L6p-1g-Ay1" secondAttribute="firstBaseline" id="c36-lL-eZa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="O3e-qL-T9X" secondAttribute="bottom" constant="62" id="ebR-ua-dWd"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="baseline" secondItem="E7e-Q6-7mf" secondAttribute="baseline" id="fcR-mz-dl5"/>
+                    <constraint firstItem="O3e-qL-T9X" firstAttribute="leading" secondItem="feq-uq-BH9" secondAttribute="trailing" constant="27" id="fpA-Qk-KN7"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="21" id="jrr-vx-ZwM"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="top" secondItem="feq-uq-BH9" secondAttribute="bottom" constant="27" id="lea-Uk-AEt"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="top" secondItem="Irk-Zi-nce" secondAttribute="bottom" constant="32" id="ntE-aL-bru"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="centerX" secondItem="Irk-Zi-nce" secondAttribute="centerX" id="oQu-sE-xzN"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="43" id="p6k-Bo-cuR"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="baseline" secondItem="O3e-qL-T9X" secondAttribute="baseline" id="sTX-0f-Gum"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contactName" destination="A4d-zO-Tli" id="iGh-AJ-ofN"/>
+                <outlet property="contactPhone" destination="Irk-Zi-nce" id="pYK-G6-jMb"/>
+                <outlet property="contactType" destination="Jxv-8B-oEF" id="PKv-oE-nfA"/>
+                <outlet property="locationSharingPreferences" destination="O3e-qL-T9X" id="Jft-fH-xMU"/>
+                <outlet property="trustLevel" destination="E7e-Q6-7mf" id="gYE-cX-YkX"/>
+            </connections>
+            <point key="canvasLocation" x="58" y="171"/>
+        </tableViewCell>
+    </objects>
+</document>
