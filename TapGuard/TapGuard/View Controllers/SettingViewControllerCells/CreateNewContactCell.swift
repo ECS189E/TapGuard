@@ -9,6 +9,14 @@
 import UIKit
 
 class CreateNewContactCell: UITableViewCell {
+    
+    var Contact: EmergencyContact = EmergencyContact()
+    
+    func setup(contact: EmergencyContact){
+        self.nameTextField.text = contact.userName
+        self.phoneNumberTextField.text = contact.phoneNumber
+        self.Contact = contact
+    }
 
     @IBOutlet weak var cardTitle: UILabel!
     @IBOutlet weak var nameTextField: UITextField!

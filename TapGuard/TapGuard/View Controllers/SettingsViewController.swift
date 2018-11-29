@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
    
     override func viewDidLoad() {
         ContactsTableView.register(UINib.init(nibName: "NoEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "NoEmergencyContactCell")
-        ContactsTableView.register(UINib.init(nibName: "CreteNewContactCell", bundle: nil), forCellReuseIdentifier: "CreteNewContactCell")
+        ContactsTableView.register(UINib.init(nibName: "CreateNewContactCell", bundle: nil), forCellReuseIdentifier: "CreateNewContactCell")
         ContactsTableView.register(UINib.init(nibName: "DisplayEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "DisplayEmergencyContactCell")
         NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "createNewContact"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "editContact"), object: nil)
@@ -53,13 +53,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(user.contacts.count-1 < indexPath.item){
+        if(user.contacts.count-1 < indexPath.item && !(selected == indexPath.item)){
             return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
         else{
             if(selected == indexPath.item){
                 if(state == 1){
-                    return tableView.dequeueReusableCell(withIdentifier: "CreateNewContactCell") as! CreateNewContactCell
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "CreateNewContactCell") as! CreateNewContactCell
+                    cell.setup(contact: self.user.contacts[indexPath.item])
+                    return cell
                 }
                 if(state == 2){
                     return tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
@@ -114,10 +116,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     //contact picker delegate
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
-        
+        self.selected = -1
+        self.ContactsTableView.reloadData()
     }
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        
+        let newContact = EmergencyContact(userName: contact.givenName, phoneNumber: contact.phoneNumbers[0].value.stringValue, isTrusted: true, isLocationSharingOn: false, isPrimary: false)
+        self.state = 1
+        if(self.user.contacts.count < selected+1){
+            self.user.contacts.append(newContact)
+        }
+        else{
+            self.user.contacts[selected] = newContact
+        }
+        self.ContactsTableView.reloadData()
     }
     func ContactPicerDidClose(_ picker: CNContactPickerViewController){
         
