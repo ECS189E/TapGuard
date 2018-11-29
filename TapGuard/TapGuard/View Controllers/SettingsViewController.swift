@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import ContactsUI
 
 protocol SettingsUpdateDelegate {
     func updateUser(user: User)
 }
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CNContactPickerDelegate {
 
     @IBOutlet weak var ContactsTableView: UITableView!
     var user: User = User(userId: "43123123", userName: "saksham", email: "saksham@saksham.com", phoneNumber: "+123123123", verified: true, contacts: [])
@@ -72,7 +73,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if(tableView.cellForRow(at: indexPath) is NoEmergencyContactCell){
             selected = indexPath.item
             state = 1
-            tableView.reloadData()
+            let contactPickerVC = CNContactPickerViewController()
+            contactPickerVC.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
+            contactPickerVC.delegate = self
+            self.present(contactPickerVC, animated: true, completion: nil)
+            //tableView.reloadData()
         }
     }
     
@@ -105,6 +110,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         self.ContactsTableView.reloadData()
+    }
+    
+    //contact picker delegate
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        
+    }
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        
+    }
+    func ContactPicerDidClose(_ picker: CNContactPickerViewController){
+        
     }
     
 }
