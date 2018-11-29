@@ -329,6 +329,9 @@
                                             <constraint firstAttribute="height" constant="40" id="kfr-bB-RNh"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="Bike"/>
+                                        <connections>
+                                            <action selector="bikePressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="u4Z-OA-jOH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvA-Fw-vLU">
                                         <rect key="frame" x="162.66666666666666" y="17.666666666666629" width="40" height="40"/>
@@ -337,6 +340,9 @@
                                             <constraint firstAttribute="height" constant="40" id="qc8-iK-Ogn"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="Car"/>
+                                        <connections>
+                                            <action selector="carPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="13f-ng-hps"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om7-8V-4Yn">
                                         <rect key="frame" x="305" y="17.333333333333371" width="40" height="40"/>
@@ -345,6 +351,9 @@
                                             <constraint firstAttribute="height" constant="40" id="yUC-Sj-tzp"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="Walk"/>
+                                        <connections>
+                                            <action selector="walkPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="vZP-3R-UKr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -380,6 +389,9 @@
                                         <color key="value" red="0.05233932635" green="0.091386347100000001" blue="0.60475491749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startJourneyPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="Cvp-Hz-0wD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -409,6 +421,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="destinationTextField" destination="zkl-mX-eQV" id="UYw-RR-03Y"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                     </connections>
                 </viewController>
