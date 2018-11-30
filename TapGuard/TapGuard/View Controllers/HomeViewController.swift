@@ -61,25 +61,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        // set up a new table view similar to uber
-        
+        let locationPicker = LocationPicker()
+        locationPicker.pickCompletion = { (pickedLocationItem) in
+            self.destinationTextField.text = pickedLocationItem.name
+        }
+        locationPicker.addBarButtons()
+        // Call this method to add a done and a cancel button to navigation bar.
+
+        let navigationController = UINavigationController(rootViewController: locationPicker)
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
 
 
-//
-//    @IBAction func selectDestinationPressed(_ sender: Any) {
-//        let locationPicker = LocationPicker()
-//        locationPicker.pickCompletion = { (pickedLocationItem) in
-//            self.selectedDestinationLabel.text = pickedLocationItem.formattedAddressString ?? "Error getting destination"
-//        }
-//        locationPicker.addBarButtons()
-//        // Call this method to add a done and a cancel button to navigation bar.
-//
-//        let navigationController = UINavigationController(rootViewController: locationPicker)
-//        present(navigationController, animated: true, completion: nil)
-//    }
-//
-//

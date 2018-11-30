@@ -427,6 +427,7 @@
                         <outlet property="destinationTextField" destination="zkl-mX-eQV" id="UYw-RR-03Y"/>
                         <outlet property="userMapView" destination="oIN-ca-oS1" id="p2z-dR-Zuc"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
+                        <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqS-dL-X7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAB-sU-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="1525.8620689655172"/>
+            <point key="canvasLocation" x="2463" y="1583"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="THy-wq-1iE">
