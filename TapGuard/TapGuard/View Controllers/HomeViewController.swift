@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     var user : User?
     var modeOfTransport: String = ""
+    var ETA: Int = 0
     
     
     @IBOutlet weak var userMapView: MKMapView!
