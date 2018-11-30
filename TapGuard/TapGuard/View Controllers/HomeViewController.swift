@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import MapKit
 import LocationPickerViewController
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
     var user : User?
-   
+    var modeOfTransport: String = ""
+    
+    
+    @IBOutlet weak var userMapView: MKMapView!
     @IBOutlet weak var destinationTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.destinationTextField.delegate = self
+        userMapView.showsUserLocation = true
+        userMapView.isZoomEnabled = true
+        userMapView.isScrollEnabled = true
+        userMapView.showsBuildings = true
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -26,19 +34,22 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func bikePressed(_ sender: Any) {
-        print("bike pressed")
+        modeOfTransport = "bike"
     }
     
     @IBAction func carPressed(_ sender: Any) {
-        print("car pressed")
+        modeOfTransport = "car"
     }
     
     @IBAction func walkPressed(_ sender: Any) {
-        print("walk pressed")
+        modeOfTransport = "walk"
     }
     
     
     @IBAction func startJourneyPressed(_ sender: Any) {
+        
+        // fetch route from google maps
+        // segue to next view controller
         
     }
     
@@ -47,6 +58,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func settingsButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "presentSettingsFromHome", sender: self)
+    }
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        // set up a new table view similar to uber
+        
     }
 }
 
