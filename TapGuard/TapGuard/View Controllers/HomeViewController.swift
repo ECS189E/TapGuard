@@ -7,48 +7,79 @@
 //
 
 import UIKit
+import MapKit
 import LocationPickerViewController
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITextFieldDelegate {
     
     var user : User?
-    @IBOutlet weak var countDownTimer: UIDatePicker!
+    var modeOfTransport: String = ""
     
-    @IBOutlet weak var selectedDestinationLabel: UILabel!
+    
+    @IBOutlet weak var userMapView: MKMapView!
+    @IBOutlet weak var destinationTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true
-            , animated: true)
-        selectedDestinationLabel.text = "Please enter Destination"
+        self.destinationTextField.delegate = self
+        userMapView.showsUserLocation = true
+        userMapView.isZoomEnabled = true
+        userMapView.isScrollEnabled = true
+        userMapView.showsBuildings = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        // When logging out. Notify system to log out of google auth
         NotificationCenter.default.post(name: .didRetreatFromHome, object: self, userInfo: ["Success": 1])
     }
     
-    @IBAction func selectDestinationPressed(_ sender: Any) {
-        let locationPicker = LocationPicker()
-        locationPicker.pickCompletion = { (pickedLocationItem) in
-            self.selectedDestinationLabel.text = pickedLocationItem.formattedAddressString ?? "Error getting destination"
-        }
-        locationPicker.addBarButtons()
-        // Call this method to add a done and a cancel button to navigation bar.
-        
-        let navigationController = UINavigationController(rootViewController: locationPicker)
-        present(navigationController, animated: true, completion: nil)
+    @IBAction func bikePressed(_ sender: Any) {
+        modeOfTransport = "bike"
     }
     
-    @IBAction func startJourneyButtonPressed(_ sender: Any) {
-        print(countDownTimer.minuteInterval.magnitude)
+    @IBAction func carPressed(_ sender: Any) {
+        modeOfTransport = "car"
+    }
+    
+    @IBAction func walkPressed(_ sender: Any) {
+        modeOfTransport = "walk"
+    }
+    
+    
+    @IBAction func startJourneyPressed(_ sender: Any) {
+        
+        // fetch route from google maps
+        // segue to next view controller
+        
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-
     @IBAction func settingsButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "presentSettingsFromHome", sender: self)
     }
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        // set up a new table view similar to uber
+        
+    }
 }
+
+
+
+//
+//    @IBAction func selectDestinationPressed(_ sender: Any) {
+//        let locationPicker = LocationPicker()
+//        locationPicker.pickCompletion = { (pickedLocationItem) in
+//            self.selectedDestinationLabel.text = pickedLocationItem.formattedAddressString ?? "Error getting destination"
+//        }
+//        locationPicker.addBarButtons()
+//        // Call this method to add a done and a cancel button to navigation bar.
+//
+//        let navigationController = UINavigationController(rootViewController: locationPicker)
+//        present(navigationController, animated: true, completion: nil)
+//    }
+//
+//
