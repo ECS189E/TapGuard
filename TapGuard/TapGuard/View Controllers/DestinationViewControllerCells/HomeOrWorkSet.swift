@@ -1,5 +1,5 @@
 //
-//  ChooseDestinationCell.swift
+//  FavoritesCell.swift
 //  TapGuard
 //
 //  Created by Saksham Bhalla on 11/30/18.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ChooseDestinationCell: UITableViewCell {
+class HomeOrWorkSet: UITableViewCell {
 
-    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressType: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
