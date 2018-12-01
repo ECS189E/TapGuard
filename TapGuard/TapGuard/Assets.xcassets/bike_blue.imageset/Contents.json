@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "baseline_directions_walk_black_18dp.png",
+      "filename" : "baseline_directions_bike_blue_48pt_1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "baseline_directions_walk_black_18dp-1.png",
+      "filename" : "baseline_directions_bike_blue_48pt_2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "baseline_directions_bike_blue_48pt_3x.png",
       "scale" : "3x"
     }
   ],

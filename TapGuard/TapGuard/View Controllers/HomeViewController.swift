@@ -20,6 +20,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userMapView: MKMapView!
     @IBOutlet weak var destinationTextField: UITextField!
     
+    @IBOutlet weak var bikeButton: UIButton!
+    @IBOutlet weak var carButton: UIButton!
+    @IBOutlet weak var walkButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.destinationTextField.delegate = self
@@ -36,14 +40,23 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func bikePressed(_ sender: Any) {
         modeOfTransport = "bike"
+        carButton.setImage(UIImage(named: "car_black"), for: .normal)
+        walkButton.setImage(UIImage(named: "walk_black"), for: .normal)
+        bikeButton.setImage(UIImage(named: "bike_blue"), for: .normal)
     }
     
     @IBAction func carPressed(_ sender: Any) {
         modeOfTransport = "car"
+        walkButton.setImage(UIImage(named: "walk_black"), for: .normal)
+        bikeButton.setImage(UIImage(named: "bike_black"), for: .normal)
+        carButton.setImage(UIImage(named: "car_blue"), for: .normal)
     }
     
     @IBAction func walkPressed(_ sender: Any) {
         modeOfTransport = "walk"
+        carButton.setImage(UIImage(named: "car_black"), for: .normal)
+        bikeButton.setImage(UIImage(named: "bike_black"), for: .normal)
+        walkButton.setImage(UIImage(named: "walk_blue"), for: .normal)
     }
     
     

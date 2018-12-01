@@ -331,7 +331,7 @@
                                             <constraint firstAttribute="width" constant="40" id="GA0-Gy-tFZ"/>
                                             <constraint firstAttribute="height" constant="40" id="kfr-bB-RNh"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Bike"/>
+                                        <state key="normal" title="Button" image="bike_black"/>
                                         <connections>
                                             <action selector="bikePressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="u4Z-OA-jOH"/>
                                         </connections>
@@ -342,7 +342,7 @@
                                             <constraint firstAttribute="width" constant="40" id="Fml-nb-Hrf"/>
                                             <constraint firstAttribute="height" constant="40" id="qc8-iK-Ogn"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Car"/>
+                                        <state key="normal" title="Button" image="car_black"/>
                                         <connections>
                                             <action selector="carPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="13f-ng-hps"/>
                                         </connections>
@@ -353,7 +353,7 @@
                                             <constraint firstAttribute="width" constant="40" id="Kha-KQ-1Y0"/>
                                             <constraint firstAttribute="height" constant="40" id="yUC-Sj-tzp"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Walk"/>
+                                        <state key="normal" title="Button" image="walk_black"/>
                                         <connections>
                                             <action selector="walkPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="vZP-3R-UKr"/>
                                         </connections>
@@ -424,8 +424,11 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="bikeButton" destination="MKw-nn-c1P" id="e8i-5N-jEK"/>
+                        <outlet property="carButton" destination="DvA-Fw-vLU" id="MZl-sY-5bD"/>
                         <outlet property="destinationTextField" destination="zkl-mX-eQV" id="UYw-RR-03Y"/>
                         <outlet property="userMapView" destination="oIN-ca-oS1" id="p2z-dR-Zuc"/>
+                        <outlet property="walkButton" destination="Om7-8V-4Yn" id="28o-dZ-KUd"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                         <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
                     </connections>
@@ -561,10 +564,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bike" width="36" height="36"/>
-        <image name="Car" width="36" height="36"/>
         <image name="Logo" width="500" height="500"/>
-        <image name="Walk" width="36" height="36"/>
+        <image name="bike_black" width="144" height="144"/>
+        <image name="car_black" width="144" height="144"/>
+        <image name="walk_black" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Res-VI-A8A"/>
