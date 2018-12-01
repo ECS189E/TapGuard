@@ -307,7 +307,7 @@
                                     <outlet property="delegate" destination="NIT-5X-Ar3" id="cSR-P1-ccm"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you headed?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkl-mX-eQV">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you headed?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkl-mX-eQV">
                                 <rect key="frame" x="10" y="559.66666666666663" width="355" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jzt-nu-c7K"/>

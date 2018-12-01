@@ -65,6 +65,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         let locationPicker = LocationPicker()
         locationPicker.pickCompletion = { (pickedLocationItem) in
             self.destinationTextField.text = pickedLocationItem.name
+            let destinationCLCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
+            
+            // Set pin at target
+            let destinationAnnotation = MKPointAnnotation()
+            destinationAnnotation.coordinate = destinationCLCoordinate
+            destinationAnnotation.title = "Destination"
+            self.userMapView.removeAnnotations(self.userMapView.annotations)
+            self.userMapView.addAnnotation(destinationAnnotation)
+            
+            // Set camera position
+            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: destinationCLCoordinate, fromEyeCoordinate: destinationCLCoordinate, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
         }
         locationPicker.addBarButtons()
         // Call this method to add a done and a cancel button to navigation bar.
