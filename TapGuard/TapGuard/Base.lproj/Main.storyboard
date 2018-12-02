@@ -57,7 +57,7 @@
                             <constraint firstItem="PiC-cf-2Is" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LXb-CP-98X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiC-cf-2Is" secondAttribute="trailing" constant="20" id="TEi-qH-rJq"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VoY-Qg-p0I"/>
-                            <constraint firstAttribute="bottom" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="20" symbolic="YES" id="daM-a6-NrJ"/>
+                            <constraint firstAttribute="bottom" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="20" id="daM-a6-NrJ"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lyO-K5-gz1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -572,6 +572,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Res-VI-A8A"/>
-        <segue reference="zzn-vV-aDw"/>
+        <segue reference="CLS-fN-Tcs"/>
     </inferredMetricsTieBreakers>
 </document>
