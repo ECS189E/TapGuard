@@ -317,7 +317,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode of Transport?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abo-ac-5lb">
-                                <rect key="frame" x="112.33333333333333" y="624.66666666666663" width="150.33333333333337" height="23.333333333333371"/>
+                                <rect key="frame" x="112.33333333333331" y="624.66666666666663" width="150.33333333333337" height="23.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -331,9 +331,9 @@
                                             <constraint firstAttribute="width" constant="40" id="GA0-Gy-tFZ"/>
                                             <constraint firstAttribute="height" constant="40" id="kfr-bB-RNh"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="bike_black"/>
+                                        <state key="normal" title="Button" image="transit_black"/>
                                         <connections>
-                                            <action selector="bikePressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="u4Z-OA-jOH"/>
+                                            <action selector="transitPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="d7X-wG-zTn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvA-Fw-vLU">
@@ -424,10 +424,11 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="bikeButton" destination="MKw-nn-c1P" id="e8i-5N-jEK"/>
                         <outlet property="carButton" destination="DvA-Fw-vLU" id="MZl-sY-5bD"/>
                         <outlet property="destinationTextField" destination="zkl-mX-eQV" id="UYw-RR-03Y"/>
+                        <outlet property="transitButton" destination="MKw-nn-c1P" id="aRO-Xm-ci9"/>
                         <outlet property="userMapView" destination="oIN-ca-oS1" id="p2z-dR-Zuc"/>
+                        <outlet property="userPromptForModeOfTransportLabel" destination="abo-ac-5lb" id="cNq-Ln-9Iy"/>
                         <outlet property="walkButton" destination="Om7-8V-4Yn" id="28o-dZ-KUd"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                         <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
@@ -565,8 +566,8 @@
     </scenes>
     <resources>
         <image name="Logo" width="500" height="500"/>
-        <image name="bike_black" width="144" height="144"/>
         <image name="car_black" width="144" height="144"/>
+        <image name="transit_black" width="144" height="144"/>
         <image name="walk_black" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
