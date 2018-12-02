@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     @IBOutlet weak var walkButton: UIButton!
     
     var destinationCoordinate : CLLocationCoordinate2D?
+    var sourceCoordinate : CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +82,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     func setJourneyPathInMapView() {
+        // Check if source coordinate exists (i.e. if GPS signal exists) and set VC variable for data transfer to Journey VC
         guard let sourceCoordinates = locationManager.location?.coordinate else {
             fatalError("Source coordinates could not be found")
         }
+        self.sourceCoordinate = sourceCoordinates
         
+        // Check if destination coordinate exists
         guard let destinationCoordinates = self.destinationCoordinate else {
             userPromptForModeOfTransportLabel.text = "Please select destination"
             print("Destination coordinates could not be found")
@@ -167,10 +171,19 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     @IBAction func startJourneyPressed(_ sender: Any) {
-        
-        // fetch route from google maps
-        // segue to next view controller
-        
+        performSegue(withIdentifier: "journeyFromHome", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "journeyFromHome" {
+            let destinationVC = segue.destination as! JourneyViewController
+            
+            // Set destination ETA
+            destinationVC.ETA = self.ETA
+            destinationVC.modeOfTransport = self.modeOfTransport
+            destinationVC.sourceCoordinate = self.sourceCoordinate
+            destinationVC.destinationCoordinate = self.destinationCoordinate
+        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {

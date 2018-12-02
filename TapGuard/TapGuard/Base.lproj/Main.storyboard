@@ -432,17 +432,17 @@
                         <outlet property="walkButton" destination="Om7-8V-4Yn" id="28o-dZ-KUd"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                         <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
-                        <segue destination="DzR-Sd-SU5" kind="presentation" id="Xzx-hW-EhJ"/>
+                        <segue destination="DzR-Sd-SU5" kind="presentation" identifier="journeyFromHome" id="Xzx-hW-EhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqS-dL-X7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962.4000000000001" y="829.06403940886707"/>
         </scene>
-        <!--View Controller-->
+        <!--Journey View Controller-->
         <scene sceneID="9aF-S1-Ham">
             <objects>
-                <viewController id="DzR-Sd-SU5" sceneMemberID="viewController">
+                <viewController title="Journey View Controller" id="DzR-Sd-SU5" customClass="JourneyViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XGc-78-vvq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -454,7 +454,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Journey" id="2Yv-7O-WFg">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8db-yA-PpI"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8db-yA-PpI">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="DzR-Sd-SU5" id="QZp-gj-5RM"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
