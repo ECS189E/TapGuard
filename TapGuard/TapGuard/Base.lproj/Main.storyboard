@@ -57,7 +57,7 @@
                             <constraint firstItem="PiC-cf-2Is" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LXb-CP-98X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiC-cf-2Is" secondAttribute="trailing" constant="20" id="TEi-qH-rJq"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VoY-Qg-p0I"/>
-                            <constraint firstAttribute="bottom" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="20" symbolic="YES" id="daM-a6-NrJ"/>
+                            <constraint firstAttribute="bottom" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="20" id="daM-a6-NrJ"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lyO-K5-gz1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -307,7 +307,7 @@
                                     <outlet property="delegate" destination="NIT-5X-Ar3" id="cSR-P1-ccm"/>
                                 </connections>
                             </mapView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you headed?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkl-mX-eQV">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you headed?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkl-mX-eQV">
                                 <rect key="frame" x="10" y="559.66666666666663" width="355" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Jzt-nu-c7K"/>
@@ -331,9 +331,9 @@
                                             <constraint firstAttribute="width" constant="40" id="GA0-Gy-tFZ"/>
                                             <constraint firstAttribute="height" constant="40" id="kfr-bB-RNh"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Bike"/>
+                                        <state key="normal" title="Button" image="transit_black"/>
                                         <connections>
-                                            <action selector="bikePressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="u4Z-OA-jOH"/>
+                                            <action selector="transitPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="d7X-wG-zTn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvA-Fw-vLU">
@@ -342,7 +342,7 @@
                                             <constraint firstAttribute="width" constant="40" id="Fml-nb-Hrf"/>
                                             <constraint firstAttribute="height" constant="40" id="qc8-iK-Ogn"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Car"/>
+                                        <state key="normal" title="Button" image="car_black"/>
                                         <connections>
                                             <action selector="carPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="13f-ng-hps"/>
                                         </connections>
@@ -353,7 +353,7 @@
                                             <constraint firstAttribute="width" constant="40" id="Kha-KQ-1Y0"/>
                                             <constraint firstAttribute="height" constant="40" id="yUC-Sj-tzp"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Walk"/>
+                                        <state key="normal" title="Button" image="walk_black"/>
                                         <connections>
                                             <action selector="walkPressed:" destination="NIT-5X-Ar3" eventType="touchUpInside" id="vZP-3R-UKr"/>
                                         </connections>
@@ -424,15 +424,57 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="carButton" destination="DvA-Fw-vLU" id="MZl-sY-5bD"/>
                         <outlet property="destinationTextField" destination="zkl-mX-eQV" id="UYw-RR-03Y"/>
+                        <outlet property="transitButton" destination="MKw-nn-c1P" id="aRO-Xm-ci9"/>
                         <outlet property="userMapView" destination="oIN-ca-oS1" id="p2z-dR-Zuc"/>
+                        <outlet property="userPromptForModeOfTransportLabel" destination="abo-ac-5lb" id="cNq-Ln-9Iy"/>
+                        <outlet property="walkButton" destination="Om7-8V-4Yn" id="28o-dZ-KUd"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
                         <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
+                        <segue destination="DzR-Sd-SU5" kind="presentation" identifier="journeyFromHome" id="Xzx-hW-EhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqS-dL-X7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962.4000000000001" y="829.06403940886707"/>
+        </scene>
+        <!--Journey View Controller-->
+        <scene sceneID="9aF-S1-Ham">
+            <objects>
+                <viewController title="Journey View Controller" id="DzR-Sd-SU5" customClass="JourneyViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XGc-78-vvq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddO-ew-UHx">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rW5-kZ-nnD"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Journey" id="2Yv-7O-WFg">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8db-yA-PpI">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="DzR-Sd-SU5" id="QZp-gj-5RM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ddO-ew-UHx" firstAttribute="trailing" secondItem="uSe-bj-Rqs" secondAttribute="trailing" id="dmt-a7-Uhu"/>
+                            <constraint firstItem="ddO-ew-UHx" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" id="q5v-e1-vUg"/>
+                            <constraint firstItem="ddO-ew-UHx" firstAttribute="top" secondItem="uSe-bj-Rqs" secondAttribute="top" id="yXL-dW-jij"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uSe-bj-Rqs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKm-tk-g4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1270" y="1569"/>
         </scene>
         <!--Destination View Controller-->
         <scene sceneID="Vga-wd-Kt1">
@@ -469,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAB-sU-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="1583"/>
+            <point key="canvasLocation" x="2473" y="1570"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="THy-wq-1iE">
@@ -561,13 +603,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bike" width="36" height="36"/>
-        <image name="Car" width="36" height="36"/>
         <image name="Logo" width="500" height="500"/>
-        <image name="Walk" width="36" height="36"/>
+        <image name="car_black" width="144" height="144"/>
+        <image name="transit_black" width="144" height="144"/>
+        <image name="walk_black" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Res-VI-A8A"/>
-        <segue reference="zzn-vV-aDw"/>
+        <segue reference="CLS-fN-Tcs"/>
     </inferredMetricsTieBreakers>
 </document>

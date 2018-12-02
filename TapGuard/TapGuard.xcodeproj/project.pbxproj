@@ -27,6 +27,7 @@
 		E6FB3BCA21B1D01E003E494B /* AddHomeOrWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FB3BC821B1D01E003E494B /* AddHomeOrWorkCell.xib */; };
 		E6FB3BCF21B1D164003E494B /* HomeOrWorkSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB3BCD21B1D164003E494B /* HomeOrWorkSet.swift */; };
 		E6FB3BD021B1D164003E494B /* HomeOrWorkSet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6FB3BCE21B1D164003E494B /* HomeOrWorkSet.xib */; };
+		F800E1A121B36A420076F6FF /* JourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F800E1A021B36A420076F6FF /* JourneyViewController.swift */; };
 		F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D97F02199E7D900C3333D /* AppDelegate.swift */; };
 		F83D97F62199E7D900C3333D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F42199E7D900C3333D /* Main.storyboard */; };
 		F83D97F82199E7DB00C3333D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F72199E7DB00C3333D /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		E6FB3BCD21B1D164003E494B /* HomeOrWorkSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOrWorkSet.swift; sourceTree = "<group>"; };
 		E6FB3BCE21B1D164003E494B /* HomeOrWorkSet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeOrWorkSet.xib; sourceTree = "<group>"; };
 		EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapGuard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F800E1A021B36A420076F6FF /* JourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewController.swift; sourceTree = "<group>"; };
 		F83D97ED2199E7D900C3333D /* TapGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97F02199E7D900C3333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83D97F52199E7D900C3333D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				F8994E77219A69E0000F4A55 /* VerificationViewController.swift */,
 				F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */,
 				E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */,
+				F800E1A021B36A420076F6FF /* JourneyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F800E1A121B36A420076F6FF /* JourneyViewController.swift in Sources */,
 				E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */,
 				E6C2FF7D21A2942E005A9813 /* CreateNewContactCell.swift in Sources */,
 				F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */,
