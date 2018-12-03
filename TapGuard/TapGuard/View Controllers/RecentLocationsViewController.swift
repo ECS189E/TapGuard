@@ -22,7 +22,7 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.item == 0) {
+        if (indexPath.item == 1) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "newLocation", for: indexPath) as? ChooseNewLocationCell  else {
                 fatalError("The dequeued cell is not an instance of ChooseNewLocationCell.")
             }

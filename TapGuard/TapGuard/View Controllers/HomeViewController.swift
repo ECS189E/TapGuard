@@ -247,15 +247,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         performSegue(withIdentifier: "presentSettingsFromHome", sender: self)
     }
     
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {// return NO to not change text
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.destinationTextField.text = ""
         if (self.recentLocations.count > 0) {
             performSegue(withIdentifier: "recentLocationsFromHome", sender: self)
         }
         else {
             pickNewLocation()
         }
-        
-        return false
     }
 }
 
