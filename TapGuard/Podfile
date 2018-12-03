@@ -16,4 +16,6 @@ target 'TapGuard' do
   pod 'PhoneNumberKit'
 
   pod 'LocationPickerViewController'
+
+  pod 'Alamofire'
 end

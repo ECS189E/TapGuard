@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - Firebase/Auth (5.9.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.4)
@@ -98,6 +99,7 @@ PODS:
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -109,6 +111,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -130,6 +133,7 @@ SPEC REPOS:
     - SwiftyButton
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
   FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
@@ -150,6 +154,6 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 1576e921e3bc031206ef252b4e1724fd28f80c98
+PODFILE CHECKSUM: 5295b1f6215785d590201f106cb466d3d1f52a4b
 
 COCOAPODS: 1.5.3
