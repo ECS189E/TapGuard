@@ -462,19 +462,100 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-RZ-qGP">
+                                <rect key="frame" x="0.0" y="88" width="375" height="562"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFg-T1-Rki" customClass="FlatButton" customModule="SwiftyButton">
+                                <rect key="frame" x="20" y="738" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="aRR-7Q-l9T"/>
+                                </constraints>
+                                <state key="normal" title="END JOURNEY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                        <color key="value" red="0.05233932635" green="0.091386347100000001" blue="0.60475491749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" red="0.1383074705" green="0.32572635020000001" blue="0.67356043779999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                        <color key="value" red="0.05233932635" green="0.091386347100000001" blue="0.60475491749999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="endJourneyButtonPressed:" destination="DzR-Sd-SU5" eventType="touchUpInside" id="JVc-bg-x71"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUG-HQ-Mxg" customClass="FlatButton" customModule="SwiftyButton">
+                                <rect key="frame" x="20" y="690" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Uj1-Kz-Xr4"/>
+                                </constraints>
+                                <state key="normal" title="CONTACT EMERGENCY CONTACTS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="1" green="0.16167499160000001" blue="0.12999723799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highlightedColor">
+                                        <color key="value" red="0.57945352159999997" green="0.086680922160000007" blue="0.0050063529870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                        <color key="value" red="0.28238023480000002" green="0.054894612250000002" blue="0.066466093690000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                        <color key="value" red="0.32346526019999999" green="0.04838743056" blue="0.0027946698249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="contactEmergencyContactsButtonPressed:" destination="DzR-Sd-SU5" eventType="touchUpInside" id="y45-9P-N4i"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;information_label&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5i-iy-Rb4">
+                                <rect key="frame" x="20" y="658" width="335" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="AiW-pU-yCw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0rs-RZ-qGP" firstAttribute="top" secondItem="ddO-ew-UHx" secondAttribute="bottom" id="049-dX-dj3"/>
+                            <constraint firstItem="0rs-RZ-qGP" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" id="0HF-PX-ico"/>
+                            <constraint firstItem="rUG-HQ-Mxg" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" constant="20" id="IuD-Se-cQv"/>
+                            <constraint firstItem="rFg-T1-Rki" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" constant="20" id="Kbo-kC-6SD"/>
+                            <constraint firstItem="uSe-bj-Rqs" firstAttribute="trailing" secondItem="rUG-HQ-Mxg" secondAttribute="trailing" constant="20" id="NRH-h1-HWU"/>
+                            <constraint firstItem="rFg-T1-Rki" firstAttribute="top" secondItem="rUG-HQ-Mxg" secondAttribute="bottom" constant="8" symbolic="YES" id="VIm-eI-RsD"/>
+                            <constraint firstItem="H5i-iy-Rb4" firstAttribute="top" secondItem="0rs-RZ-qGP" secondAttribute="bottom" constant="8" symbolic="YES" id="bmj-UE-bPZ"/>
+                            <constraint firstItem="0rs-RZ-qGP" firstAttribute="trailing" secondItem="uSe-bj-Rqs" secondAttribute="trailing" id="cKB-h1-JPE"/>
                             <constraint firstItem="ddO-ew-UHx" firstAttribute="trailing" secondItem="uSe-bj-Rqs" secondAttribute="trailing" id="dmt-a7-Uhu"/>
+                            <constraint firstItem="H5i-iy-Rb4" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" constant="20" id="e0L-qP-1mL"/>
+                            <constraint firstItem="uSe-bj-Rqs" firstAttribute="trailing" secondItem="H5i-iy-Rb4" secondAttribute="trailing" constant="20" id="gye-cI-lF2"/>
+                            <constraint firstItem="uSe-bj-Rqs" firstAttribute="trailing" secondItem="rFg-T1-Rki" secondAttribute="trailing" constant="20" id="keV-Ij-Z91"/>
                             <constraint firstItem="ddO-ew-UHx" firstAttribute="leading" secondItem="uSe-bj-Rqs" secondAttribute="leading" id="q5v-e1-vUg"/>
+                            <constraint firstItem="rUG-HQ-Mxg" firstAttribute="top" secondItem="H5i-iy-Rb4" secondAttribute="bottom" constant="8" symbolic="YES" id="u50-vv-iAY"/>
+                            <constraint firstItem="rFg-T1-Rki" firstAttribute="bottom" secondItem="uSe-bj-Rqs" secondAttribute="bottom" id="xaZ-fn-Yhy"/>
                             <constraint firstItem="ddO-ew-UHx" firstAttribute="top" secondItem="uSe-bj-Rqs" secondAttribute="top" id="yXL-dW-jij"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uSe-bj-Rqs"/>
                     </view>
+                    <connections>
+                        <outlet property="informationLabel" destination="H5i-iy-Rb4" id="Pvb-3S-ZkQ"/>
+                        <outlet property="userMapView" destination="0rs-RZ-qGP" id="3zq-L9-b1t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKm-tk-g4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="1569"/>
+            <point key="canvasLocation" x="1269.5999999999999" y="1568.7192118226601"/>
         </scene>
         <!--Destination View Controller-->
         <scene sceneID="Vga-wd-Kt1">

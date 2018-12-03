@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         }
         
         print("Source: \(sourceCoordinates.latitude), \(sourceCoordinates.longitude)")
-        print("Source: \(destinationCoordinates.latitude), \(destinationCoordinates.longitude)")
+        print("Destination: \(destinationCoordinates.latitude), \(destinationCoordinates.longitude)")
         
         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinates)
         let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinates)
@@ -183,6 +183,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             destinationVC.modeOfTransport = self.modeOfTransport
             destinationVC.sourceCoordinate = self.sourceCoordinate
             destinationVC.destinationCoordinate = self.destinationCoordinate
+            
+            if let user = user {
+                destinationVC.emergencyContacts = user.contacts
+            }
         }
     }
     
