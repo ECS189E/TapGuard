@@ -431,7 +431,7 @@
                         <outlet property="userPromptForModeOfTransportLabel" destination="abo-ac-5lb" id="cNq-Ln-9Iy"/>
                         <outlet property="walkButton" destination="Om7-8V-4Yn" id="28o-dZ-KUd"/>
                         <segue destination="et4-Ya-C3A" kind="presentation" identifier="presentSettingsFromHome" id="RbD-7o-l5p"/>
-                        <segue destination="lC4-rm-Cbe" kind="show" identifier="toDestinationViewController" id="h4j-Wu-exh"/>
+                        <segue destination="lC4-rm-Cbe" kind="show" identifier="recentLocationsFromHome" id="h4j-Wu-exh"/>
                         <segue destination="DzR-Sd-SU5" kind="presentation" identifier="journeyFromHome" id="Xzx-hW-EhJ"/>
                     </connections>
                 </viewController>
@@ -476,10 +476,10 @@
             </objects>
             <point key="canvasLocation" x="1270" y="1569"/>
         </scene>
-        <!--Destination View Controller-->
+        <!--Recent Locations View Controller-->
         <scene sceneID="Vga-wd-Kt1">
             <objects>
-                <viewController id="lC4-rm-Cbe" customClass="DestinationViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lC4-rm-Cbe" customClass="RecentLocationsViewController" customModule="TapGuard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bUF-hk-2C3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -489,12 +489,42 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9Gv-g7-p9r">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recentLocation" rowHeight="73" id="9Gv-g7-p9r" customClass="RecentLocationCell" customModule="TapGuard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Gv-g7-p9r" id="geG-PB-slM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocv-uw-1lW">
+                                                    <rect key="frame" x="164.33333333333334" y="25" width="46.333333333333343" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ocv-uw-1lW" firstAttribute="centerX" secondItem="geG-PB-slM" secondAttribute="centerX" id="YN9-pD-o45"/>
+                                                <constraint firstItem="ocv-uw-1lW" firstAttribute="centerY" secondItem="geG-PB-slM" secondAttribute="centerY" id="at3-ui-F34"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recentLocation" destination="ocv-uw-1lW" id="ke8-3F-L8D"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="newLocation" rowHeight="73" id="w80-E6-POj" customClass="ChooseNewLocationCell" customModule="TapGuard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="101" width="375" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w80-E6-POj" id="Rfx-FW-IbP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpG-Ip-ubR">
+                                                    <rect key="frame" x="114" y="21" width="164" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="+ Choose New Location"/>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -508,10 +538,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="G0j-VL-3w7"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendBoolToHome" id="0Bu-ge-QRN"/>
+                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendLocationDatatoHome" id="NAx-RY-EVU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAB-sU-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="1570"/>
+            <point key="canvasLocation" x="2458" y="1624"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="THy-wq-1iE">
@@ -609,7 +644,7 @@
         <image name="walk_black" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Res-VI-A8A"/>
+        <segue reference="NAx-RY-EVU"/>
         <segue reference="CLS-fN-Tcs"/>
     </inferredMetricsTieBreakers>
 </document>

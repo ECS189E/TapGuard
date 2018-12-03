@@ -15,7 +15,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     var user : User?
     var modeOfTransport: String = ""
     var ETA: TimeInterval = 0
-    
+    var recentLocations: [(LocationItem)] = []
+    var pickedLocation: String = ""
+    var shouldPickLocation: Bool = false
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var userMapView: MKMapView!
@@ -44,10 +46,27 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
+        guard let sourceCoordinates = locationManager.location?.coordinate else {
+            fatalError("Source coordinates could not be found")
+        }
+        
+        sourceCoordinate = sourceCoordinates
+        
+        // Set camera position
+        self.userMapView.setCamera(MKMapCamera(lookingAtCenter: sourceCoordinates, fromEyeCoordinate: sourceCoordinates, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
+        
+    
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldPickLocation == true {
+            pickNewLocation()
         }
     }
     
@@ -170,6 +189,35 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         return renderer
     }
     
+    func pickNewLocation() {
+        let locationPicker = LocationPicker()
+        locationPicker.pickCompletion = { (pickedLocationItem) in
+            self.resetButtons()
+            self.recentLocations.append(pickedLocationItem)
+            self.destinationTextField.text = pickedLocationItem.name
+            let destinationCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
+            self.destinationCoordinate = destinationCoordinate
+            
+            self.userPromptForModeOfTransportLabel.text = "Mode of Transport?"
+            
+            // Set pin at target
+            let destinationAnnotation = MKPointAnnotation()
+            destinationAnnotation.coordinate = destinationCoordinate
+            destinationAnnotation.title = "Destination"
+            self.userMapView.removeAnnotations(self.userMapView.annotations)
+            self.userMapView.removeOverlays(self.userMapView.overlays)
+            self.userMapView.addAnnotation(destinationAnnotation)
+            
+            // Set camera position
+            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: destinationCoordinate, fromEyeCoordinate: destinationCoordinate, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
+        }
+        locationPicker.addBarButtons()
+        // Call this method to add a done and a cancel button to navigation bar.
+        
+        let navigationController = UINavigationController(rootViewController: locationPicker)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     @IBAction func startJourneyPressed(_ sender: Any) {
         performSegue(withIdentifier: "journeyFromHome", sender: self)
     }
@@ -184,6 +232,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             destinationVC.sourceCoordinate = self.sourceCoordinate
             destinationVC.destinationCoordinate = self.destinationCoordinate
         }
+        
+        if segue.identifier == "recentLocationsFromHome" {
+            let recentVC = segue.destination as! RecentLocationsViewController
+            recentVC.recentLocations = self.recentLocations
+        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -194,32 +247,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         performSegue(withIdentifier: "presentSettingsFromHome", sender: self)
     }
     
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        let locationPicker = LocationPicker()
-        locationPicker.pickCompletion = { (pickedLocationItem) in
-            self.resetButtons()
-            self.destinationTextField.text = pickedLocationItem.name
-            let destinationCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
-            self.destinationCoordinate = destinationCoordinate
-            
-            self.userPromptForModeOfTransportLabel.text = "Mode of Transport?"
-            
-            // Set pin at target
-            let destinationAnnotation = MKPointAnnotation()
-            destinationAnnotation.coordinate = destinationCoordinate
-            destinationAnnotation.title = "Destination"
-            self.userMapView.removeAnnotations(self.userMapView.annotations)
-            self.userMapView.removeOverlays(self.userMapView.overlays)
-            self.userMapView.addAnnotation(destinationAnnotation)
-
-            // Set camera position
-            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: destinationCoordinate, fromEyeCoordinate: destinationCoordinate, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {// return NO to not change text
+        if (self.recentLocations.count > 0) {
+            performSegue(withIdentifier: "recentLocationsFromHome", sender: self)
         }
-        locationPicker.addBarButtons()
-        // Call this method to add a done and a cancel button to navigation bar.
-
-        let navigationController = UINavigationController(rootViewController: locationPicker)
-        present(navigationController, animated: true, completion: nil)
+        else {
+            pickNewLocation()
+        }
+        
+        return false
     }
 }
 
