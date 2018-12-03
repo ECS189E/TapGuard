@@ -122,22 +122,27 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func contactEmergencyContacts() {
-        // We hard code SID and auth Token for now
-        let accountSID = "AC39ad80696ad342ad268f2945f051804c"
-        let authToken = "759bf01a06f304f41162e3d4a6cbb938"
-        let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-        for contact in emergencyContacts {
-            let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(userName) would like to contact you in an emergency"] as [String : Any]
-            Alamofire.request(url, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
-                    debugPrint(response)
+        DispatchQueue.global().async {
+            // We hard code SID and auth Token for now
+            let accountSID = "AC39ad80696ad342ad268f2945f051804c"
+            let authToken = "759bf01a06f304f41162e3d4a6cbb938"
+            
+            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+            for contact in self.emergencyContacts {
+                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) would like to contact you in an emergency"] as [String : Any]
+                Alamofire.request(url, method: .post, parameters: parameters)
+                    .authenticate(user: accountSID, password: authToken)
+                    .responseString { response in
+                        debugPrint(response)
+                }
             }
+            RunLoop.main.run()
         }
-        RunLoop.main.run()
+        self.informationLabel.text = "Contacts notified!"
     }
     
     @IBAction func contactEmergencyContactsButtonPressed(_ sender: Any) {
+        contactEmergencyContacts()
     }
     
     @IBAction func endJourneyButtonPressed(_ sender: Any) {
