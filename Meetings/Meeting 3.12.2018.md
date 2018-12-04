@@ -10,6 +10,7 @@ https://trello.com/b/cJAL4B0s/integration
 - Twilio setup
 - SMS emergency contact functionality on JourneyViewController
 - HomeViewController location and travel time estimation functionality
+- JourneyViewController set up and SMS call
 
 ### Saksham
 - SettingsViewController UI elements
