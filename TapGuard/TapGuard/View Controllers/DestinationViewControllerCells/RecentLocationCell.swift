@@ -1,17 +1,16 @@
 //
-//  FavoritesCell.swift
+//  RecentLocationCell.swift
 //  TapGuard
 //
-//  Created by Saksham Bhalla on 11/30/18.
+//  Created by Saksham Bhalla on 12/2/18.
 //  Copyright © 2018 Infinity. All rights reserved.
 //
 
 import UIKit
 
-class HomeOrWorkSet: UITableViewCell {
+class RecentLocationCell: UITableViewCell {
 
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var addressType: UILabel!
+    @IBOutlet weak var recentLocation: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +22,5 @@ class HomeOrWorkSet: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
