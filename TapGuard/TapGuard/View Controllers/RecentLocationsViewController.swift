@@ -11,43 +11,34 @@ import LocationPickerViewController
 
 class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var recentLocations: [(LocationItem)] = []
-    var selectedLocation: String = ""
+    var recentLocations: [LocationItem] = []
+    var selectedLocation: LocationItem = LocationItem.init(locationName: "1 Stockton St")
+    
+    @IBAction func addNewLocationPressed(_ sender: Any) {
+        print("sendBoolToHome")
+        performSegue(withIdentifier: "sendBoolToHome", sender: self)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentLocations.count + 1
+        return recentLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.item == 1) {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "newLocation", for: indexPath) as? ChooseNewLocationCell  else {
-                fatalError("The dequeued cell is not an instance of ChooseNewLocationCell.")
-            }
-            return cell
-        }
-        
-        else {
+
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "recentLocation", for: indexPath) as? RecentLocationCell else {
                 fatalError("The dequeued cell is not an instance of RecentLocationCell.")
             }
             cell.recentLocation.text = recentLocations[indexPath.item].name
-            
             return cell
-        }
-        
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.item == 0) {
-            performSegue(withIdentifier: "sendBoolToHome", sender: self)
-        }
-        else {
-            selectedLocation = recentLocations[indexPath.item].name
+            print("sendLocationDataToHome")
+            selectedLocation = recentLocations[indexPath.item]
             performSegue(withIdentifier: "sendLocationDatatoHome", sender: self)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,6 +48,7 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
         }
         else if (segue.identifier == "sendLocationDatatoHome") {
             let homeVC = segue.destination as! HomeViewController
+            homeVC.backFromRecents = true
             homeVC.pickedLocation = selectedLocation
         }
     }
