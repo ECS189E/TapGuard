@@ -73,7 +73,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             
             if backFromRecents == true {
                 recentLocations = getLocationsfromUserDefaults()
-                locationData.append(pickedLocation[0])
                 self.destinationTextField.text = pickedLocation[0]
                 let destinationCoordinate = CLLocationCoordinate2DMake(Double(pickedLocation[1]) ?? 0, Double(pickedLocation[2]) ?? 0)
                 self.destinationCoordinate = destinationCoordinate
@@ -91,7 +90,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
                 // Set camera position
                 self.userMapView.setCamera(MKMapCamera(lookingAtCenter: destinationCoordinate, fromEyeCoordinate: destinationCoordinate, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
                 backFromRecents = false
-                recentLocations.insert(locationData, at: 0)
+                if self.recentLocations.contains(pickedLocation) {
+                    self.recentLocations = self.recentLocations.filter{$0 != pickedLocation}
+                }
+                recentLocations.insert(pickedLocation, at: 0)
                 addLocationsToUserDefaults(locations: recentLocations)
             }
 
@@ -225,7 +227,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             self.locationData.append(pickedLocationItem.name)
             self.locationData.append(String(format:"%f", pickedLocationItem.coordinate?.latitude ?? 0.0))
             self.locationData.append(String(format:"%f", pickedLocationItem.coordinate?.longitude ?? 0.0))
-            self.recentLocations.append(self.locationData)
+            if self.recentLocations.contains(self.locationData) {
+                self.recentLocations = self.recentLocations.filter{$0 != self.locationData}
+            }
+            self.recentLocations.insert(self.locationData, at: 0)
             self.addLocationsToUserDefaults(locations: self.recentLocations)
             self.destinationTextField.text = pickedLocationItem.name
             let destinationCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
