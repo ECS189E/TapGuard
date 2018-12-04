@@ -15,8 +15,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     var user : User?
     var modeOfTransport: String = ""
     var ETA: TimeInterval = 0
-    var recentLocations: [LocationItem] = []
-    var pickedLocation: LocationItem = LocationItem.init(locationName: "1 Stockton St")
+    var locationData: [String] = []
+    var recentLocations: [[String]] = []
+    var pickedLocation: [String] = []
     var shouldPickLocation: Bool = false
     var backFromRecents: Bool = false
     let locationManager = CLLocationManager()
@@ -71,11 +72,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         } else {
             
             if backFromRecents == true {
-                let pickedLocationItem = pickedLocation
-                self.recentLocations.append(pickedLocationItem)
-                UserDefaults.standard.set(self.recentLocations, forKey: "locations")
-                self.destinationTextField.text = pickedLocationItem.name
-                let destinationCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
+                recentLocations = getLocationsfromUserDefaults()
+                locationData.append(pickedLocation[0])
+                self.destinationTextField.text = pickedLocation[0]
+                let destinationCoordinate = CLLocationCoordinate2DMake(Double(pickedLocation[1]) ?? 0, Double(pickedLocation[2]) ?? 0)
                 self.destinationCoordinate = destinationCoordinate
                 
                 self.userPromptForModeOfTransportLabel.text = "Mode of Transport?"
@@ -91,6 +91,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
                 // Set camera position
                 self.userMapView.setCamera(MKMapCamera(lookingAtCenter: destinationCoordinate, fromEyeCoordinate: destinationCoordinate, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
                 backFromRecents = false
+                recentLocations.insert(locationData, at: 0)
+                addLocationsToUserDefaults(locations: recentLocations)
             }
 
         }
@@ -216,15 +218,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     func pickNewLocation() {
-        let prevLocations = UserDefaults.standard.array(forKey: "locations") ?? []
-        print("PrevLocation: ", prevLocations)
-        self.recentLocations = prevLocations as! [LocationItem]
-        print("IN FUNCTION pickNewLocation, recentLocations = ", recentLocations)
+        recentLocations = getLocationsfromUserDefaults()
         let locationPicker = LocationPicker()
         locationPicker.pickCompletion = { (pickedLocationItem) in
             self.resetButtons()
-            self.recentLocations.append(pickedLocationItem)
-            UserDefaults.standard.set(self.recentLocations, forKey: "locations")
+            self.locationData.append(pickedLocationItem.name)
+            self.locationData.append(String(format:"%f", pickedLocationItem.coordinate?.latitude ?? 0.0))
+            self.locationData.append(String(format:"%f", pickedLocationItem.coordinate?.longitude ?? 0.0))
+            self.recentLocations.append(self.locationData)
+            self.addLocationsToUserDefaults(locations: self.recentLocations)
             self.destinationTextField.text = pickedLocationItem.name
             let destinationCoordinate = CLLocationCoordinate2DMake(pickedLocationItem.coordinate?.latitude ?? 0, pickedLocationItem.coordinate?.longitude ?? 0)
             self.destinationCoordinate = destinationCoordinate
@@ -279,6 +281,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
+        recentLocations = getLocationsfromUserDefaults()
         print("in function textFieldDidBeginEditing, recentlocations = ", recentLocations)
 //        if (recentLocations.count > 0) {
 //            if (recentLocations[0] == ") {
@@ -294,15 +297,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         }
     }
     
-    public static func saveLocations(locationsArray: [LocationItem]){
-        let locationsData = try! JSONEncoder().encode(locationsArray)
-        UserDefaults.standard.set(locationsData, forKey: "locations")
+    func getLocationsfromUserDefaults() -> [[String]] {
+        let myArray = UserDefaults.standard.array(forKey: "SavedLocations")
+        if (myArray == nil) {
+            return []
+        }
+        return myArray as! [[String]]
+        
     }
-    
-    public static func getLocations() -> [LocationItem]?{
-        let locationsData = UserDefaults.standard.data(forKey: "locations")
-        let locationsArray = try! JSONDecoder().decode([LocationItem].self, from: locationsData!)
-        return locationsArray
+    func addLocationsToUserDefaults(locations: [[String]]) {
+        UserDefaults.standard.set(locations, forKey: "SavedLocations")
     }
 }
 

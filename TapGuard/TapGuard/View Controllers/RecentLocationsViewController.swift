@@ -11,8 +11,8 @@ import LocationPickerViewController
 
 class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var recentLocations: [LocationItem] = []
-    var selectedLocation: LocationItem = LocationItem.init(locationName: "1 Stockton St")
+    var recentLocations: [[String]] = []
+    var selectedLocation: [String] = []
     
     @IBAction func addNewLocationPressed(_ sender: Any) {
         print("sendBoolToHome")
@@ -31,7 +31,7 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "recentLocation", for: indexPath) as? RecentLocationCell else {
                 fatalError("The dequeued cell is not an instance of RecentLocationCell.")
             }
-            cell.recentLocation.text = recentLocations[indexPath.item].name
+            cell.recentLocation.text = recentLocations[indexPath.item][0]
             return cell
     }
 
