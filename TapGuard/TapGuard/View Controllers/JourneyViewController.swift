@@ -154,36 +154,26 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     @IBAction func endJourneyButtonPressed(_ sender: Any) {
-        informationLabel.text = "Journey Completed!"
+        dismissWithPrompt()
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismissWithPrompt()
+    }
+    
+    func dismissWithPrompt() {
+        let alertController = UIAlertController(title: "Complete Journey", message: "Are you sure you want to end this journey session?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            self.informationLabel.text = "Journey Completed!"
+            sleep(1)
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
-
-// MARK : - Timer methods
-//extension JourneyViewController {
-//    func startTimer() {
-//        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: false)
-//    }
-//    
-//    func endTimer() {
-//        if ETA > 0 {
-//            ETA -= 1
-//        } else {
-//            endTimer()
-//        }
-//    }
-//
-//    @objc func updateTime() {
-//        print("Time remaining: \(timeFormatted(Int(ETA)))")
-//    }
-//
-//    func timeFormatted(_ totalSeconds: Int) -> String {
-//        let seconds = totalSeconds % 60
-//        let minutes = (totalSeconds / 60) % 60
-//        return "\(minutes):\(seconds)"
-//    }
-//
-//}
