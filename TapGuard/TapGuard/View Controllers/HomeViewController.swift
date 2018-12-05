@@ -22,6 +22,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     var backFromRecents: Bool = false
     let locationManager = CLLocationManager()
     
+    var isAddressChosen: Bool = false
+    var isModeOfTransportChosen: Bool = false
+    
     @IBOutlet weak var userMapView: MKMapView!
     @IBOutlet weak var destinationTextField: UITextField!
     @IBOutlet weak var userPromptForModeOfTransportLabel: UILabel!
@@ -106,6 +109,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         walkButton.setImage(UIImage(named: "walk_black"), for: .normal)
         transitButton.setImage(UIImage(named: "transit_blue"), for: .normal)
         setJourneyPathInMapView()
+        isModeOfTransportChosen = true
     }
     
     @IBAction func carPressed(_ sender: Any) {
@@ -114,6 +118,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         transitButton.setImage(UIImage(named: "transit_black"), for: .normal)
         carButton.setImage(UIImage(named: "car_blue"), for: .normal)
         setJourneyPathInMapView()
+        isModeOfTransportChosen = true
     }
     
     @IBAction func walkPressed(_ sender: Any) {
@@ -122,12 +127,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         transitButton.setImage(UIImage(named: "transit_black"), for: .normal)
         walkButton.setImage(UIImage(named: "walk_blue"), for: .normal)
         setJourneyPathInMapView()
+        isModeOfTransportChosen = true
     }
     
     func resetButtons() {
         carButton.setImage(UIImage(named: "car_black"), for: .normal)
         walkButton.setImage(UIImage(named: "walk_black"), for: .normal)
         transitButton.setImage(UIImage(named: "transit_black"), for: .normal)
+        isModeOfTransportChosen = false
     }
     
     func setJourneyPathInMapView() {
@@ -147,6 +154,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             
             return
         }
+        
+        // set boolean value of isAddressChosen to true
+        isAddressChosen = true
         
         print("Source: \(sourceCoordinates.latitude), \(sourceCoordinates.longitude)")
         print("Destination: \(destinationCoordinates.latitude), \(destinationCoordinates.longitude)")
@@ -189,6 +199,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             if error != nil {
                 print(error.debugDescription)
                 self.userPromptForModeOfTransportLabel.text = "Route Not Found..."
+                self.resetButtons()
                 return
             } else {
                 self.userPromptForModeOfTransportLabel.text = "Mode of Transport?"
@@ -257,6 +268,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     @IBAction func startJourneyPressed(_ sender: Any) {
+        if !isAddressChosen {
+            userPromptForModeOfTransportLabel.text = "Please select address"
+            return
+        }
+        if !isModeOfTransportChosen {
+            userPromptForModeOfTransportLabel.text = "Please select mode of transport"
+            return
+        }
         performSegue(withIdentifier: "journeyFromHome", sender: self)
     }
     
@@ -265,13 +284,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             let destinationVC = segue.destination as! JourneyViewController
             
             // Set destination ETA
-            destinationVC.ETA = self.ETA
+            destinationVC.ETA = self.ETA.magnitude*3600
             destinationVC.modeOfTransport = self.modeOfTransport
             destinationVC.sourceCoordinate = self.sourceCoordinate
             destinationVC.destinationCoordinate = self.destinationCoordinate
             
             if let user = user {
                 destinationVC.emergencyContacts = user.contacts
+                destinationVC.userName = user.userName
+                destinationVC.userPhoneNumber = user.phoneNumber
             }
         }
         

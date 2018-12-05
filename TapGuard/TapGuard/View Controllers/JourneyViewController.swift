@@ -14,12 +14,15 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     let locationManager = CLLocationManager()
     
-    var ETA : TimeInterval?
+    var ETA : Double = 0
     var modeOfTransport : String?
     var sourceCoordinate : CLLocationCoordinate2D?
     var destinationCoordinate : CLLocationCoordinate2D?
     var emergencyContacts : [EmergencyContact] = []
     var userName : String = "Unknown"
+    var userPhoneNumber : String = "Unknown Number"
+    
+    var countdownTimer : Timer?
     
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var userMapView: MKMapView!
@@ -44,6 +47,11 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         userMapView.showsPointsOfInterest = true
         
         setJourneyPathInMapView()
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + ETA + 5){
+            print("Entered global thread and executing contactEmergencyContacts()")
+            self.contactEmergencyContacts()
+        }
     }
     
     func setJourneyPathInMapView() {
@@ -129,7 +137,7 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             
             let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
             for contact in self.emergencyContacts {
-                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) would like to contact you in an emergency"] as [String : Any]
+                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) with phone number \(self.userPhoneNumber) would like to contact you in an emergency"] as [String : Any]
                 Alamofire.request(url, method: .post, parameters: parameters)
                     .authenticate(user: accountSID, password: authToken)
                     .responseString { response in
@@ -146,9 +154,26 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     @IBAction func endJourneyButtonPressed(_ sender: Any) {
+        dismissWithPrompt()
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismissWithPrompt()
+    }
+    
+    func dismissWithPrompt() {
+        let alertController = UIAlertController(title: "Complete Journey", message: "Are you sure you want to end this journey session?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            self.informationLabel.text = "Journey Completed!"
+            sleep(1)
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(confirmAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
