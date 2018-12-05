@@ -97,7 +97,6 @@ PODS:
   - PhoneNumberKit/UIKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - SwiftyButton (0.8.2)
-  - SwiftyTimer (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -109,7 +108,6 @@ DEPENDENCIES:
   - LocationPickerViewController
   - PhoneNumberKit
   - SwiftyButton
-  - SwiftyTimer
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -133,7 +131,6 @@ SPEC REPOS:
     - nanopb
     - PhoneNumberKit
     - SwiftyButton
-    - SwiftyTimer
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -156,8 +153,7 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
-  SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
 
-PODFILE CHECKSUM: 37bbbc6535b4be1695ff6ce9e256fe2f6a9f2dff
+PODFILE CHECKSUM: 5295b1f6215785d590201f106cb466d3d1f52a4b
 
 COCOAPODS: 1.5.3
