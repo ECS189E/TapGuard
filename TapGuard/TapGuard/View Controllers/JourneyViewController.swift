@@ -14,7 +14,7 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     let locationManager = CLLocationManager()
     
-    var ETA : TimeInterval?
+    var ETA : Double = 0
     var modeOfTransport : String?
     var sourceCoordinate : CLLocationCoordinate2D?
     var destinationCoordinate : CLLocationCoordinate2D?
@@ -47,6 +47,11 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         userMapView.showsPointsOfInterest = true
         
         setJourneyPathInMapView()
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + ETA + 5){
+            print("Entered global thread and executing contactEmergencyContacts()")
+            self.contactEmergencyContacts()
+        }
     }
     
     func setJourneyPathInMapView() {
@@ -149,9 +154,36 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     @IBAction func endJourneyButtonPressed(_ sender: Any) {
+        informationLabel.text = "Journey Completed!"
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+// MARK : - Timer methods
+//extension JourneyViewController {
+//    func startTimer() {
+//        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: false)
+//    }
+//    
+//    func endTimer() {
+//        if ETA > 0 {
+//            ETA -= 1
+//        } else {
+//            endTimer()
+//        }
+//    }
+//
+//    @objc func updateTime() {
+//        print("Time remaining: \(timeFormatted(Int(ETA)))")
+//    }
+//
+//    func timeFormatted(_ totalSeconds: Int) -> String {
+//        let seconds = totalSeconds % 60
+//        let minutes = (totalSeconds / 60) % 60
+//        return "\(minutes):\(seconds)"
+//    }
+//
+//}

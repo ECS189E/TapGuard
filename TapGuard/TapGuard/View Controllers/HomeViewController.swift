@@ -265,7 +265,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             let destinationVC = segue.destination as! JourneyViewController
             
             // Set destination ETA
-            destinationVC.ETA = self.ETA
+            destinationVC.ETA = self.ETA.magnitude*3600
             destinationVC.modeOfTransport = self.modeOfTransport
             destinationVC.sourceCoordinate = self.sourceCoordinate
             destinationVC.destinationCoordinate = self.destinationCoordinate
