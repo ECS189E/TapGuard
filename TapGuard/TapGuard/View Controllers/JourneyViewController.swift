@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Alamofire
+import CoreLocation
 
 class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -23,6 +24,9 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     var userPhoneNumber : String = "Unknown Number"
     
     var countdownTimer : Timer?
+    var totalTimeRemaining: Double = 0
+    
+    var radiusFromSourceToDestinationInMetres: Double?
     
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var userMapView: MKMapView!
@@ -46,12 +50,31 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         userMapView.showsScale = true
         userMapView.showsPointsOfInterest = true
         
+        // Set Journey Path
         setJourneyPathInMapView()
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + ETA + 5){
-            print("Entered global thread and executing contactEmergencyContacts()")
-            self.contactEmergencyContacts()
+        // Calculate radius of path
+        guard let sourceCoordinates = sourceCoordinate else {
+            print("Source coordinates not found when checking location and reporting")
+            return
         }
+        
+        guard let destinationCoordinates = destinationCoordinate else {
+            print("Destination coordinates not found when checking location and reporting")
+            return
+        }
+        radiusFromSourceToDestinationInMetres = CLLocation(latitude: sourceCoordinates.latitude, longitude: sourceCoordinates.longitude).distance(from: CLLocation(latitude: destinationCoordinates.latitude, longitude: destinationCoordinates.longitude))
+        
+        // Check if deadline + 5 min reached. If so, contact emergency Contacts
+        if let destinationCoordinate = self.destinationCoordinate {
+            DispatchQueue.global().asyncAfter(deadline: .now() + self.ETA + 300){
+                print("Entered global thread and executing contactEmergencyContacts()")
+                self.contactEmergencyContacts(specialMessage: "\(self.userName) took too long to reach his destination at lat: \(destinationCoordinate.latitude), long: \(destinationCoordinate.longitude)")
+            }
+        }
+        
+        // Start repeat timer for checking of location to source and destination
+        startCheckLocationTimer()
     }
     
     func setJourneyPathInMapView() {
@@ -129,15 +152,22 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         return renderer
     }
     
-    func contactEmergencyContacts() {
+    func contactEmergencyContacts(specialMessage: String = "") {
         DispatchQueue.global().async {
-            // We hard code SID and auth Token for now
+            // We hard code SID and auth Token for now during development phase
             let accountSID = "AC39ad80696ad342ad268f2945f051804c"
             let authToken = "759bf01a06f304f41162e3d4a6cbb938"
             
+            // Get current location
+            guard let sourceCoordinates = self.locationManager.location?.coordinate else {
+                print("Source coordinates could not be found")
+                return
+            }
+            
+            // Make call to send sms
             let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
             for contact in self.emergencyContacts {
-                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) with phone number \(self.userPhoneNumber) would like to contact you in an emergency"] as [String : Any]
+                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) with phone number \(self.userPhoneNumber) would like to contact you in an emergency. Last known location at lat: \(sourceCoordinates.latitude), long: \(sourceCoordinates.longitude). \(specialMessage)"] as [String : Any]
                 Alamofire.request(url, method: .post, parameters: parameters)
                     .authenticate(user: accountSID, password: authToken)
                     .responseString { response in
@@ -175,5 +205,56 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         alertController.addAction(confirmAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK : - Extension methods for countdown timer for checking of location
+extension JourneyViewController {
+    func startCheckLocationTimer() {
+        totalTimeRemaining = ETA.magnitude
+        // Checks every 5 minutes
+        countdownTimer = Timer.scheduledTimer(timeInterval: 250, target: self, selector: #selector(checkLocationAndReport), userInfo: nil, repeats: true)
+    }
+    
+    @objc func checkLocationAndReport() {
+        if totalTimeRemaining > 0 {
+            totalTimeRemaining -= 1
+            
+            // Check location. If exceeds 1km from source AND destination, alert emergency contacts
+            guard let currentCoordinates = locationManager.location?.coordinate else {
+                print("Source coordinates could not be found")
+                return
+            }
+            
+            guard let sourceCoordinates = sourceCoordinate else {
+                print("Source coordinates not found when checking location and reporting")
+                return
+            }
+            
+            guard let destinationCoordinates = destinationCoordinate else {
+                print("Destination coordinates not found when checking location and reporting")
+                return
+            }
+            
+            guard let radiusFromSourceToDestinationInMetres = radiusFromSourceToDestinationInMetres else {
+                print("Radius not found when checking location and reporting")
+                return
+            }
+            
+            let distanceFromSourceInMetres = CLLocation(latitude: currentCoordinates.latitude, longitude: currentCoordinates.longitude).distance(from: CLLocation(latitude: sourceCoordinates.latitude, longitude: sourceCoordinates.longitude))
+            
+            let distanceFromDestinationInMetres = CLLocation(latitude: currentCoordinates.latitude, longitude: currentCoordinates.longitude).distance(from: CLLocation(latitude: destinationCoordinates.latitude, longitude: destinationCoordinates.longitude))
+            
+            if distanceFromSourceInMetres > radiusFromSourceToDestinationInMetres && distanceFromDestinationInMetres > radiusFromSourceToDestinationInMetres {
+                contactEmergencyContacts(specialMessage: "\(self.userName) veered off course significantly.")
+            }
+            
+        } else {
+            endTimer()
+        }
+    }
+    
+    func endTimer() {
+        countdownTimer?.invalidate()
     }
 }
