@@ -186,6 +186,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             
             if let user = user {
                 destinationVC.emergencyContacts = user.contacts
+                destinationVC.userName = user.userName
+                destinationVC.userPhoneNumber = user.phoneNumber
             }
         }
     }

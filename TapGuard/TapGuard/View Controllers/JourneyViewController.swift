@@ -20,6 +20,9 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     var destinationCoordinate : CLLocationCoordinate2D?
     var emergencyContacts : [EmergencyContact] = []
     var userName : String = "Unknown"
+    var userPhoneNumber : String = "Unknown Number"
+    
+    var countdownTimer : Timer?
     
     @IBOutlet weak var informationLabel: UILabel!
     @IBOutlet weak var userMapView: MKMapView!
@@ -129,7 +132,7 @@ class JourneyViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             
             let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
             for contact in self.emergencyContacts {
-                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) would like to contact you in an emergency"] as [String : Any]
+                let parameters = ["From": +19893738323, "To": contact.phoneNumber, "Body": "TapGuard: \(self.userName) with phone number \(self.userPhoneNumber) would like to contact you in an emergency"] as [String : Any]
                 Alamofire.request(url, method: .post, parameters: parameters)
                     .authenticate(user: accountSID, password: authToken)
                     .responseString { response in
