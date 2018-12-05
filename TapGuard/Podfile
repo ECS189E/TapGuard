@@ -17,5 +17,7 @@ target 'TapGuard' do
 
   pod 'LocationPickerViewController'
 
+  pod 'SwiftyTimer'
+
   pod 'Alamofire'
 end
