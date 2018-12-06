@@ -10,6 +10,8 @@
 		5BE3BFF5F8C64924EC8FE1BE /* Pods_TapGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */; };
 		E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */; };
 		E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691FB8C21A35E0200A41305 /* EmergencyContact.swift */; };
+		E6B0613521B4B0D600F64186 /* RecentLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0613421B4B0D600F64186 /* RecentLocationCell.swift */; };
+		E6B0613721B4B1B700F64186 /* ChooseNewLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B0613621B4B1B700F64186 /* ChooseNewLocationCell.swift */; };
 		E6C2FF6B21A12760005A9813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6A21A12760005A9813 /* User.swift */; };
 		E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */; };
 		E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */; };
@@ -18,6 +20,8 @@
 		E6C2FF7D21A2942E005A9813 /* CreateNewContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF7C21A2942E005A9813 /* CreateNewContactCell.swift */; };
 		E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContactCell.swift */; };
 		E6C2FF8521A2A2EB005A9813 /* DisplayEmergencyContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContactCell.xib */; };
+		E6FB3BB921B1CCE6003E494B /* RecentLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FB3BB821B1CCE6003E494B /* RecentLocationsViewController.swift */; };
+		F800E1A121B36A420076F6FF /* JourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F800E1A021B36A420076F6FF /* JourneyViewController.swift */; };
 		F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83D97F02199E7D900C3333D /* AppDelegate.swift */; };
 		F83D97F62199E7D900C3333D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F42199E7D900C3333D /* Main.storyboard */; };
 		F83D97F82199E7DB00C3333D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83D97F72199E7DB00C3333D /* Assets.xcassets */; };
@@ -35,6 +39,8 @@
 		A0D5E31E9AF25E16FAB83625 /* Pods-TapGuard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapGuard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard.debug.xcconfig"; sourceTree = "<group>"; };
 		E691FB8A21A3560200A41305 /* NoEmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoEmergencyContactCell.swift; path = "TapGuard/View Controllers/SettingViewControllerCells/NoEmergencyContactCell.swift"; sourceTree = SOURCE_ROOT; };
 		E691FB8C21A35E0200A41305 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
+		E6B0613421B4B0D600F64186 /* RecentLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentLocationCell.swift; sourceTree = "<group>"; };
+		E6B0613621B4B1B700F64186 /* ChooseNewLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNewLocationCell.swift; sourceTree = "<group>"; };
 		E6C2FF6A21A12760005A9813 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E6C2FF6F21A13BB9005A9813 /* EmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactCell.swift; sourceTree = "<group>"; };
@@ -43,7 +49,9 @@
 		E6C2FF7C21A2942E005A9813 /* CreateNewContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewContactCell.swift; sourceTree = "<group>"; };
 		E6C2FF8221A2A1C5005A9813 /* DisplayEmergencyContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEmergencyContactCell.swift; sourceTree = "<group>"; };
 		E6C2FF8421A2A2EB005A9813 /* DisplayEmergencyContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayEmergencyContactCell.xib; sourceTree = "<group>"; };
+		E6FB3BB821B1CCE6003E494B /* RecentLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentLocationsViewController.swift; path = "TapGuard/View Controllers/RecentLocationsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		EA46530FE7198F27B755F09F /* Pods_TapGuard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapGuard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F800E1A021B36A420076F6FF /* JourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewController.swift; sourceTree = "<group>"; };
 		F83D97ED2199E7D900C3333D /* TapGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83D97F02199E7D900C3333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F83D97F52199E7D900C3333D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +119,15 @@
 			path = SettingViewControllerCells;
 			sourceTree = "<group>";
 		};
+		E6FB3BBE21B1CD96003E494B /* DestinationViewControllerCells */ = {
+			isa = PBXGroup;
+			children = (
+				E6B0613421B4B0D600F64186 /* RecentLocationCell.swift */,
+				E6B0613621B4B1B700F64186 /* ChooseNewLocationCell.swift */,
+			);
+			path = DestinationViewControllerCells;
+			sourceTree = "<group>";
+		};
 		F83D97E42199E7D900C3333D = {
 			isa = PBXGroup;
 			children = (
@@ -147,12 +164,15 @@
 		F84BF19B219A46070056B195 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E6FB3BBE21B1CD96003E494B /* DestinationViewControllerCells */,
 				E6C2FF7321A28BB4005A9813 /* SettingViewControllerCells */,
 				F84BF199219A45F60056B195 /* PhoneNumberViewController.swift */,
+				E6FB3BB821B1CCE6003E494B /* RecentLocationsViewController.swift */,
 				F84BF19C219A496B0056B195 /* LoginViewController.swift */,
 				F8994E77219A69E0000F4A55 /* VerificationViewController.swift */,
 				F8CD5265219CCD9C00CA69D9 /* HomeViewController.swift */,
 				E6C2FF6D21A12B6F005A9813 /* SettingsViewController.swift */,
+				F800E1A021B36A420076F6FF /* JourneyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -240,6 +260,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TapGuard/Pods-TapGuard-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -254,6 +275,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -324,15 +346,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F800E1A121B36A420076F6FF /* JourneyViewController.swift in Sources */,
 				E6C2FF7021A13BB9005A9813 /* EmergencyContactCell.swift in Sources */,
+				E6B0613521B4B0D600F64186 /* RecentLocationCell.swift in Sources */,
 				E6C2FF7D21A2942E005A9813 /* CreateNewContactCell.swift in Sources */,
 				F8CD5266219CCD9C00CA69D9 /* HomeViewController.swift in Sources */,
 				F8E3462D21A32BF500FA3718 /* Functions.swift in Sources */,
+				E6FB3BB921B1CCE6003E494B /* RecentLocationsViewController.swift in Sources */,
 				E691FB8B21A3560200A41305 /* NoEmergencyContactCell.swift in Sources */,
 				F84BF19D219A496B0056B195 /* LoginViewController.swift in Sources */,
 				E691FB8D21A35E0200A41305 /* EmergencyContact.swift in Sources */,
 				E6C2FF8321A2A1C5005A9813 /* DisplayEmergencyContactCell.swift in Sources */,
 				E6C2FF6E21A12B6F005A9813 /* SettingsViewController.swift in Sources */,
+				E6B0613721B4B1B700F64186 /* ChooseNewLocationCell.swift in Sources */,
 				F83D97F12199E7D900C3333D /* AppDelegate.swift in Sources */,
 				F8994E78219A69E0000F4A55 /* VerificationViewController.swift in Sources */,
 				F84BF19A219A45F60056B195 /* PhoneNumberViewController.swift in Sources */,

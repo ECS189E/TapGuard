@@ -23,6 +23,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidRetreatFromHome(_:)), name: .didRetreatFromHome, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
+        GIDSignIn.sharedInstance().signIn()
     }
     
     
@@ -40,6 +43,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         // Pass user information to verification view controller
         if let data = notification.userInfo as? [String: GIDGoogleUser] {
+            print("Performing segue")
             guard let googleUserObject = data["user"] else {
                 print("Could not get google user object")
                 return
