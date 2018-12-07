@@ -77,8 +77,7 @@ https://xd.adobe.com/view/4fcc0843-b4a6-4c78-7cff-e146b7e54226-39fd/
 
 ## Settings View
 Still under construction
-<!-- <img src="DocumentationMedia/SettingsViewPortrait.png" alt="Settings View Portrait">
-<img src="DocumentationMedia/SettingsViewLandscape.png" alt="Settings View Landscape"> -->
+<img src="DocumentationMedia/SettingsViewPortrait.png" alt="Settings View Portrait">
 
 ## Recent Locations View
 <img src="DocumentationMedia/RecentLocationsViewPortrait.png" alt="Recent Locations View Portrait">
