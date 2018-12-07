@@ -17,9 +17,6 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBAction func addNewLocationPressed(_ sender: Any) {
         print("sendBoolToHome")
-        //performSegue(withIdentifier: "sendBoolToHome", sender: self)
-        //homeVCRef?.shouldPickLocation = true
-        //homeVCRef?.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "sendBoolToHome"), object: nil)
     }
     
@@ -43,21 +40,6 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
         print("sendLocationDataToHome")
         selectedLocation = recentLocations[indexPath.item]
         NotificationCenter.default.post(name: Notification.Name(rawValue: "sendLocationDatatoHome"), object: selectedLocation)
-        //performSegue(withIdentifier: "sendLocationDatatoHome", sender: self)
-        //homeVCRef?.backFromRecents = true
-        //homeVCRef?.pickedLocation = selectedLocation
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "sendBoolToHome") {
-            let homeVC = segue.destination as! HomeViewController
-            homeVC.shouldPickLocation = true
-        }
-        else if (segue.identifier == "sendLocationDatatoHome") {
-            let homeVC = segue.destination as! HomeViewController
-            homeVC.backFromRecents = true
-            homeVC.pickedLocation = selectedLocation
-        }
     }
 
     override func viewDidLoad() {

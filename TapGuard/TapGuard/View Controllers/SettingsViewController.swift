@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "createNewContact"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "editContact"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "saveContact"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contactNotifier(noti:)), name: Notification.Name(rawValue: "deleteContact"), object: nil)
         super.viewDidLoad()
     }
     
@@ -120,6 +121,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return
             })
             self.selected = -1
+        }
+        else if(noti.name.rawValue == "deleteContact"){
+            self.state = -1
+            self.user.contacts.remove(at: selected)
+            self.selected = -1
+            Functions.updateUserDetails(user: self.user, completion: {(result) in
+                return
+            })
         }
         self.ContactsTableView.reloadData()
     }

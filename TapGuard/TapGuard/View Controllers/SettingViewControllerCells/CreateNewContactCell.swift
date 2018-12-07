@@ -34,5 +34,8 @@ class CreateNewContactCell: UITableViewCell {
         self.Contact.isLocationSharingOn = self.shouldShareLocation.selectedSegmentIndex == 0
         NotificationCenter.default.post(name: Notification.Name(rawValue: "saveContact"), object: self.Contact)
     }
-
+    @IBAction func deletePressed(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "deleteContact"), object: self.Contact)
+    }
+    
 }

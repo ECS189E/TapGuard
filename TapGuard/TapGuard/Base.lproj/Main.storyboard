@@ -654,10 +654,6 @@
                         <viewLayoutGuide key="safeArea" id="G0j-VL-3w7"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendBoolToHome" id="0Bu-ge-QRN"/>
-                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendLocationDatatoHome" id="NAx-RY-EVU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAB-sU-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

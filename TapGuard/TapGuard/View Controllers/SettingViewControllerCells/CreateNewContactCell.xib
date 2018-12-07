@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="257.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Emergency Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s28-7D-rLP">
-                        <rect key="frame" x="94" y="13" width="187" height="19"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Emergency Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s28-7D-rLP">
+                        <rect key="frame" x="94.5" y="13" width="186" height="19"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -82,11 +82,24 @@
                             <action selector="savePressed:" destination="BJ4-6r-2d8" eventType="touchUpInside" id="IhV-0Q-ErX"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwZ-ry-mHE">
+                        <rect key="frame" x="314" y="218" width="45" height="30"/>
+                        <state key="normal" title="Delete">
+                            <color key="titleColor" red="1" green="0.049348935569395791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="deletePressed:" destination="BJ4-6r-2d8" eventType="touchUpInside" id="9Ys-7T-Cne"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="M3C-VX-s79" secondAttribute="trailing" constant="-12" id="6LZ-t9-DfV"/>
                     <constraint firstItem="Nx2-Ws-NiX" firstAttribute="trailing" secondItem="XRo-jg-x0k" secondAttribute="trailing" id="78R-cN-gnO"/>
+                    <constraint firstItem="HwZ-ry-mHE" firstAttribute="baseline" secondItem="eBe-82-rKx" secondAttribute="baseline" id="8Nm-eQ-pzF"/>
                     <constraint firstItem="XRo-jg-x0k" firstAttribute="centerX" secondItem="eBe-82-rKx" secondAttribute="centerX" id="AaZ-Ar-WfZ"/>
+                    <constraint firstItem="HwZ-ry-mHE" firstAttribute="trailing" secondItem="DLI-XQ-PmF" secondAttribute="trailingMargin" id="C8y-Zx-hwe"/>
+                    <constraint firstItem="s28-7D-rLP" firstAttribute="top" secondItem="DLI-XQ-PmF" secondAttribute="topMargin" constant="2" id="DOW-VH-ksi"/>
+                    <constraint firstItem="s28-7D-rLP" firstAttribute="top" secondItem="DLI-XQ-PmF" secondAttribute="topMargin" constant="2" id="Hae-qb-07p"/>
                     <constraint firstItem="Nx2-Ws-NiX" firstAttribute="top" secondItem="s28-7D-rLP" secondAttribute="bottom" constant="8" symbolic="YES" id="J54-wr-tWc"/>
                     <constraint firstItem="MgD-AL-fMk" firstAttribute="leading" secondItem="LVM-rR-E7L" secondAttribute="leading" id="SZg-Cb-nbd"/>
                     <constraint firstItem="LVM-rR-E7L" firstAttribute="top" secondItem="MgD-AL-fMk" secondAttribute="bottom" constant="14" id="UPW-A8-cMW"/>

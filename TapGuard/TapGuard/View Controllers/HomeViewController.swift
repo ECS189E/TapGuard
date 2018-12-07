@@ -323,11 +323,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         recentLocations = getLocationsfromUserDefaults()
         print("in function textFieldDidBeginEditing, recentlocations = ", recentLocations)
-//        if (recentLocations.count > 0) {
-//            if (recentLocations[0] == ") {
-//                _ = recentLocations.popLast()
-//            }
-//        }
         self.destinationTextField.text = ""
         if (recentLocations.count > 0 && self.shouldPickLocation == false) {
             performSegue(withIdentifier: "recentLocationsFromHome", sender: self)
@@ -359,7 +354,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             self.pickedLocation = noti.object as! [String]
         }
         self.navigationController?.popViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
     }
 }
 
