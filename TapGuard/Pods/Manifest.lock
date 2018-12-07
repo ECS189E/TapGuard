@@ -91,6 +91,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.5.0)
   - PhoneNumberKit/UIKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore
+  - PMAlertController (3.5.0)
   - SwiftyButton (0.8.2)
 
 DEPENDENCIES:
@@ -103,6 +104,7 @@ DEPENDENCIES:
   - libPhoneNumber-iOS (~> 0.8)
   - LocationPickerViewController
   - PhoneNumberKit
+  - PMAlertController
   - SwiftyButton
 
 SPEC REPOS:
@@ -126,6 +128,7 @@ SPEC REPOS:
     - LocationPickerViewController
     - nanopb
     - PhoneNumberKit
+    - PMAlertController
     - SwiftyButton
 
 SPEC CHECKSUMS:
@@ -148,8 +151,9 @@ SPEC CHECKSUMS:
   LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
+  PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: ae4a66205fee644064ea5547ffd5e12b16291e52
+PODFILE CHECKSUM: c0a10881d6000d88d22bc98cdf381ee4002a5086
 
 COCOAPODS: 1.5.3
