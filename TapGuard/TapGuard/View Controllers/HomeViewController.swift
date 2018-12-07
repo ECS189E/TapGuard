@@ -58,7 +58,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
             guard let sourceCoordinates = locationManager.location?.coordinate else {
-                fatalError("Source coordinates could not be found")
+                print("Source coordinates could not be found")
+                return
             }
 
             sourceCoordinate = sourceCoordinates

@@ -25,6 +25,7 @@
 3. PhoneNumberKit
 4. LocationPickerViewController
 5. Alamofire
+6. PMAlertController
 
 # Contribution Overview
 ## Charles
@@ -35,19 +36,23 @@
 - HomeViewController and HomeView (With Saksham)
 - JourneyViewController and JourneyView (With Saksham)
 - Twilio and Firebase Setup
-- EmergencyContact Model (With Saksham)
-- Functions API which connects client side to Firebase
+- EmergencyContact Model (With Saksham & Dhawal)
+- Functions API which connects client side to Firebase (With Dhawal)
 
 ## Saksham
 - HomeViewController and HomeView (With Charles)
 - JourneyViewController and JourneyView (With Charles)
 - RecentLocationsViewController and RecentLocationsView
-- SettingsView UI Components
-- User Model
-- EmergencyContact Model (With Charles)
+- SettingsView UI Components (With Dhawal)
+- User Model (With Dhawal)
+- EmergencyContact Model (With Charles & Dhawal)
 
 ## Dhawal
-- SettingsViewController and SettingsView (Still under development)
+- SettingsViewController
+- User Model (With Saksham)
+- EmergencyContactModel (With Charles & Saksham)
+- Funtions API (With Charles)
+- UI Improvements in Login, Home, RecentLocationPicker
 
 # Mockup
 https://xd.adobe.com/view/4fcc0843-b4a6-4c78-7cff-e146b7e54226-39fd/
