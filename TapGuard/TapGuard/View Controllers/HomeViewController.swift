@@ -66,6 +66,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
 //            print(sourceCoordinate.debugDescription)
 //            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: sourceCoordinates, fromEyeCoordinate: sourceCoordinates, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
         }
+        
+        //set up notification observers for returning from recents
+        NotificationCenter.default.addObserver(self, selector: #selector(self.returnFromRecents(noti:)), name: Notification.Name(rawValue: "sendBoolToHome"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.returnFromRecents(noti:)), name: Notification.Name(rawValue: "sendLocationDatatoHome"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -299,6 +303,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         if segue.identifier == "recentLocationsFromHome" {
             let recentVC = segue.destination as! RecentLocationsViewController
             recentVC.recentLocations = self.recentLocations
+            recentVC.homeVCRef = self
         }
         
         if segue.identifier == "presentSettingsFromHome" {
@@ -330,6 +335,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         else {
             pickNewLocation()
         }
+        textField.endEditing(true)
     }
     
     func getLocationsfromUserDefaults() -> [[String]] {
@@ -342,6 +348,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     func addLocationsToUserDefaults(locations: [[String]]) {
         UserDefaults.standard.set(locations, forKey: "SavedLocations")
+    }
+    
+    @objc func returnFromRecents(noti: Notification){
+        if noti.name == Notification.Name(rawValue: "sendBoolToHome"){
+            self.shouldPickLocation = true
+        }
+        else{
+            self.backFromRecents = true
+            self.pickedLocation = noti.object as! [String]
+        }
+        self.navigationController?.popViewController(animated: true)
+        //self.dismiss(animated: true, completion: nil)
     }
 }
 

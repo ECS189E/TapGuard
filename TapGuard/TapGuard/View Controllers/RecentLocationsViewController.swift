@@ -13,10 +13,14 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
     
     var recentLocations: [[String]] = []
     var selectedLocation: [String] = []
+    var homeVCRef: HomeViewController?
     
     @IBAction func addNewLocationPressed(_ sender: Any) {
         print("sendBoolToHome")
-        performSegue(withIdentifier: "sendBoolToHome", sender: self)
+        //performSegue(withIdentifier: "sendBoolToHome", sender: self)
+        //homeVCRef?.shouldPickLocation = true
+        //homeVCRef?.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "sendBoolToHome"), object: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,9 +40,12 @@ class RecentLocationsViewController: UIViewController, UITableViewDelegate, UITa
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            print("sendLocationDataToHome")
-            selectedLocation = recentLocations[indexPath.item]
-            performSegue(withIdentifier: "sendLocationDatatoHome", sender: self)
+        print("sendLocationDataToHome")
+        selectedLocation = recentLocations[indexPath.item]
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "sendLocationDatatoHome"), object: selectedLocation)
+        //performSegue(withIdentifier: "sendLocationDatatoHome", sender: self)
+        //homeVCRef?.backFromRecents = true
+        //homeVCRef?.pickedLocation = selectedLocation
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
