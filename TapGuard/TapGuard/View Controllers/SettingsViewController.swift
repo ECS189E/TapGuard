@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var delegate: SettingsUpdateDelegate?
     var selected: Int = -1
     var state: Int = -1
+    var isEditingNewContact = false
    
     override func viewDidLoad() {
         ContactsTableView.register(UINib.init(nibName: "NoEmergencyContactCell", bundle: nil), forCellReuseIdentifier: "NoEmergencyContactCell")
@@ -53,7 +54,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(user.contacts.count-1 < indexPath.item && !(selected == indexPath.item)){
+        if(user.contacts.count-1 < indexPath.item && selected != indexPath.item){
             return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
         else{
@@ -63,23 +64,33 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.setup(contact: self.user.contacts[indexPath.item])
                     return cell
                 }
-                if(state == 2){
-                    return tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
-                }
+            }
+            else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DisplayEmergencyContactCell") as! DisplayEmergencyContactCell
+                cell.setup(contact: self.user.contacts[indexPath.item])
+                return cell
             }
             return tableView.dequeueReusableCell(withIdentifier: "NoEmergencyContactCell") as! NoEmergencyContactCell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         if(tableView.cellForRow(at: indexPath) is NoEmergencyContactCell){
             selected = indexPath.item
             state = 1
+            self.isEditingNewContact = true
             let contactPickerVC = CNContactPickerViewController()
             contactPickerVC.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
             contactPickerVC.delegate = self
             self.present(contactPickerVC, animated: true, completion: nil)
             //tableView.reloadData()
+        }
+        else if(tableView.cellForRow(at: indexPath) is DisplayEmergencyContactCell){
+            selected = indexPath.item
+            state = 1
+            self.isEditingNewContact = false
+            tableView.reloadData()
         }
     }
     
@@ -92,24 +103,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func contactNotifier(noti: NSNotification){
-        let dict = noti.object as! Dictionary<String, Any>
-        selected = dict["selected"] as! Int
-        
-        if(noti.name.rawValue == "createNewContact"){
-            state = -1
-        }
-        else if(noti.name.rawValue == "editContact"){
-            state = 1
-            self.currentContact = dict["contact"] as! EmergencyContact
-        }
-        else if(noti.name.rawValue == "saveContact"){
-            state = 2
+        let editContact = noti.object as! EmergencyContact
+        //selected = dict["selected"] as! Int
+        if(noti.name.rawValue == "saveContact"){
+            self.state = 2
             if(self.user.contacts.count < selected+1){
-                self.user.contacts.append(dict["contact"] as! EmergencyContact)
+                self.user.contacts.append(editContact)
             }
             else{
-                self.user.contacts[selected] = dict["contact"] as! EmergencyContact
+                self.user.contacts[selected] = editContact
             }
+            self.selected = -1
         }
         self.ContactsTableView.reloadData()
     }
@@ -120,7 +124,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.ContactsTableView.reloadData()
     }
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        let newContact = EmergencyContact(userName: contact.givenName, phoneNumber: contact.phoneNumbers[0].value.stringValue, isTrusted: true, isLocationSharingOn: false, isPrimary: false)
+        let newContact = EmergencyContact(userName: contact.givenName + " " + contact.familyName, phoneNumber: contact.phoneNumbers[0].value.stringValue, isTrusted: true, isLocationSharingOn: false, isPrimary: false)
         self.state = 1
         if(self.user.contacts.count < selected+1){
             self.user.contacts.append(newContact)
