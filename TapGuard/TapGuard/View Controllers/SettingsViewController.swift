@@ -100,6 +100,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.delegate?.updateUser(user: self.user)
+        Functions.updateUserDetails(user: self.user, completion: {(result) in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc func contactNotifier(noti: NSNotification){
@@ -113,6 +116,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             else{
                 self.user.contacts[selected] = editContact
             }
+            Functions.updateUserDetails(user: self.user, completion: {(result) in
+                return
+            })
             self.selected = -1
         }
         self.ContactsTableView.reloadData()

@@ -300,6 +300,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             let recentVC = segue.destination as! RecentLocationsViewController
             recentVC.recentLocations = self.recentLocations
         }
+        
+        if segue.identifier == "presentSettingsFromHome" {
+            let settingsVC = segue.destination as! SettingsViewController
+            settingsVC.user = self.user!
+        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
