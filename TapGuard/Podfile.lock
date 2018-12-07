@@ -1,37 +1,38 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Firebase/Auth (5.9.0):
+  - Alamofire (4.8.0)
+  - Firebase/Auth (5.14.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.4)
-  - Firebase/Core (5.9.0):
+    - FirebaseAuth (= 5.1.0)
+  - Firebase/Core (5.14.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.2.0)
-  - Firebase/CoreOnly (5.9.0):
-    - FirebaseCore (= 5.1.4)
-  - Firebase/Database (5.9.0):
+    - FirebaseAnalytics (= 5.4.0)
+  - Firebase/CoreOnly (5.14.0):
+    - FirebaseCore (= 5.1.9)
+  - Firebase/Database (5.14.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.0.3)
-  - FirebaseAnalytics (5.2.0):
+    - FirebaseDatabase (= 5.0.4)
+  - FirebaseAnalytics (5.4.0):
     - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.2)
-    - GoogleAppMeasurement (~> 5.2)
+    - FirebaseInstanceID (~> 3.3)
+    - GoogleAppMeasurement (= 5.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - FirebaseAuth (5.0.4):
+  - FirebaseAuth (5.1.0):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.0)
+    - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.1.4):
+  - FirebaseCore (5.1.9):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseDatabase (5.0.3):
-    - FirebaseCore (~> 5.0)
+  - FirebaseDatabase (5.0.4):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (3.2.2):
+  - FirebaseInstanceID (3.3.0):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
@@ -39,57 +40,51 @@ PODS:
     - Firebase/Auth (~> 5.0)
   - FirebaseUI/Phone (5.2.2):
     - FirebaseUI/Auth
-  - GoogleAppMeasurement (5.2.0):
+  - GoogleAppMeasurement (5.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - GoogleSignIn (4.2.0):
+  - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
-    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
-  - GoogleUtilities/AppDelegateSwizzler (5.3.0):
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.0)
-  - GoogleUtilities/Logger (5.3.0):
+  - GoogleUtilities/Environment (5.3.6)
+  - GoogleUtilities/Logger (5.3.6):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.0):
+  - GoogleUtilities/MethodSwizzler (5.3.6):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.0):
+  - GoogleUtilities/Network (5.3.6):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.0)"
-  - GoogleUtilities/Reachability (5.3.0):
+  - "GoogleUtilities/NSData+zlib (5.3.6)"
+  - GoogleUtilities/Reachability (5.3.6):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.0):
+  - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
-  - GTMOAuth2 (1.1.6):
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.2.0):
-    - GTMSessionFetcher/Full (= 1.2.0)
-  - GTMSessionFetcher/Core (1.2.0)
-  - GTMSessionFetcher/Full (1.2.0):
-    - GTMSessionFetcher/Core (= 1.2.0)
+  - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
-  - LocationPickerViewController (3.3)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
+  - libPhoneNumber-iOS (0.9.13)
+  - LocationPickerViewController (3.4)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - PhoneNumberKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
     - PhoneNumberKit/UIKit (= 2.5.0)
@@ -105,6 +100,7 @@ DEPENDENCIES:
   - Firebase/Database
   - FirebaseUI/Phone
   - GoogleSignIn
+  - libPhoneNumber-iOS (~> 0.8)
   - LocationPickerViewController
   - PhoneNumberKit
   - SwiftyButton
@@ -124,36 +120,36 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - GoogleUtilities
-    - GTMOAuth2
     - GTMSessionFetcher
     - leveldb-library
+    - libPhoneNumber-iOS
     - LocationPickerViewController
     - nanopb
     - PhoneNumberKit
     - SwiftyButton
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Firebase: 383fa29aca93e371cab776b48a5c66544d3c2003
-  FirebaseAnalytics: 831f1f127f4a75698e9875a87bf7e2668730d953
-  FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Firebase: 963d5685fae888a56d6d4d9cfce6b9c976958798
+  FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
+  FirebaseAuth: 4a5cc5fc2d1721e509e24699b93ebc3d94b1e195
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 2a84b6b325792a4319ef71ee18819dcba08d2fd7
-  FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
-  FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseCore: 8f49b70f57ab5cbb032ef41d64992ded21606459
+  FirebaseDatabase: 0621689f77528d62b47e1c06ca737c4c19275d1a
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FirebaseUI: 09519bf436a055cd696bf68687d624423150e4c0
-  GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
-  GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
-  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
-  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  LocationPickerViewController: 8190e6bc3562e5fe5c52d92b23786f634b6de42c
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
+  LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
 
-PODFILE CHECKSUM: 5295b1f6215785d590201f106cb466d3d1f52a4b
+PODFILE CHECKSUM: ae4a66205fee644064ea5547ffd5e12b16291e52
 
 COCOAPODS: 1.5.3
