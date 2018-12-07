@@ -26,12 +26,18 @@
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nx2-Ws-NiX">
                         <rect key="frame" x="28" y="40" width="319" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="nwK-EK-ZVz"/>
+                        </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRo-jg-x0k">
                         <rect key="frame" x="28" y="85" width="319" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="cxF-K5-JIw"/>
+                        </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
