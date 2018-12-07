@@ -107,7 +107,7 @@ func gcjToWgs(coordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
 
 
 func getLongitudinalDistance(fromMapRect mapRect: MKMapRect) -> Double {
-    let westMapPoint = MKMapPoint(x: mapRect.maxX, y: mapRect.midY)
-    let eastMapPoint = MKMapPoint(x: mapRect.minX, y: mapRect.midY)
+    let westMapPoint = MKMapPoint.init(x: mapRect.maxX, y: mapRect.midY)
+    let eastMapPoint = MKMapPoint.init(x: mapRect.minX, y: mapRect.midY)
     return westMapPoint.distance(to: eastMapPoint)
 }

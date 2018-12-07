@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-1g-Ay1">
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-1g-Ay1">
                         <rect key="frame" x="37" y="207" width="30" height="30"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                         <state key="normal" title="Edit"/>
@@ -32,12 +32,7 @@
                         <color key="textColor" red="0.0" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saksham Bhalla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-zO-Tli">
-                        <rect key="frame" x="130" y="61" width="117" height="18"/>
-                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(415) 481-9276" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irk-Zi-nce">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="(415) 481-9276" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irk-Zi-nce">
                         <rect key="frame" x="131" y="112" width="115" height="18"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                         <nil key="highlightedColor"/>
@@ -59,25 +54,41 @@
                         <color key="textColor" red="0.0" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="cdI-Xg-1G6">
+                        <rect key="frame" x="0.0" y="87" width="375" height="2"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Saksham Bhalla" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4d-zO-Tli">
+                        <rect key="frame" x="111" y="61" width="155.5" height="18"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Jxv-8B-oEF" firstAttribute="centerX" secondItem="A4d-zO-Tli" secondAttribute="centerX" id="6C6-Bm-063"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="E7e-Q6-7mf" secondAttribute="trailing" constant="22" id="6wZ-LY-RW2"/>
-                    <constraint firstItem="Irk-Zi-nce" firstAttribute="top" secondItem="A4d-zO-Tli" secondAttribute="bottom" constant="33" id="DuT-IK-hiL"/>
-                    <constraint firstItem="A4d-zO-Tli" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leading" constant="130" id="McH-YN-hW1"/>
-                    <constraint firstItem="A4d-zO-Tli" firstAttribute="top" secondItem="Jxv-8B-oEF" secondAttribute="bottom" constant="24" id="OLj-jA-Ofa"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="E7e-Q6-7mf" secondAttribute="bottom" constant="11" id="QKI-a7-JUb"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="L6p-1g-Ay1" secondAttribute="bottom" constant="5" id="YiK-Ld-er0"/>
-                    <constraint firstItem="E7e-Q6-7mf" firstAttribute="baseline" secondItem="L6p-1g-Ay1" secondAttribute="firstBaseline" id="c36-lL-eZa"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="O3e-qL-T9X" secondAttribute="bottom" constant="62" id="ebR-ua-dWd"/>
-                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="baseline" secondItem="E7e-Q6-7mf" secondAttribute="baseline" id="fcR-mz-dl5"/>
-                    <constraint firstItem="O3e-qL-T9X" firstAttribute="leading" secondItem="feq-uq-BH9" secondAttribute="trailing" constant="27" id="fpA-Qk-KN7"/>
-                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="21" id="jrr-vx-ZwM"/>
-                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="top" secondItem="feq-uq-BH9" secondAttribute="bottom" constant="27" id="lea-Uk-AEt"/>
-                    <constraint firstItem="feq-uq-BH9" firstAttribute="top" secondItem="Irk-Zi-nce" secondAttribute="bottom" constant="32" id="ntE-aL-bru"/>
-                    <constraint firstItem="A4d-zO-Tli" firstAttribute="centerX" secondItem="Irk-Zi-nce" secondAttribute="centerX" id="oQu-sE-xzN"/>
-                    <constraint firstItem="feq-uq-BH9" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="43" id="p6k-Bo-cuR"/>
-                    <constraint firstItem="feq-uq-BH9" firstAttribute="baseline" secondItem="O3e-qL-T9X" secondAttribute="baseline" id="sTX-0f-Gum"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="top" secondItem="feq-uq-BH9" secondAttribute="bottom" constant="27" id="6Te-i3-Rg7"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="centerX" secondItem="Jxv-8B-oEF" secondAttribute="centerX" id="7by-mw-AQd"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="43" id="B4b-GV-nPq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="L6p-1g-Ay1" secondAttribute="bottom" constant="5" id="D6F-P2-KQH"/>
+                    <constraint firstItem="Jxv-8B-oEF" firstAttribute="top" secondItem="cDU-KV-gv1" secondAttribute="topMargin" constant="4" id="Hzq-fs-5jj"/>
+                    <constraint firstItem="Jxv-8B-oEF" firstAttribute="centerX" secondItem="A4d-zO-Tli" secondAttribute="centerX" id="LRp-ct-gWh"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="top" secondItem="Jxv-8B-oEF" secondAttribute="bottom" constant="24" id="LjW-rY-Voh"/>
+                    <constraint firstItem="Irk-Zi-nce" firstAttribute="centerX" secondItem="Jxv-8B-oEF" secondAttribute="centerX" id="Lro-pT-6o1"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="centerX" secondItem="Irk-Zi-nce" secondAttribute="centerX" id="ME6-PT-ioc"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="top" secondItem="Irk-Zi-nce" secondAttribute="bottom" constant="32" id="RYM-a7-b1M"/>
+                    <constraint firstItem="cdI-Xg-1G6" firstAttribute="top" secondItem="A4d-zO-Tli" secondAttribute="bottom" constant="8" symbolic="YES" id="RgK-gS-8rX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="E7e-Q6-7mf" secondAttribute="bottom" constant="11" id="Vb2-2W-Vbk"/>
+                    <constraint firstItem="feq-uq-BH9" firstAttribute="baseline" secondItem="O3e-qL-T9X" secondAttribute="baseline" id="Vv3-k4-hP7"/>
+                    <constraint firstItem="O3e-qL-T9X" firstAttribute="leading" secondItem="feq-uq-BH9" secondAttribute="trailing" constant="27" id="XFW-hD-Gfj"/>
+                    <constraint firstItem="A4d-zO-Tli" firstAttribute="centerX" secondItem="cdI-Xg-1G6" secondAttribute="centerX" constant="1" id="YML-ff-8gS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="O3e-qL-T9X" secondAttribute="bottom" constant="62" id="ZGk-5F-xiK"/>
+                    <constraint firstItem="E7e-Q6-7mf" firstAttribute="baseline" secondItem="L6p-1g-Ay1" secondAttribute="firstBaseline" id="aQP-E4-bOn"/>
+                    <constraint firstAttribute="trailing" secondItem="cdI-Xg-1G6" secondAttribute="trailing" id="bhE-ho-pIP"/>
+                    <constraint firstItem="Irk-Zi-nce" firstAttribute="top" secondItem="cdI-Xg-1G6" secondAttribute="bottom" constant="23" id="blU-Wf-exI"/>
+                    <constraint firstItem="cdI-Xg-1G6" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leading" id="doR-qv-R3V"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="E7e-Q6-7mf" secondAttribute="trailing" constant="22" id="efN-8w-DTd"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="baseline" secondItem="E7e-Q6-7mf" secondAttribute="baseline" id="fF1-6X-n2T"/>
+                    <constraint firstItem="L6p-1g-Ay1" firstAttribute="leading" secondItem="cDU-KV-gv1" secondAttribute="leadingMargin" constant="21" id="zeZ-AR-hcw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -87,7 +98,7 @@
                 <outlet property="locationSharingPreferences" destination="O3e-qL-T9X" id="Jft-fH-xMU"/>
                 <outlet property="trustLevel" destination="E7e-Q6-7mf" id="gYE-cX-YkX"/>
             </connections>
-            <point key="canvasLocation" x="58" y="171"/>
+            <point key="canvasLocation" x="56.799999999999997" y="170.46476761619192"/>
         </tableViewCell>
     </objects>
 </document>

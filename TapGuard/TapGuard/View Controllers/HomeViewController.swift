@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import LocationPickerViewController
+import PMAlertController
 
 class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -66,9 +67,25 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
 //            print(sourceCoordinate.debugDescription)
 //            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: sourceCoordinates, fromEyeCoordinate: sourceCoordinates, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
         }
+        
+        //set up notification observers for returning from recents
+        NotificationCenter.default.addObserver(self, selector: #selector(self.returnFromRecents(noti:)), name: Notification.Name(rawValue: "sendBoolToHome"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.returnFromRecents(noti:)), name: Notification.Name(rawValue: "sendLocationDatatoHome"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        //check if user has any emergency contacts
+        //if not, then prompt them to go to settings VC and add some!
+        
+        if self.user?.contacts.count == 0{
+            let alertVC = PMAlertController(title: "Uh oh", description: "Please add at least one emergency contact!", image: nil, style: .alert)
+            alertVC.addAction(PMAlertAction(title: "Okay", style: .default, action: ({
+                self.performSegue(withIdentifier: "presentSettingsFromHome", sender: nil)
+                })))
+            self.present(alertVC, animated: true, completion: nil)
+        }
+        
         if shouldPickLocation == true {
             pickNewLocation()
             shouldPickLocation = false
@@ -299,6 +316,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         if segue.identifier == "recentLocationsFromHome" {
             let recentVC = segue.destination as! RecentLocationsViewController
             recentVC.recentLocations = self.recentLocations
+            recentVC.homeVCRef = self
+        }
+        
+        if segue.identifier == "presentSettingsFromHome" {
+            let settingsVC = segue.destination as! SettingsViewController
+            settingsVC.user = self.user!
         }
     }
     
@@ -313,11 +336,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         recentLocations = getLocationsfromUserDefaults()
         print("in function textFieldDidBeginEditing, recentlocations = ", recentLocations)
-//        if (recentLocations.count > 0) {
-//            if (recentLocations[0] == ") {
-//                _ = recentLocations.popLast()
-//            }
-//        }
         self.destinationTextField.text = ""
         if (recentLocations.count > 0 && self.shouldPickLocation == false) {
             performSegue(withIdentifier: "recentLocationsFromHome", sender: self)
@@ -325,6 +343,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         else {
             pickNewLocation()
         }
+        textField.endEditing(true)
     }
     
     func getLocationsfromUserDefaults() -> [[String]] {
@@ -337,6 +356,17 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     func addLocationsToUserDefaults(locations: [[String]]) {
         UserDefaults.standard.set(locations, forKey: "SavedLocations")
+    }
+    
+    @objc func returnFromRecents(noti: Notification){
+        if noti.name == Notification.Name(rawValue: "sendBoolToHome"){
+            self.shouldPickLocation = true
+        }
+        else{
+            self.backFromRecents = true
+            self.pickedLocation = noti.object as! [String]
+        }
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

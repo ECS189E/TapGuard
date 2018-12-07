@@ -6,6 +6,8 @@ target 'TapGuard' do
   use_frameworks!
 
   # Pods for TapGuard
+  pod 'PMAlertController'
+  pod 'libPhoneNumber-iOS', '~> 0.8'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Phone'

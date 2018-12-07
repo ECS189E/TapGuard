@@ -25,10 +25,16 @@
                                     <constraint firstAttribute="height" constant="144" id="mhy-Fk-Rrs"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loggin as Dhawal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lee-Fx-ZEC">
+                                <rect key="frame" x="16" y="300.66666666666669" width="343" height="25.333333333333314"/>
+                                <fontDescription key="fontDescription" name="GujaratiSangamMN-Bold" family="Gujarati Sangam MN" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiC-cf-2Is" customClass="FlatButton" customModule="SwiftyButton">
-                                <rect key="frame" x="20" y="752" width="335" height="40"/>
+                                <rect key="frame" x="0.0" y="486" width="375" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ifq-1f-uFa"/>
+                                    <constraint firstAttribute="height" constant="40" id="qN0-UM-Pzc"/>
                                 </constraints>
                                 <state key="normal" title="Sign In With Google">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,19 +57,34 @@
                                     <action selector="googleSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnl-FP-Qsu"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cmn-zU-ygk">
+                                <rect key="frame" x="177.66666666666666" y="534" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="F9g-zf-ETX"/>
+                                    <constraint firstAttribute="height" constant="20" id="s6h-HB-L7a"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PiC-cf-2Is" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LXb-CP-98X"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiC-cf-2Is" secondAttribute="trailing" constant="20" id="TEi-qH-rJq"/>
+                            <constraint firstItem="Lee-Fx-ZEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2Eb-NP-YHo"/>
+                            <constraint firstItem="Cmn-zU-ygk" firstAttribute="centerX" secondItem="knH-s8-SEC" secondAttribute="centerX" id="4W6-DQ-k9Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lee-Fx-ZEC" secondAttribute="trailing" constant="16" id="BDz-DO-Dhi"/>
+                            <constraint firstItem="knH-s8-SEC" firstAttribute="top" secondItem="Lee-Fx-ZEC" secondAttribute="bottom" constant="8" id="HRn-mF-W9i"/>
+                            <constraint firstItem="Cmn-zU-ygk" firstAttribute="top" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="8" id="Qxh-rw-Mwl"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VoY-Qg-p0I"/>
-                            <constraint firstAttribute="bottom" secondItem="PiC-cf-2Is" secondAttribute="bottom" constant="20" id="daM-a6-NrJ"/>
+                            <constraint firstItem="PiC-cf-2Is" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZSr-2P-qRK"/>
+                            <constraint firstItem="PiC-cf-2Is" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZXg-GB-acP"/>
                             <constraint firstItem="knH-s8-SEC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lyO-K5-gz1"/>
+                            <constraint firstItem="PiC-cf-2Is" firstAttribute="top" secondItem="knH-s8-SEC" secondAttribute="bottom" constant="8" id="mwM-MN-FkK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="1eE-y9-f0E"/>
                     <connections>
+                        <outlet property="activityInd" destination="Cmn-zU-ygk" id="c1Z-w5-gD3"/>
+                        <outlet property="googleSignInButton" destination="PiC-cf-2Is" id="HOn-W3-7K8"/>
+                        <outlet property="recentUserLabel" destination="Lee-Fx-ZEC" id="uGj-dH-eNr"/>
                         <segue destination="NIT-5X-Ar3" kind="show" identifier="loginToHome" id="Res-VI-A8A"/>
                         <segue destination="GUG-QD-l7v" kind="show" identifier="loginToPhoneNumber" id="mDk-TC-Uba"/>
                         <segue destination="vCA-f2-py9" kind="show" identifier="loginToVerificationCode" id="zzn-vV-aDw"/>
@@ -71,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="96.428571428571431"/>
+            <point key="canvasLocation" x="1047.2" y="96.059113300492612"/>
         </scene>
         <!--Enter Phone Number-->
         <scene sceneID="w4o-Xy-PZs">
@@ -588,7 +609,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocv-uw-1lW">
-                                                    <rect key="frame" x="339" y="25" width="46.333333333333314" height="23"/>
+                                                    <rect key="frame" x="164.33333333333334" y="25" width="46.333333333333343" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -633,10 +654,6 @@
                         <viewLayoutGuide key="safeArea" id="G0j-VL-3w7"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendBoolToHome" id="0Bu-ge-QRN"/>
-                        <segue destination="NIT-5X-Ar3" kind="show" identifier="sendLocationDatatoHome" id="NAx-RY-EVU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAB-sU-mbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -738,7 +755,7 @@
         <image name="walk_black" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dQ2-0V-voF"/>
+        <segue reference="Res-VI-A8A"/>
         <segue reference="zzn-vV-aDw"/>
     </inferredMetricsTieBreakers>
 </document>

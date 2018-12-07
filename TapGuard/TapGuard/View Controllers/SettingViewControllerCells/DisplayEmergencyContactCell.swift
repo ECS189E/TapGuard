@@ -18,5 +18,12 @@ class DisplayEmergencyContactCell: UITableViewCell {
     @IBAction func editPressed(_ sender: Any) {
         // do setup here
     }
+    
+    func setup(contact : EmergencyContact){
+        self.contactType.text = (contact.isPrimary ? "Primary " : "") + "Emergency Contact"
+        self.contactName.text = contact.userName
+        self.contactPhone.text = contact.phoneNumber
+        self.locationSharingPreferences.text = contact.isLocationSharingOn ? "Enabled" : "Disabled"
+    }
 
 }
