@@ -57,15 +57,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
-//            guard let sourceCoordinates = locationManager.location?.coordinate else {
-//                fatalError("Source coordinates could not be found")
-//            }
-//
-//            sourceCoordinate = sourceCoordinates
-//
-//            // Set camera position
-//            print(sourceCoordinate.debugDescription)
-//            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: sourceCoordinates, fromEyeCoordinate: sourceCoordinates, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
+            guard let sourceCoordinates = locationManager.location?.coordinate else {
+                fatalError("Source coordinates could not be found")
+            }
+
+            sourceCoordinate = sourceCoordinates
+
+            // Set camera position
+            print(sourceCoordinate.debugDescription)
+            self.userMapView.setCamera(MKMapCamera(lookingAtCenter: sourceCoordinates, fromEyeCoordinate: sourceCoordinates, eyeAltitude: CLLocationDistance(exactly: 1000) ?? 1000), animated: true)
         }
         
         //set up notification observers for returning from recents
