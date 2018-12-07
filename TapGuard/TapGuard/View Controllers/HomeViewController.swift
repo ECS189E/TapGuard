@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import LocationPickerViewController
+import PMAlertController
 
 class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -73,6 +74,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        //check if user has any emergency contacts
+        //if not, then prompt them to go to settings VC and add some!
+        
+        if self.user?.contacts.count == 0{
+            let alertVC = PMAlertController(title: "Uh oh", description: "Please add at least one emergency contact!", image: nil, style: .alert)
+            alertVC.addAction(PMAlertAction(title: "Okay", style: .default, action: ({
+                self.performSegue(withIdentifier: "presentSettingsFromHome", sender: nil)
+                })))
+            self.present(alertVC, animated: true, completion: nil)
+        }
+        
         if shouldPickLocation == true {
             pickNewLocation()
             shouldPickLocation = false
