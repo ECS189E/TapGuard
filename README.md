@@ -3,6 +3,22 @@
 2. Guardian app that notifies your loved ones on demand and automatically. 
 3. When you are travelling, if you feel unsafe, you tap a button to notify your guardians/emergency contacts
 
+- [TapGuard](#tapguard)
+- [Cocoapods Used](#cocoapods-used)
+- [Contribution Overview](#contribution-overview)
+    - [Charles](#charles)
+    - [Saksham](#saksham)
+    - [Dhawal](#dhawal)
+- [Mockup](#mockup)
+- [Application Development Phase UI Screenshots](#application-development-phase-ui-screenshots)
+    - [Login View](#login-view)
+    - [Phone Verification View](#phone-verification-view)
+    - [Code Verification View](#code-verification-view)
+    - [Home View](#home-view)
+    - [Settings View](#settings-view)
+    - [Recent Locations View](#recent-locations-view)
+    - [Journey View](#journey-view)
+
 # Cocoapods Used
 1. Firebase: Core, Auth, Phone, Database, GoogleSignIn
 2. SwiftyButton
@@ -10,7 +26,7 @@
 4. LocationPickerViewController
 5. Alamofire
 
-# Code Contribution Overview
+# Contribution Overview
 ## Charles
 - UI Mockup with Adobe XD
 - LoginViewController and LoginView
