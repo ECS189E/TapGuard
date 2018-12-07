@@ -18,14 +18,39 @@ extension Notification.Name {
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     var user: User?
-    @IBOutlet weak var googleSignInButton: GIDSignInButton!
+    var didRetreatFromHome: Bool = false
+    var didLoginFromGoogle: Bool = false
+    @IBOutlet weak var googleSignInButton: UIButton!
+    @IBOutlet weak var recentUserLabel: UILabel!
+    @IBOutlet weak var activityInd: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(onDidRetreatFromHome(_:)), name: .didRetreatFromHome, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
-        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.object(forKey: "RecentlySignedIn") != nil && !self.didRetreatFromHome{ // recently signed in user exists, display their name!
+            let firstName = UserDefaults.standard.string(forKey: "FirstName")
+            self.recentUserLabel.text = "Logging in as " + firstName!
+            self.recentUserLabel.isHidden = false
+            self.activityInd.isHidden = false
+            self.activityInd.startAnimating()
+            self.googleSignInButton.isHidden = true
+            self.didRetreatFromHome = true
+            if !didLoginFromGoogle{
+                GIDSignIn.sharedInstance().signIn()
+            }
+            // do automatic google sign in only if recently signed in user exists
+        }
+        else{ // show google sign in button
+            self.recentUserLabel.text = "TapGuard"
+            self.recentUserLabel.isHidden = false
+            self.activityInd.isHidden = true
+            self.googleSignInButton.isHidden = false
+        }
     }
     
     
@@ -33,6 +58,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Add notification observer for loggin out process
         NotificationCenter.default.addObserver(self, selector: #selector(onDidRetreatFromHome(_:)), name: .didRetreatFromHome, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidLoginWithGoogle(_:)), name: .didLoginWithGoogle, object: nil)
+        self.didRetreatFromHome = false
+        self.didLoginFromGoogle = true
         GIDSignIn.sharedInstance().signIn()
     }
     
@@ -41,6 +68,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         // Remove observer once segue is complete due to possibility of double notification calls
         NotificationCenter.default.removeObserver(self, name: .didLoginWithGoogle, object: nil)
         
+        self.didLoginFromGoogle = true
         // Pass user information to verification view controller
         if let data = notification.userInfo as? [String: GIDGoogleUser] {
             print("Performing segue")
@@ -48,6 +76,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 print("Could not get google user object")
                 return
             }
+            let firstName = googleUserObject.profile.givenName
+            self.recentUserLabel.text = "Logging in as " + firstName!
             Functions.getUserFromDatabase(user: googleUserObject) { (userResult) in
                 self.user = userResult
                 guard let user = self.user else {
@@ -72,6 +102,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 do {
                     try Auth.auth().signOut()
                     GIDSignIn.sharedInstance()?.signOut()
+                    self.didRetreatFromHome = true
                     NotificationCenter.default.removeObserver(self, name: .didRetreatFromHome, object: nil)
                 } catch let signOutError as NSError {
                     print ("Error signing out: %@", signOutError)
@@ -96,6 +127,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             let destinationVC = segue.destination as! HomeViewController
             destinationVC.user = user
+            
+            UserDefaults.standard.set(true, forKey: "RecentlySignedIn")
+            let firstName = user.userName.split(separator: " ")[0]
+            UserDefaults.standard.set(firstName, forKey: "FirstName")
         }
         // Update user details
         Functions.updateUserDetails(user: user) { (user) in
